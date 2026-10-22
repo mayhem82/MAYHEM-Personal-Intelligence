@@ -18,3 +18,6 @@ Free, open-source, Android-first universal case intelligence system.
 
 ## Preview
 Open `index.html` locally. GitHub Pages deployment has not been enabled or verified.
+
+## Stage 2: encrypted vault laboratory
+`vault-lab.html` demonstrates browser-local encrypted test-record persistence using WebCrypto AES-256-GCM and PBKDF2-SHA256 (600,000 iterations), IndexedDB, lock/unlock and encrypted JSON export. This is **not** audited or suitable for real evidence. There is no backup import, cross-device synchronisation, account authentication, server-side isolation or recovery. A passphrase or browser-data loss can make records unrecoverable. Use fictional records only.
