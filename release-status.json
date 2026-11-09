@@ -1,5 +1,5 @@
 {
-  "version": "3.0.0",
+  "version": "3.0.1",
   "specification": "ClarityPath full specification v2.0",
   "date": "2026-11-10",
   "summary": "Working empty case workspace with append-only records, original attachments, encrypted device/private-repository adapters, case-linked sources, operator-recorded canonical Solicitors Advocate workflow, source-linked summaries and selected readable handoff. This is not a claim that every specification item has been completed.",
@@ -23,7 +23,7 @@
   ],
   "verification": {
     "core": "PASS — 11 tests: record integrity, case isolation, encryption/recovery, canonical ordered workflow, originals/selected ZIP, private GitHub adapter model, exact pack reconstruction, additive merge, unsupported schema events, malicious source-URL rejection, and local service authentication/approval/idempotency. Node 24.19.0, 10 November 2026.",
-    "browser": "PASS — headless Microsoft Edge: empty workspace, case and original file, separate review, qualification/snapshot/analysis, source ingestion, valid canonical engine workflow, summary, selected handoff, encrypted device reload, lock clearing, all eight 360px sections, and complete Build clipboard/download. No browser script errors. 10 November 2026.",
+    "browser": "PASS — headless Microsoft Edge: empty workspace, case and original file, separate review, qualification/snapshot/analysis, source ingestion, valid canonical engine workflow, summary, selected handoff, encrypted device reload, lock clearing, all eight 360px sections, and complete Build clipboard/download. No browser script errors. 10 November 2026. Regression: no-situation summaries screen, visible create action, first/second creation and saved-situation switching.",
     "privateGitHubLive": "Not performed; adapter tested against a controlled GitHub API model, no real repository credentials supplied.",
     "providerLive": "Not performed; service tested locally with controlled provider responses, no paid provider call.",
     "physicalAndroid": "Not performed; 360px desktop-browser layout emulation only.",
