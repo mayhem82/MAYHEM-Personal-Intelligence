@@ -1,4 +1,4 @@
-name: Publish MAYHEM Personal Intelligence
+name: Publish ClarityPath
 on:
   push:
     branches: [main]
@@ -19,12 +19,20 @@ jobs:
     steps:
       - name: Checkout application
         uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Package exact public source
+        run: node scripts/package-release.mjs
+      - name: Verify core and package
+        run: npm test
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Upload static application
+      - name: Upload public application only
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
