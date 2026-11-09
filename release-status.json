@@ -22,7 +22,7 @@
     "The friend's jurisdiction and actual case-specific legal passages must be supplied or retrieved and checked; metadata-only links are labelled."
   ],
   "verification": {
-    "core": "PASS — 10 tests: record integrity, case isolation, encryption/recovery, canonical ordered workflow, originals/selected ZIP, private GitHub adapter model, exact pack reconstruction, additive merge, unsupported schema events, and local service authentication/approval/idempotency. Node 24.19.0, 10 November 2026.",
+    "core": "PASS — 11 tests: record integrity, case isolation, encryption/recovery, canonical ordered workflow, originals/selected ZIP, private GitHub adapter model, exact pack reconstruction, additive merge, unsupported schema events, malicious source-URL rejection, and local service authentication/approval/idempotency. Node 24.19.0, 10 November 2026.",
     "browser": "PASS — headless Microsoft Edge: empty workspace, case and original file, separate review, qualification/snapshot/analysis, source ingestion, valid canonical engine workflow, summary, selected handoff, encrypted device reload, lock clearing, all eight 360px sections, and complete Build clipboard/download. No browser script errors. 10 November 2026.",
     "privateGitHubLive": "Not performed; adapter tested against a controlled GitHub API model, no real repository credentials supplied.",
     "providerLive": "Not performed; service tested locally with controlled provider responses, no paid provider call.",
