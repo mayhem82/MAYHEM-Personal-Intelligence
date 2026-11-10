@@ -1,7 +1,7 @@
 import * as C from './core.mjs';
 import * as V from './crypto.mjs';
 import{GitHubStore}from'./github.mjs';
-import{mountCatalogue}from'./catalogue.mjs';
+import{mountCatalogue}from'./catalogue.mjs?v=3.2.1';
 import{makeHandoff}from'./output.mjs';
 const $=id=>document.getElementById(id),E=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e};
 let state=C.empty(),selectedCase='',page='catalogue',dirty=false,localHeader=null,localKey=null,storedLocal=null,service=null,library=[],busy=false;
