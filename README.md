@@ -33,3 +33,7 @@ Selected ZIP handoffs are readable and explicitly approved before download. Encr
 Read release-status.json for the current test evidence, configuration dependencies and incomplete specification items. No physical Android test is implied by desktop mobile-viewport tests.
 
 The public NSW catalogue in app/nsw-catalogue.json is separate from private cases. It includes 729 situation/guide entries, 22 topic groups, 171 legislative reading links and 16 described escalation routes with sources, prerequisites and exceptions. Source titles are attributed; full external guide text is not bundled. Regenerate from the included source metadata with node scripts/build-nsw-catalogue.mjs.
+
+© 2026 mayhem82 · ClarityPath. Preserve the creator notice in replicated installations. External source material retains its own attribution.
+
+The separate disclaimer.html page is linked throughout the site and included in the exact replication pack.
