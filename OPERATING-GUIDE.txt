@@ -24,7 +24,6 @@ Add the relevant authorised DFAPTA output as a separate analysis record linked t
 This release records operator-provided qualification and analysis provenance. It does not invent an automated Factual Strength formula or certify the operator's authority.
 
 LEGAL SOURCES
-The supplied full MAYHEM canon is included. The public source library also contains labelled source-entry metadata. A metadata-only link is not a cached statute, decision or verified passage. Read the included extent label.
 Add the exact source passage, direct URL, provision/paragraph, jurisdiction, version/effective date and relevance to the private case. Record who checked it. Legal instrument applicability is separate from the fact that a URL exists.
 Do not assume this library contains every law relevant to an unknown case. Missing legal text stays a visible gap. The optional research service can retrieve source-backed information after you approve the request; you can also add source text yourself without an API.
 
@@ -33,21 +32,19 @@ Activate the named engine for the selected case, specifying jurisdiction, target
 1. Map the obligation: select a checked legislative passage, identify the duty holder, required action, timing, applicability and verified evidence propositions.
 2. Assess exposure: select that obligation and verified outcome propositions, then record whether the documented gap is present or absent and explain the comparison. Missing material blocks assessment rather than becoming a probability score.
 3. Frame the submission: supply the actual recipient's jurisdictional basis and requirements and requested outcome. The application produces a source-linked draft with the named recipient, obligations, assessments and evidence propositions. Review the draft. Downloading it sends nothing.
-Close the engine run when finished. The application preserves its inputs and outputs in the case history. The canonical engine specification remains available on Build.
 
 SUMMARIES AND HANDOFF
 Choose records and case sources explicitly. Create structured summary works without an AI service. It preserves original accounts, date precision, classifications, review and source references.
 Preview selected handoff creates a readable ZIP containing HTML/text summary, selected record/source indexes, selected original files, eligible selected submission drafts and a SHA-256 manifest. It is NOT encrypted. Download it only after reviewing the scope and readable-file disclosure. An encrypted full-workspace backup is available separately.
 Open the handoff's index.html after extracting it. The recipient does not need ClarityPath to read it. Original files remain separate. Nothing is emailed, lodged or published by creating the handoff.
 
-OPTIONAL AI SERVICE
+required AI SERVICE
 Run the included service under your own account using service/README.txt. Put its provider key only in server-side secrets. GitHub Pages itself cannot run that server.
 Connect its HTTPS endpoint and service access key in the workspace. For a narrative or research request, select the records/sources, enter the question and review the exact JSON payload and provider/model before approving transmission. Attachments and unselected material are not automatically sent.
 Generated output is a separate unreviewed draft. Check the direct links, selected case references, source versions and applicability. Provider web citations are clickable; missing/unknown selected-case citations are rejected. A failed provider request does not change the original records.
 No paid provider call or private GitHub account is configured by this public release. These need the actual owner's settings. Never describe them as live-verified before a real authorised connection test succeeds.
 
 BUILD AND REPLICATION
-Build is a separate page. Copy complete build pack includes the entire specification, full canonical text, actual application and service source, source library, setup guides, tests, dependency information and release-status report. It contains no case data or credentials.
 The receiving AI gets an explicit implementation/setup task inside that pack; no extra product explanation is required. It still needs destination-specific owner account/host settings and secure credential entry. It must not search OneDrive or personal drives for missing instructions.
 
 NSW SITUATIONS AND ESCALATION

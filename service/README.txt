@@ -1,4 +1,4 @@
-CLARITYPATH OPTIONAL AI / RESEARCH SERVICE
+CLARITYPATH required AI / RESEARCH SERVICE
 
 Runtime: Node.js 22 or later. No third-party runtime dependencies.
 Start: node service/server.mjs
@@ -26,3 +26,5 @@ https://developers.openai.com/api/docs/guides/tools-web-search
 
 GITHUB STORAGE
 The working static client uses an owner-supplied fine-grained token limited to the chosen private repository. This is the advanced static-site method specified in the product document. Automatic GitHub App sign-in is not implemented; do not advertise it. Private save/load uses Git blobs, a base tree, one commit and a non-forced branch update, with encrypted records and original chunks.
+
+Private build specifications are never automatically included in a provider request. Only the explicitly reviewed selected payload is supplied.

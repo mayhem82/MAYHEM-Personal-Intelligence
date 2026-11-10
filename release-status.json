@@ -1,6 +1,6 @@
 {
-  "version": "3.2.1",
-  "specification": "ClarityPath full specification v2.0",
+  "version": "3.2.2",
+  "specification": "ClarityPath public application build guide",
   "date": "2026-11-10",
   "summary": "Working NSW situation catalogue with 729 guide/situation entries in 22 topic groups, 171 legislative reading entry points, institution contacts and 16 expressly sourced escalation pathways; separate encrypted private-case workspace and canonical operator-recorded Solicitors Advocate workflow. External guide texts are linked, not reproduced in full. This is not a certified exhaustive register of NSW law.",
   "implemented": [
@@ -8,14 +8,14 @@
     "Isolated cases; firsthand account intake; separate certainty/corroboration/dispute fields",
     "Multi-attachment originals with SHA-256; corrections and redacted derivatives",
     "Append-only hash-linked event records; review, qualification provenance, snapshots and separate analysis",
-    "Case source ingestion; included full MAYHEM canon; labelled metadata-only public source entries",
+    "Case source ingestion; labelled metadata-only public source entries",
     "Operator-driven obligation mapping, exposure assessment and recipient-specific draft generation",
     "Factual Strength band/basis recording without an invented numerical formula; legal-information coverage records",
     "Structured summaries; selected readable ZIP with HTML/text, selected originals, JSON indexes and digest manifest",
     "Encrypted device persistence and portable backup; original portable-work and protected-backup import adapters",
     "GitHub private-store encryption, atomic save/readback, stale-write rejection and reviewed additive history merge",
-    "Optional authenticated owner-hosted AI/research service code; payload preview/approval; cited drafts and source validation",
-    "Separate Build page; complete replication pack and exact-source manifests",
+    "Required authenticated owner-hosted AI/research service code; payload preview/approval; cited drafts and source validation",
+    "Separate public Build page; public-application replication pack and exact-source manifests",
     "Installable PWA manifest with supplied-logo-derived launcher icons, homepage Install app control, browser-specific fallback instructions and public-shell-only offline cache"
   ],
   "configurationRequired": [
@@ -41,5 +41,6 @@
     "Provider-side dollar budget enforcement and durable multi-instance quota/idempotency store are deployment responsibilities; included service has per-process caps.",
     "Encrypted selected-handoff archive and recovery-key rotation interface are not provided; readable selected handoffs are explicitly approved and encrypted full backups are available.",
     "Automated OCR/document-text extraction and PDF-export pagination are not provided."
-  ]
+  ],
+  "privateBuildInputs": "Private MAYHEM specifications excluded from public files, library, build pack and provider context."
 }

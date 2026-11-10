@@ -6,3 +6,11 @@ node_modules/
 *-backup.json
 test-results/
 playwright-report/
+
+.private-build/
+.codex-attachments/
+mayhem-canonical-v3.txt
+mayhem-solicitors-advocate.txt
+canonical-spec-extracted.txt
+claritypath-full-spec-v2.txt
+claritypath-full-spec-v2.html
