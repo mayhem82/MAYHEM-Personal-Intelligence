@@ -7,3 +7,5 @@
 .home-logo{display:block;width:min(100%,420px);height:auto;margin:0 0 24px;border-radius:12px}.install-app{display:inline-flex;align-items:center;gap:12px;padding:6px 15px 6px 7px}.install-app img{border-radius:9px;flex-shrink:0}.install-app span:last-child{font-size:25px}.install-app[data-ready=true]{border-color:var(--gold)}#installHelp p{margin:6px 0}
 
 .setup-main{max-width:820px}.setup-main p{line-height:1.75}.setup-main section{scroll-margin-top:24px}.setup-toc ol{padding-left:24px}.setup-toc a{display:block;padding:8px 0;min-height:44px}.setup-main .actions>*{max-width:100%;white-space:normal}.setup-main .actions a{color:var(--text);background:transparent}
+
+.setup-main li{line-height:1.75;margin:12px 0}.setup-main h3{font-size:1.35em;line-height:1.35}.setup-settings{margin:20px 0}.setup-settings dt{font-weight:700;margin-top:16px;overflow-wrap:anywhere}.setup-settings dd{margin:4px 0 18px;line-height:1.75;overflow-wrap:anywhere}.setup-main code{font-size:inherit;overflow-wrap:anywhere;white-space:pre-wrap}.setup-command{display:block;background:var(--panel);padding:12px;border-radius:7px}

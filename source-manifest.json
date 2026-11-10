@@ -1,11 +1,31 @@
 {
   "format": "claritypath-public-source-v1",
-  "version": "3.3.2",
+  "version": "3.3.3",
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 1842,
-      "sha256": "1a9a9eeaee19f76ea86b76a9a10d6e0bad43a13a257b035e9e8e0a4a252ca185"
+      "bytes": 2172,
+      "sha256": "5eb0977ea3e87cb761b0751e5b6ffa6b07d2c54dd369ac4add49ff0e5ebbf8a9"
+    },
+    {
+      "path": "AI-SETUP.txt",
+      "bytes": 13225,
+      "sha256": "374d03aa733b52fd1cf372f35615e607562daff0d6ecead8defc2d7f2e911edd"
+    },
+    {
+      "path": "MANUAL-SETUP.txt",
+      "bytes": 15451,
+      "sha256": "d82352277c1766cc4393ccb9e421f4644036abf130e17029c9ccdb6fec1815bc"
+    },
+    {
+      "path": "setup/start-here.txt",
+      "bytes": 5726,
+      "sha256": "0727068819ea6e2d728fd19beb38ae4d275eb0bc1f779cc140bd2d937d7b4cfb"
+    },
+    {
+      "path": "setup/manual-steps.txt",
+      "bytes": 9724,
+      "sha256": "6660b363b565d6b4e7cf04eb5aa906d75920c52cac14bb74a82a3aa236a485e1"
     },
     {
       "path": "SETUP-FOR-NEW-OWNER.txt",
@@ -14,8 +34,18 @@
     },
     {
       "path": "setup.html",
-      "bytes": 9479,
-      "sha256": "54bc551f2d8b042282a1a7acc6cc2d7c2a948d92512fe959bf4a76691df68f52"
+      "bytes": 28419,
+      "sha256": "4414314dacedca78ccae990511ddd5a284a541dbe0741c95845d52542e7b023a"
+    },
+    {
+      "path": "operating.html",
+      "bytes": 12442,
+      "sha256": "0aa7a6841aefb5e7ec06dd0fe52c329d2d094ddd8350c26b10bcba8d40154177"
+    },
+    {
+      "path": "scripts/render-setup.mjs",
+      "bytes": 6776,
+      "sha256": "3e9dd320680e8fcda231f3df15e7a203fa038c6dd2e62200b66b5138ca9e5f0f"
     },
     {
       "path": "manifest.webmanifest",
@@ -73,8 +103,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5724,
-      "sha256": "de16e26d6f2f45f8be51e64dbe8ec26700c3544773500f3fa41b8f07c0a493fa"
+      "bytes": 5719,
+      "sha256": "78f98965fe932cc48c9f47764adc81be348e9d2aa1f23a1cbd2053842c074c32"
     },
     {
       "path": "workspace.html",
@@ -83,13 +113,13 @@
     },
     {
       "path": "build.html",
-      "bytes": 9924,
-      "sha256": "f89b83abfa951ac09334da16f50d404255c4d7520f59c2f0f20bd3633ff9b3f9"
+      "bytes": 10234,
+      "sha256": "731c6ed59d62afb048a3448f31ce6d0749e58b7c9c9e2bf74b751fd00b0146fe"
     },
     {
       "path": "claritypath-public-build.txt",
-      "bytes": 7897,
-      "sha256": "3d5583b66c88186d2ecb74635caf9efd603d90c51766f4607ceacba6e3ebb2f8"
+      "bytes": 8210,
+      "sha256": "58b51c21e1dea4b19965dc05b401f55e8389b398ceed07dd62ce9f48df5a5fd4"
     },
     {
       "path": "app/catalogue.mjs",
@@ -178,8 +208,8 @@
     },
     {
       "path": "app/style.css",
-      "bytes": 6175,
-      "sha256": "2b7c36a57c2175a7cbe888c304e625e87957473922d9c937ec348ae521ea8762"
+      "bytes": 6616,
+      "sha256": "295f4055211dd1e0190beb1735dff81205164b373677c21b1fb84e2a436f731a"
     },
     {
       "path": "app/library.json",
@@ -193,8 +223,8 @@
     },
     {
       "path": "app/build-page.mjs",
-      "bytes": 1097,
-      "sha256": "caec9745b9bfbe518718906a0f0708558fed0d336d9d98901bef7cb85295cb33"
+      "bytes": 1325,
+      "sha256": "5d50260d4e5533caf6769c77655a2f1b84cfa1015ae54b0e45b0e165d7a39de0"
     },
     {
       "path": "service/server.mjs",
@@ -223,23 +253,23 @@
     },
     {
       "path": "OPERATING-GUIDE.txt",
-      "bytes": 10313,
-      "sha256": "955c8ac4e54d29a74ca4912a933b38727318de266a38e928ec135818d78c0f83"
+      "bytes": 10663,
+      "sha256": "5b1d894ffe9ac8ecdc5508609475412f7853175d6efeb5d7f8695e395690df43"
     },
     {
       "path": "README.md",
-      "bytes": 2057,
-      "sha256": "6e15497cbff4b873ad136e162a39fa6e5a84cac2d41e7388d57204e25d5509b8"
+      "bytes": 2159,
+      "sha256": "33bb7dcc7334f2231fd5d631f43dfcac676f67ae282b140b3e1f271e605eefd3"
     },
     {
       "path": "release-status.json",
-      "bytes": 7855,
-      "sha256": "ac60c47bb111cc73a22581951525b7f75b0d2be050be84bbeae240cbf9882044"
+      "bytes": 8012,
+      "sha256": "e13c2e8f766d41508a9d50141b13f232ae1bab5fcb63751903850a8f8490a74b"
     },
     {
       "path": "package.json",
       "bytes": 697,
-      "sha256": "cb326a6a0c7b03c3c3900ec7a75cccd9c4a9b5bd07016c2d70f91a2479e4020e"
+      "sha256": "1fb11c450167a8f1426d34aa86db30c26f6aa34a89ae477cbd5b0eacf38c7407"
     },
     {
       "path": ".gitignore",
@@ -283,8 +313,8 @@
     },
     {
       "path": "scripts/package-public.mjs",
-      "bytes": 10086,
-      "sha256": "b1f18e4b504d86875c0f6ac3e7f226d343aaad41c0ac27f9967024d213ca28ad"
+      "bytes": 8513,
+      "sha256": "8e38786b7789aa6f2004881a63a028eaaa5504febf0ede954ea69f19de0d95e4"
     },
     {
       "path": "scripts/serve.mjs",

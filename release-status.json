@@ -1,5 +1,5 @@
 {
-  "version": "3.3.2",
+  "version": "3.3.3",
   "specification": "ClarityPath public application build guide",
   "date": "2026-11-10",
   "summary": "Working NSW situation catalogue with 729 guide/situation entries in 22 topic groups, 171 legislative reading entry points, institution contacts and 16 expressly sourced escalation pathways; separate encrypted private-case workspace and canonical operator-recorded Solicitors Advocate workflow. External guide texts are linked, not reproduced in full. This is not a certified exhaustive register of NSW law.",
@@ -19,7 +19,7 @@
     "Installable PWA manifest with supplied-logo-derived launcher icons, homepage Install app control, browser-specific fallback instructions and public-shell-only offline cache",
     "AI configuration readiness checks, authenticated no-case connection probe and minimal server container deployment file",
     "Protected selected-handoff export with recipient passphrase confirmation, exact source revision, local-only unlock page and readable ZIP recovery without a private workspace connection",
-    "Complete new-owner installation instructions in root AGENTS.md, the Build page and replication pack, covering recipient-owned repositories, required services, recovery and live connection verification"
+    "Readable manual and AI installation guides from GitHub signup and coding-assistant connection, with up-front accounts/costs/permissions/privacy/recovery concerns and complete copy/download versions in root AGENTS.md routing and the Build pack"
   ],
   "configurationRequired": [
     "Private GitHub storage needs the owner's initialised private repository, restricted token and encryption passphrase.",
@@ -39,7 +39,7 @@
     "containerBuild": "Not performed; Docker is unavailable on this workstation. Node.js runtime and readiness endpoint tested directly.",
     "protectedHandoff": "PASS — 10 November 2026: protected selection hides case content and original filenames; correct passphrase recovers exact ZIP bytes; wrong passphrases, altered ciphertext and unsupported formats fail safely; a fresh 360px recipient browser unlocks without workspace/account access or external requests; cached reader unlocks offline; closing previews clears their private contents and password fields. Python zipfile independently verified archive compatibility, every manifest digest and exact original bytes. Desktop-browser mobile emulation only; no physical-phone rehearsal.",
     "newOwnerSetup": "Instructions and public pack updated for recipient-owned installation. This documentation release does not provision a new owner account/repository or claim an additional live storage/provider test.",
-    "setupReadability": "PASS — 10 November 2026: generated setup.html visually checked at 360px browser width; 18px minimum body text, readable line spacing and no horizontal overflow. Every source paragraph preserved; section links, exact full-text clipboard/download and existing Build-pack copy verified. Browser phone-width emulation, not a physical-device test."
+    "setupReadability": "PASS — 10 November 2026: both manual and AI routes visually checked at 360px width with at least 18px body text and no horizontal overflow. Concerns precede GitHub signup and coding-AI connection steps. Every original AI task paragraph is preserved. Both full copy/download versions include the shared starting requirements; section links, readable operating page and existing Build-pack copy pass. Browser phone-width emulation, not a physical-device test."
   },
   "incompleteSpecificationItems": [
     "Automatic GitHub App sign-in and hosted authentication broker; current static method is owner-supplied fine-grained token.",

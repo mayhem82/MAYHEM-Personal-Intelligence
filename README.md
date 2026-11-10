@@ -4,7 +4,7 @@
 
 Public NSW legal-information catalogue and owner-controlled case workspace.
 
-For a new owner’s installation, read the [mobile-friendly setup guide](setup.html). The exact source instructions remain in [SETUP-FOR-NEW-OWNER.txt](SETUP-FOR-NEW-OWNER.txt). The receiving AI is instructed to complete that owner’s own public application repository, separate private encrypted case store, required AI deployment/connections, recovery arrangements and live verification. Root [AGENTS.md](AGENTS.md) carries the same routing instruction for agents opening a clone. Use the source author’s repository as a reference and verify the new owner’s destination before pushing.
+For a new owner’s installation, start with the [readable manual and AI setup guides](setup.html), including accounts, costs, permissions and privacy before the steps. [AI-SETUP.txt](AI-SETUP.txt) and [MANUAL-SETUP.txt](MANUAL-SETUP.txt) are the complete copy/download versions. The receiving AI is instructed to complete that owner’s own public application repository, separate private encrypted case store, required AI deployment/connections, recovery arrangements and live verification. Root [AGENTS.md](AGENTS.md) carries the same routing instruction for agents opening a clone. Use the source author’s repository as a reference and verify the new owner’s destination before pushing.
 
 Private MAYHEM specifications supplied for building this project are private inputs. They must not be committed, published, included in public source libraries/packs or appended to provider requests. Creator authorisation to use a private build input is not redistribution permission.
 
