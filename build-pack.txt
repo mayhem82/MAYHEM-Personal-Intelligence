@@ -1,6 +1,6 @@
 CLARITYPATH PUBLIC APPLICATION BUILD PACK
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath
-Release 3.2.2
+Release 3.2.3
 
 TASK FOR THE RECEIVING AI
 Replicate these exact public application files and configure only the actual owner’s authorised private-storage/hosting connections. Read claritypath-public-build.txt. Private MAYHEM specifications are not included, licensed for redistribution, or authorised as AI request context. Do not retrieve historical copies. Keep them outside the public project and all published packs. Preserve creator/source attribution. Binary blocks marked ENCODING: base64 must be decoded before writing; hashes and byte counts describe actual file bytes. Normalise text blocks to LF, run node scripts/package-release.mjs, then npm test.
@@ -33,13 +33,13 @@ UTF8_BYTES: 646
 ===== END FILE: manifest.webmanifest =====
 
 ===== BEGIN FILE: sw.js =====
-SHA256: d8d3903c2b13b7a6555e92a0168bf4a76c903bae4bfd6c56e6978299cea455fe
-UTF8_BYTES: 2022
+SHA256: e0f770e33621896c3c6064eac4e2f49af4b618b39ff1b95aeb1d28a0d487e30f
+UTF8_BYTES: 2035
 ===== CONTENT START =====
 // Only named public application resources enter Cache Storage. Case records,
 // credentials, GitHub/API calls, query payloads and external sources never do.
-const CACHE='claritypath-public-v3.2.2';
-const PUBLIC=['index.html','workspace.html','disclaimer.html','manifest.webmanifest','app/style.css','app/install.mjs','app/main.mjs','app/core.mjs','app/crypto.mjs','app/github.mjs','app/output.mjs','app/catalogue.mjs','app/library.json','app/nsw-catalogue.json','assets/icon-192.png','assets/icon-512.png','assets/icon-180.png','assets/claritypath-logo.jpg'];
+const CACHE='claritypath-public-v3.2.3';
+const PUBLIC=['index.html','workspace.html','disclaimer.html','manifest.webmanifest','app/style.css','app/install.mjs','app/main.mjs','app/ai.mjs','app/core.mjs','app/crypto.mjs','app/github.mjs','app/output.mjs','app/catalogue.mjs','app/library.json','app/nsw-catalogue.json','assets/icon-192.png','assets/icon-512.png','assets/icon-180.png','assets/claritypath-logo.jpg'];
 const base=new URL(self.registration.scope),urls=PUBLIC.map(p=>new URL(p,base).href),allowed=new Set(urls);
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(urls)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const name of await caches.keys())if(name.startsWith('claritypath-public-')&&name!==CACHE)await caches.delete(name);await self.clients.claim()})()));
@@ -121,7 +121,7 @@ Prepare the attached existing ClarityPath logo as a square installable applicati
 ===== END FILE: assets/ICON-ORIGIN.txt =====
 
 ===== BEGIN FILE: tests/pwa.cjs =====
-SHA256: 32d62e515a1035bfa844dfedf3ae25a87a0891038dbd60e218dd186c0cd74d5f
+SHA256: 6910f0bd8813978959fed653aff8ac1973879ef46572544bccc33f7906d4d3d2
 UTF8_BYTES: 5377
 ===== CONTENT START =====
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
@@ -140,7 +140,7 @@ const server=http.createServer((req,res)=>{const url=new URL(req.url,base);if(!u
  await page.locator('#installApp').click();assert((await page.locator('#installInstructions').textContent()).includes('browser menu'));await page.screenshot({path:path.resolve(__dirname,'../install-home-mobile.png'),fullPage:false});
  await page.evaluate(()=>{const e=new Event('beforeinstallprompt',{cancelable:true});e.prompt=async()=>{window.syntheticPromptCalls=(window.syntheticPromptCalls||0)+1};e.userChoice=Promise.resolve({outcome:'accepted'});dispatchEvent(e)});await page.locator('#installApp').click();assert.equal(await page.evaluate(()=>window.syntheticPromptCalls),1);assert((await page.locator('#installInstructions').textContent()).includes('accepted'));
  await page.evaluate(()=>dispatchEvent(new Event('appinstalled')));assert.equal(await page.locator('#installApp').isVisible(),false);assert.equal(await page.locator('#installedApp').isVisible(),true);
- const cacheCheck=await page.evaluate(async()=>{await fetch('./private-case.json');await fetch('./index.html',{headers:{Authorization:'Bearer synthetic-test'}});const cache=await caches.open('claritypath-public-v3.2.2');const urls=(await cache.keys()).map(r=>r.url);return{urls,index:await(await cache.match(new URL('index.html',location.href).href)).text()}});assert(!cacheCheck.urls.some(u=>u.includes('private-case')));assert(!cacheCheck.index.includes('syntheticPrivate'));assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
+ const cacheCheck=await page.evaluate(async()=>{await fetch('./private-case.json');await fetch('./index.html',{headers:{Authorization:'Bearer synthetic-test'}});const cache=await caches.open('claritypath-public-v3.2.3');const urls=(await cache.keys()).map(r=>r.url);return{urls,index:await(await cache.match(new URL('index.html',location.href).href)).text()}});assert(!cacheCheck.urls.some(u=>u.includes('private-case')));assert(!cacheCheck.index.includes('syntheticPrivate'));assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
  await context.setOffline(true);await page.goto(base+'workspace.html');await page.waitForFunction(()=>typeof claritypathStatus==='function');assert((await page.locator('#situationPicker option').count())>700);await page.locator('#newCase').click();await page.locator('#caseForm-title').fill('Synthetic offline PWA case');await page.locator('#caseForm button[type=submit]').click();await page.waitForFunction(()=>claritypathStatus().caseCount===1);assert.deepEqual(errors,[]);
  console.log(JSON.stringify({manifestAndIconDimensions:true,relativeInstallScope:true,chromiumInstallabilityErrors:eligibility.installabilityErrors,fallbackInstructions:true,syntheticPromptHandler:true,publicCacheExcludesPrivateAndAuthenticatedResponses:true,offlineWorkspaceAndCatalogue:true,mobileOverflow:false,physicalInstallationTested:false}));await context.close();
 }finally{if(browser)await browser.close();await new Promise(r=>server.close(r))}})().catch(e=>{console.error(e);process.exitCode=1});
@@ -173,18 +173,18 @@ UTF8_BYTES: 5613
 ===== END FILE: index.html =====
 
 ===== BEGIN FILE: workspace.html =====
-SHA256: b77db90210e83d2db7b412549cc5c335e28cd24c7f457199884fe19d1902b1d2
+SHA256: dcd3e6721924b175b6eb19c137799d7d56eff8f094c51361e307640d7c1d55b5
 UTF8_BYTES: 2715
 ===== CONTENT START =====
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; object-src 'none'; base-uri 'none'; form-action 'self'"><title>ClarityPath · Personal workspace</title><link rel="stylesheet" href="./app/style.css?v=3.2.2"><script type="module" src="./app/main.mjs?v=3.2.2"></script><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" href="./assets/icon-192.png"><link rel="apple-touch-icon" href="./assets/icon-180.png"><meta name="apple-mobile-web-app-title" content="ClarityPath"><meta name="theme-color" content="#0b1726"><script type="module" src="./app/install.mjs"></script></head><body><a class="skip" href="#main">Skip to workspace</a><header class="top"><a class="brand" href="./index.html">ClarityPath</a><div id="connectionState">Temporary workspace<span id="saveState">Download or connect private storage to keep your work.</span></div><nav aria-label="Site"><a href="./build.html">Build</a><a href="./disclaimer.html">Disclaimer</a><button id="saveRemote" type="button" disabled>Save privately</button><button id="lock" class="secondary" type="button">Lock / close</button></nav></header><div id="unlockPanel" class="site-main" hidden></div><div id="appShell" class="shell"><aside><label for="situationPicker">What is your situation?</label><select id="situationPicker"><option value="">Loading NSW situations…</option></select><label for="savedCasePicker">Your saved cases</label><select id="savedCasePicker"><option value="">No saved situations yet</option></select><button id="newCase" class="case-create" type="button">Create situation</button><p id="caseHelp" class="meta">Browse situations above, create a private case, or open saved work in Storage &amp; connections.</p><nav id="sections" class="sections" aria-label="Workspace sections"></nav></aside><main id="main" class="content"></main></div><div id="status" role="status" aria-live="polite">Ready. Browse NSW situations or open private work.</div><dialog id="previewDialog"><h2 id="dialogTitle">Review</h2><div id="dialogBody"></div><div class="actions"><button id="dialogApprove">Approve</button><button id="dialogClose" class="secondary">Cancel / close</button></div></dialog><footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath. External source material retains its own attribution. · <a href="./disclaimer.html">Disclaimer</a></footer></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; object-src 'none'; base-uri 'none'; form-action 'self'"><title>ClarityPath · Personal workspace</title><link rel="stylesheet" href="./app/style.css?v=3.2.3"><script type="module" src="./app/main.mjs?v=3.2.3"></script><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" href="./assets/icon-192.png"><link rel="apple-touch-icon" href="./assets/icon-180.png"><meta name="apple-mobile-web-app-title" content="ClarityPath"><meta name="theme-color" content="#0b1726"><script type="module" src="./app/install.mjs"></script></head><body><a class="skip" href="#main">Skip to workspace</a><header class="top"><a class="brand" href="./index.html">ClarityPath</a><div id="connectionState">Temporary workspace<span id="saveState">Download or connect private storage to keep your work.</span></div><nav aria-label="Site"><a href="./build.html">Build</a><a href="./disclaimer.html">Disclaimer</a><button id="saveRemote" type="button" disabled>Save privately</button><button id="lock" class="secondary" type="button">Lock / close</button></nav></header><div id="unlockPanel" class="site-main" hidden></div><div id="appShell" class="shell"><aside><label for="situationPicker">What is your situation?</label><select id="situationPicker"><option value="">Loading NSW situations…</option></select><label for="savedCasePicker">Your saved cases</label><select id="savedCasePicker"><option value="">No saved situations yet</option></select><button id="newCase" class="case-create" type="button">Create situation</button><p id="caseHelp" class="meta">Browse situations above, create a private case, or open saved work in Storage &amp; connections.</p><nav id="sections" class="sections" aria-label="Workspace sections"></nav></aside><main id="main" class="content"></main></div><div id="status" role="status" aria-live="polite">Ready. Browse NSW situations or open private work.</div><dialog id="previewDialog"><h2 id="dialogTitle">Review</h2><div id="dialogBody"></div><div class="actions"><button id="dialogApprove">Approve</button><button id="dialogClose" class="secondary">Cancel / close</button></div></dialog><footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath. External source material retains its own attribution. · <a href="./disclaimer.html">Disclaimer</a></footer></body></html>
 
 
 ===== END FILE: workspace.html =====
 
 ===== BEGIN FILE: build.html =====
-SHA256: 77fb708535deb18115210a5759a24390ca56abfd2f01a583a13cbd635f0a49c7
-UTF8_BYTES: 7166
+SHA256: 5c01e0a76fc74d054a114f56a6e274a695658f00d269b21312929a5acf034b0a
+UTF8_BYTES: 7656
 ===== CONTENT START =====
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>ClarityPath · Public build guide</title><link rel="stylesheet" href="./app/style.css"><script type="module" src="./app/build-page.mjs"></script></head><body><header class="top"><a class="brand" href="./index.html">ClarityPath</a><nav aria-label="Main"><a href="./workspace.html">Working application</a><a href="./disclaimer.html">Disclaimer</a></nav></header><main class="site-main"><h1>Build and replicate ClarityPath</h1><p>Public application guide and exact public application files. Private MAYHEM specifications are excluded and are not offered for redistribution.</p><div class="actions"><button id="copyPack">Copy public application pack</button><a class="button" href="./build-pack.txt" download>Download public application pack</a><a href="./claritypath-public-build.txt">Public build guide as text</a></div><p id="buildStatus" role="status"></p><section id="spec"><pre>CLARITYPATH — PUBLIC APPLICATION BUILD GUIDE
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath
@@ -213,12 +213,14 @@ Publish the explicitly staged site/ output through the included Pages workflow. 
 Verify actual file hashes, mobile selection, case entry, source handling, encryption/recovery, selected handoff, installability and complete pack reconstruction. Report connection and device checks actually performed. Do not claim a security audit, live private-repository/provider test or physical-phone installation that was not performed.
 
 AI is a required product feature. Build and connect source-linked AI summaries, explanations and legal research through the owner-controlled service, preserving payload review and source validation. The service code exists, but live operation requires actual private provider credentials, model and HTTPS hosting; do not describe an unconfigured connection as functioning AI. Do not silently downgrade the AI requirement to an optional future feature. Private MAYHEM build specifications are never included as hidden AI context.
+
+AI deployment includes a Node.js start path, a minimal service/Dockerfile, allowlisted .dockerignore, /healthz configuration-readiness endpoint and npm run check:ai authenticated no-case probe. Preserve the distinction between configured server settings and a verified live provider response. The workspace must reject unconfigured capabilities and clear a failed replacement connection. See service/README.txt for host settings and an explicitly approved synthetic-record provider check.
 </pre></section><section><h2>Public release status</h2><p>Working NSW situation catalogue with 729 guide/situation entries in 22 topic groups, 171 legislative reading entry points, institution contacts and 16 expressly sourced escalation pathways; separate encrypted private-case workspace and canonical operator-recorded Solicitors Advocate workflow. External guide texts are linked, not reproduced in full. This is not a certified exhaustive register of NSW law.</p><a href="./release-status.json">Implementation and verification status</a> · <a href="./source-manifest.json">Public file manifest</a> · <a href="./OPERATING-GUIDE.txt">Operating guide</a></section></main><footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath · <a href="./disclaimer.html">Disclaimer</a></footer></body></html>
 ===== END FILE: build.html =====
 
 ===== BEGIN FILE: claritypath-public-build.txt =====
-SHA256: 94331ebea141408d2f9c42c01f7ede43b96b8bcc1d005803daafa59d4c06e681
-UTF8_BYTES: 5276
+SHA256: ee6106e28daeea9e6024cd8ad2d0051cd1c44f691399bf7eb913184d28ce76e9
+UTF8_BYTES: 5766
 ===== CONTENT START =====
 CLARITYPATH — PUBLIC APPLICATION BUILD GUIDE
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath
@@ -247,6 +249,8 @@ Publish the explicitly staged site/ output through the included Pages workflow. 
 Verify actual file hashes, mobile selection, case entry, source handling, encryption/recovery, selected handoff, installability and complete pack reconstruction. Report connection and device checks actually performed. Do not claim a security audit, live private-repository/provider test or physical-phone installation that was not performed.
 
 AI is a required product feature. Build and connect source-linked AI summaries, explanations and legal research through the owner-controlled service, preserving payload review and source validation. The service code exists, but live operation requires actual private provider credentials, model and HTTPS hosting; do not describe an unconfigured connection as functioning AI. Do not silently downgrade the AI requirement to an optional future feature. Private MAYHEM build specifications are never included as hidden AI context.
+
+AI deployment includes a Node.js start path, a minimal service/Dockerfile, allowlisted .dockerignore, /healthz configuration-readiness endpoint and npm run check:ai authenticated no-case probe. Preserve the distinction between configured server settings and a verified live provider response. The workspace must reject unconfigured capabilities and clear a failed replacement connection. See service/README.txt for host settings and an explicitly approved synthetic-record provider check.
 
 ===== END FILE: claritypath-public-build.txt =====
 
@@ -15294,6 +15298,40 @@ test('specific escalation routes preserve prerequisites, alternatives and shorte
 
 ===== END FILE: tests/catalogue.test.mjs =====
 
+===== BEGIN FILE: app/ai.mjs =====
+SHA256: 778641b30918e81bea1f19c65d02752a1f45052088a39fa6c47cbc6933da9713
+UTF8_BYTES: 1685
+===== CONTENT START =====
+// A successful HTTP response alone does not mean the AI provider is configured.
+export async function connectAI(url, token, request = fetch) {
+  const parsed = new URL(url);
+  if (parsed.protocol !== 'https:' && !(parsed.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(parsed.hostname))) {
+    throw Error('Use HTTPS, or localhost for your own local service');
+  }
+  if (parsed.username || parsed.password || parsed.search || parsed.hash) {
+    throw Error('Use a service URL without credentials, query parameters or a fragment');
+  }
+  if (typeof token !== 'string' || token.length < 24) throw Error('Enter the service access key (at least 24 characters), not a provider API key');
+  const endpoint = parsed.href.replace(/\/$/, '');
+  const response = await request(endpoint + '/capabilities', {
+    headers: { Authorization: 'Bearer ' + token },
+    cache: 'no-store',
+    redirect: 'error',
+    signal: AbortSignal.timeout(15000)
+  });
+  if (!response.ok) throw Error('Service connection failed (' + response.status + ')');
+  const capabilities = await response.json();
+  if (capabilities.version !== 1 || typeof capabilities.provider !== 'string' || !capabilities.provider.trim() || typeof capabilities.model !== 'string' || !capabilities.model.trim()) {
+    throw Error('This endpoint does not provide the supported ClarityPath AI service');
+  }
+  if (capabilities.configured !== true || capabilities.model === 'Not configured') {
+    throw Error('AI server reached, but its provider key and model are not configured. Complete the host’s private settings, then reconnect. No case information sent.');
+  }
+  return { url: endpoint, token, capabilities };
+}
+
+===== END FILE: app/ai.mjs =====
+
 ===== BEGIN FILE: app/core.mjs =====
 SHA256: 8bea4d5fde3882fbb0140f39f9d6e0d16a468ed784a10fe159fe4708ad7cbdcd
 UTF8_BYTES: 15445
@@ -15396,13 +15434,14 @@ export class GitHubStore{
 ===== END FILE: app/github.mjs =====
 
 ===== BEGIN FILE: app/main.mjs =====
-SHA256: 275f05e8081df504c1d1aafbf0eedfe2fecf8cc333a836e8d4d5ec0ed1053842
-UTF8_BYTES: 48954
+SHA256: dffd5e141d4d382f9515e8ff51dd3d62120141441477d37e4794330ead4d06f2
+UTF8_BYTES: 48644
 ===== CONTENT START =====
 import * as C from './core.mjs';
 import * as V from './crypto.mjs';
 import{GitHubStore}from'./github.mjs';
-import{mountCatalogue}from'./catalogue.mjs?v=3.2.2';
+import{connectAI}from'./ai.mjs';
+import{mountCatalogue}from'./catalogue.mjs?v=3.2.3';
 import{makeHandoff}from'./output.mjs';
 const $=id=>document.getElementById(id),E=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e};
 let state=C.empty(),selectedCase='',page='catalogue',dirty=false,localHeader=null,localKey=null,storedLocal=null,service=null,library=[],busy=false;
@@ -15474,7 +15513,7 @@ form(gh,'mergeRemote',[['pass','Repository encryption passphrase','password',{re
  form(details(s,'Download an encrypted backup'),'backupForm',[['pass','Backup passphrase','password',{required:true,min:12}]],'Download encrypted backup',async(d,f)=>{await C.validate(state);download(JSON.stringify(await V.encryptedBackup(state,d.pass)),'claritypath-encrypted-backup.json','application/json');f.reset();status('Encrypted backup downloaded. Store its passphrase separately.');});
  form(details(s,'Open a saved work file'),'importForm',[['file','Work file','file',{required:true,accept:'.json,application/json'}],['pass','Passphrase for encrypted backups','password']],'Validate and preview import',async(d,f)=>{const file=f.elements.file.files[0];if(file.size>300000000)throw Error('Work file exceeds the import limit');let payload=JSON.parse(await file.text()),loaded=payload.format==='claritypath-backup-v1'?await V.openBackup(payload,d.pass):payload.format==='mayhem-pis-case-v2'?await C.legacyImport(await V.openLegacyProtected(payload,d.pass)):payload.format==='mayhem-portable-work-v1'?await C.legacyImport(payload):await C.validate(payload);await C.validate(loaded);const p=C.project(loaded);await modal('Import verified work',E('p',p.cases.length+' situations, '+p.records.length+' records and '+loaded.attachments.length+' attachments. This replaces the current in-memory workspace. Preserve a backup first.'),async()=>{state=loaded;selectedCase=p.cases[0]?.id||'';dirty=true;remote.disconnect();await persistLocal();render();f.reset();status('Work imported. Existing source file was not changed.');},'Open verified work');});
  const serviceSection=details(s,'Connect required AI and research service');serviceSection.append(E('p','Deploy the included server under your control and configure its provider key there. This public application holds no provider key. Connecting does not transmit a case.'));
- form(serviceSection,'serviceForm',[['url','Service URL','url',req],['token','Service access key','password',req]],'Connect service',async(d,f)=>{const u=new URL(d.url);if(u.protocol!=='https:'&&!['localhost','127.0.0.1'].includes(u.hostname))throw Error('Use HTTPS, or localhost for your own local service');const candidate={url:d.url.replace(/\/$/,''),token:d.token};const r=await fetch(candidate.url+'/capabilities',{headers:{Authorization:'Bearer '+candidate.token}});if(!r.ok)throw Error('Service connection failed ('+r.status+')');const capabilities=await r.json();service={...candidate,capabilities};f.elements.token.value='';render();status('AI service connected. No case information sent.');});box(serviceSection,'serviceInfo');
+ form(serviceSection,'serviceForm',[['url','Service URL','url',req],['token','Service access key','password',req]],'Connect service',async(d,f)=>{service=null;render();try{service=await connectAI(d.url,d.token)}finally{f.elements.token.value=''}render();status('AI server configuration verified. No case information sent. Provider request not yet tested.');});box(serviceSection,'serviceInfo');
  s.append(button('Verify records and attachments',async()=>{await C.validate(state);status('Event chain, case references and attachment digests verified. This does not certify the truth of events or legal admissibility.');}));box(s,'activity');
  const panel=$('unlockPanel');panel.append(E('h1','Unlock saved work'),E('p','An encrypted workspace is stored on this device. Its contents are not loaded.'));form(panel,'unlockForm',[['pass','Passphrase','password',{required:true,min:12}]],'Unlock workspace',async(d,f)=>{if(!storedLocal)throw Error('No encrypted device copy found');const key=await V.unlockVault(storedLocal.header,d.pass),loaded=await V.decrypt(key,storedLocal.payload,'device-workspace');await C.validate(loaded);state=loaded;localHeader=storedLocal.header;localKey=key;selectedCase=C.project(state).cases[0]?.id||'';$('unlockPanel').hidden=true;$('appShell').hidden=false;f.reset();render();status('Encrypted device workspace unlocked.');});panel.append(button('Open a separate temporary workspace',()=>{$('unlockPanel').hidden=true;$('appShell').hidden=false;render();status('Temporary workspace opened. The existing encrypted device copy remains unchanged.');}));
 }
@@ -15513,7 +15552,7 @@ $('lock').onclick=()=>run(async()=>{if(dirty&&!localKey&&!confirm('Current work 
 window.addEventListener('beforeunload',e=>{if(dirty&&!localKey){e.preventDefault();e.returnValue=''}});
 initialiseUI();
 try{const catalogue=await mountCatalogue($('page-catalogue'),$('situationPicker'),s=>{openCreate();$('caseForm-title').value=s.title.slice(0,100);$('caseForm-jurisdiction').value='New South Wales, Australia';$('caseForm-background').value='Situation guide: '+s.url;});$('situationPicker').onchange=()=>{switchPage('catalogue');catalogue.show($('situationPicker').value)}}catch(e){$('page-catalogue').append(E('p',e.message,'notice'));status(e.message,true)}
-try{const r=await fetch('./app/library.json?v=3.2.2',{cache:'no-store'});if(r.ok)library=await r.json()}catch{status('Included source library could not be loaded.',true)}
+try{const r=await fetch('./app/library.json?v=3.2.3',{cache:'no-store'});if(r.ok)library=await r.json()}catch{status('Included source library could not be loaded.',true)}
 try{storedLocal=await db('get');if(storedLocal){$('appShell').hidden=true;$('unlockPanel').hidden=false;status('An encrypted device workspace is available. Unlock to continue.')}}catch(e){status('Device storage unavailable; use an encrypted backup or private repository.',true)}
 render();
 // Read-only diagnostic: counts and connection state only; no case text or credentials.
@@ -15957,27 +15996,28 @@ const b=document.getElementById('copyPack'),s=document.getElementById('buildStat
 ===== END FILE: app/build-page.mjs =====
 
 ===== BEGIN FILE: service/server.mjs =====
-SHA256: c3fd8d10e5d9a958119057ded13dc8cdb8e6345c02b94939dff1c89cc5c3f459
-UTF8_BYTES: 6679
+SHA256: 3247382abc2c8168b0785a625044bde49e1bdf9c98445e00681f333b35910275
+UTF8_BYTES: 7025
 ===== CONTENT START =====
 import http from'node:http';
 import{timingSafeEqual}from'node:crypto';
-import{readFile}from'node:fs/promises';
 import{fileURLToPath}from'node:url';
-const base=new URL('../',import.meta.url);
 // Private build documents are not provider request context.
 export function createService(config={}){
- const key=config.providerKey||process.env.OPENAI_API_KEY||'',model=config.model||process.env.OPENAI_MODEL||'',secret=config.secret||process.env.SERVICE_ACCESS_KEY||'',originList=config.origins||String(process.env.ALLOWED_ORIGINS||'').split(',').filter(Boolean),providerFetch=config.fetch||fetch;
+ const key=String(config.providerKey??process.env.OPENAI_API_KEY??'').trim(),model=String(config.model??process.env.OPENAI_MODEL??'').trim(),secret=config.secret??process.env.SERVICE_ACCESS_KEY??'',originList=(config.origins??String(process.env.ALLOWED_ORIGINS||'').split(',')).map(origin=>origin.trim()).filter(Boolean),providerFetch=config.fetch||fetch;
  const used=new Map(),inflight=new Set();let day=new Date().toISOString().slice(0,10),requests=0;
- const maxRequests=Number(config.maxRequests||process.env.MAX_REQUESTS_PER_DAY||30);
+ const maxRequests=Number(config.maxRequests??process.env.MAX_REQUESTS_PER_DAY??30);
+ if(!Number.isSafeInteger(maxRequests)||maxRequests<1)throw Error('MAX_REQUESTS_PER_DAY must be a positive safe integer');
+ const ready=()=>!!key.trim()&&!!model.trim()&&secret.length>=24&&originList.length>0;
  const send=(res,status,data)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(JSON.stringify(data))};
  const server=http.createServer(async(req,res)=>{
   const origin=req.headers.origin||'';if(origin){if(!originList.includes(origin))return send(res,403,{error:'Origin not allowed'});res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Vary','Origin');res.setHeader('Access-Control-Allow-Headers','Authorization, Content-Type');res.setHeader('Access-Control-Allow-Methods','GET, POST, OPTIONS');}
   if(req.method==='OPTIONS'){res.writeHead(204);return res.end()}
-  const supplied=String(req.headers.authorization||'').replace(/^Bearer /,'');if(!secret||secret.length<24||supplied.length!==secret.length||!timingSafeEqual(Buffer.from(supplied),Buffer.from(secret)))return send(res,401,{error:'Service authentication required'});
-  if(req.url==='/capabilities'&&req.method==='GET')return send(res,200,{version:1,provider:'OpenAI',model:model||'Not configured',configured:!!key&&!!model,webSearch:true,maxRequestsPerDay:maxRequests,maxInputBytes:750000});
+  if(req.url==='/healthz'&&req.method==='GET')return send(res,ready()?200:503,{status:ready()?'ready':'configuration-required'});
+  const supplied=Buffer.from(String(req.headers.authorization||'').replace(/^Bearer /,'')),expected=Buffer.from(secret);if(secret.length<24||supplied.length!==expected.length||!timingSafeEqual(supplied,expected))return send(res,401,{error:'Service authentication required'});
+  if(req.url==='/capabilities'&&req.method==='GET')return send(res,200,{version:1,provider:'OpenAI',model:model||'Not configured',configured:ready(),webSearch:true,maxRequestsPerDay:maxRequests,maxInputBytes:750000});
   if(req.url!=='/assist'||req.method!=='POST')return send(res,404,{error:'Not found'});
-  if(!key||!model)return send(res,503,{error:'Provider key and model must be configured on the service'});
+  if(!ready())return send(res,503,{error:'Configure provider key, model, service access key and allowed site origins on the host'});
   let payload,requestId;
   try{
    const parts=[];let length=0;for await(const c of req){length+=c.length;if(length>750000){send(res,413,{error:'Selected payload too large'});req.destroy();return}parts.push(c)}payload=JSON.parse(Buffer.concat(parts));requestId=payload.requestId;
@@ -15998,11 +16038,62 @@ if(process.argv[1]===fileURLToPath(import.meta.url)){const server=createService(
 
 ===== END FILE: service/server.mjs =====
 
+===== BEGIN FILE: service/Dockerfile =====
+SHA256: 2842c6bfd7ba93db187b1ba64434ebf8bec8f4bcbe6f32a6c9f760dff2e85975
+UTF8_BYTES: 479
+===== CONTENT START =====
+FROM node:22-alpine
+WORKDIR /app
+# Copy only runtime code. No private build documents, cases or local env files.
+COPY --chown=node:node service/server.mjs ./service/server.mjs
+ENV NODE_ENV=production HOST=0.0.0.0 PORT=8787
+USER node
+EXPOSE 8787
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 CMD node -e "fetch('http://127.0.0.1:'+process.env.PORT+'/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+CMD ["node", "service/server.mjs"]
+
+===== END FILE: service/Dockerfile =====
+
+===== BEGIN FILE: scripts/check-ai-service.mjs =====
+SHA256: c28c8d2d9d03856e89fb13cbfeca9e138bc1ba9007e2b671352d204340f389ee
+UTF8_BYTES: 836
+===== CONTENT START =====
+// Reads the access key only from the environment; never prints it or sends a case.
+import { connectAI } from '../app/ai.mjs';
+try {
+  const url = process.env.CLARITYPATH_AI_URL;
+  const token = process.env.SERVICE_ACCESS_KEY;
+  if (!url || !token) throw Error('Set CLARITYPATH_AI_URL and SERVICE_ACCESS_KEY privately in this process environment.');
+  const { capabilities } = await connectAI(url, token);
+  console.log(JSON.stringify({ serverConfigured: true, provider: capabilities.provider, model: capabilities.model, caseDataSent: false, providerCallTested: false }));
+} catch (error) {
+  // Avoid printing network errors that could echo a credential-bearing URL.
+  console.error(error instanceof TypeError ? 'Could not read the AI endpoint. Check its URL, HTTPS and host configuration.' : error.message);
+  process.exitCode = 1;
+}
+
+===== END FILE: scripts/check-ai-service.mjs =====
+
 ===== BEGIN FILE: service/README.txt =====
-SHA256: 4a1f9358ecf61ae26287a766c910b3258482ab0f2d9364c880a665f21f6547b0
-UTF8_BYTES: 2904
+SHA256: bb63acd36141526b653808d1a27809480fc167796351c3fced31330e45d7f3d2
+UTF8_BYTES: 5166
 ===== CONTENT START =====
 CLARITYPATH required AI / RESEARCH SERVICE
+
+DEPLOY ON THE EXISTING SERVER HOST
+The public application remains on GitHub Pages. It calls this separate server over HTTPS; Pages cannot execute Node.js or hold a private provider key.
+For a Node.js host, use the repository root, Node.js 22 or later, no dependency install step, and start command: node service/server.mjs
+Set HOST=0.0.0.0 and the PORT required by that host. Set the private provider key, model, service access key and ALLOWED_ORIGINS in the host's settings before routing traffic.
+For this deployment the allowed public origin is https://mayhem82.github.io (origin only, without the repository path). A replica must use its own exact origin.
+For a container host, build from the repository root: docker build -f service/Dockerfile -t claritypath-ai .
+The allowlisted .dockerignore and Dockerfile include only server code. Secrets are runtime settings, never build arguments or image files. Container building has not been verified on this workstation.
+Configure host health checks to GET /healthz. It returns 200 only when required local settings are present, otherwise 503. The public response contains only a readiness label; it does not test the provider, reveal keys or read case data.
+Keep one service process until persistent quota/idempotency storage is configured; process-local caps cannot enforce a global limit across replicas or restarts.
+
+VERIFY THE DEPLOYED CONNECTION
+Privately set CLARITYPATH_AI_URL and SERVICE_ACCESS_KEY in a local process environment, then run npm run check:ai. It checks authenticated capabilities without a paid provider request or case data. Redirects are rejected; use the final HTTPS service URL.
+In ClarityPath, open Storage & connections, enter the same URL and service access key, then Connect service. An unconfigured endpoint is rejected and any prior connection is cleared. Credentials stay in memory.
+Configuration verification is separate from live provider verification. To test a provider call, create a clearly labelled synthetic situation and record, select only that record in Outputs, enter a summary question, review the payload and approve it. Check the returned record citation. Only that explicit request verifies an actual provider response; a health or capabilities check does not.
 
 Runtime: Node.js 22 or later. No third-party runtime dependencies.
 Start: node service/server.mjs
@@ -16050,8 +16141,8 @@ PORT=8787
 ===== END FILE: service/.env.example =====
 
 ===== BEGIN FILE: OPERATING-GUIDE.txt =====
-SHA256: 8047f701a2cd6fc6c25bb272a28dfc35d0079d8f74fbcfdb31114690adbe2263
-UTF8_BYTES: 8610
+SHA256: 5e4c0172cb3bc5f46d8a4c6977a17503e3d536ee9bd58746851ca349ca9f6f40
+UTF8_BYTES: 8965
 ===== CONTENT START =====
 CLARITYPATH OPERATING GUIDE
 
@@ -16080,7 +16171,7 @@ This release records operator-provided qualification and analysis provenance. It
 
 LEGAL SOURCES
 Add the exact source passage, direct URL, provision/paragraph, jurisdiction, version/effective date and relevance to the private case. Record who checked it. Legal instrument applicability is separate from the fact that a URL exists.
-Do not assume this library contains every law relevant to an unknown case. Missing legal text stays a visible gap. The optional research service can retrieve source-backed information after you approve the request; you can also add source text yourself without an API.
+Do not assume this library contains every law relevant to an unknown case. Missing legal text stays a visible gap. The configured research service can retrieve source-backed information after you approve the request; you can also add source text yourself without an API.
 
 SOLICITORS ADVOCATE ENGINE
 Activate the named engine for the selected case, specifying jurisdiction, target recipient/body, purpose, actual activation authority, frozen evidence snapshot and relevant authorised DFAPTA outputs.
@@ -16096,6 +16187,7 @@ Open the handoff's index.html after extracting it. The recipient does not need C
 required AI SERVICE
 Run the included service under your own account using service/README.txt. Put its provider key only in server-side secrets. GitHub Pages itself cannot run that server.
 Connect its HTTPS endpoint and service access key in the workspace. For a narrative or research request, select the records/sources, enter the question and review the exact JSON payload and provider/model before approving transmission. Attachments and unselected material are not automatically sent.
+The connection checks server configuration and rejects missing provider settings. It sends no case data and makes no provider call. Verify an actual provider response separately with an explicitly approved synthetic record before relying on live AI. Deployment health checks and the no-case command npm run check:ai are described in service/README.txt.
 Generated output is a separate unreviewed draft. Check the direct links, selected case references, source versions and applicability. Provider web citations are clickable; missing/unknown selected-case citations are rejected. A failed provider request does not change the original records.
 No paid provider call or private GitHub account is configured by this public release. These need the actual owner's settings. Never describe them as live-verified before a real authorised connection test succeeds.
 
@@ -16112,8 +16204,8 @@ Choose Install app on the homepage. Where the browser provides an installation p
 ===== END FILE: OPERATING-GUIDE.txt =====
 
 ===== BEGIN FILE: README.md =====
-SHA256: 5649a90c69aa7ad65f5805144671dd5657facab3e3d1dfb5b92e331f83306389
-UTF8_BYTES: 953
+SHA256: d4334960f68e51b73df7fd5946755381af8c55111cf5b88357bea7fb809feed0
+UTF8_BYTES: 1217
 ===== CONTENT START =====
 # ClarityPath
 
@@ -16127,14 +16219,16 @@ Run node scripts/package-release.mjs, then npm test. The generated site/ directo
 
 Private GitHub storage and required AI service need the actual owner’s configuration. No real case data or credentials are bundled. The public catalogue, install manifest, icons and public-only offline shell work independently of a saved case.
 
+The required AI deployment and configuration-only connection check are described in service/README.txt. The service can run on a Node.js host or from service/Dockerfile; the public site stays on GitHub Pages. Readiness checks never count as a live provider test.
+
 ===== END FILE: README.md =====
 
 ===== BEGIN FILE: release-status.json =====
-SHA256: fddeb8156c1c443aa6226495c969e6a9f589d3ba56f2f639a08837185a13a4a5
-UTF8_BYTES: 5421
+SHA256: 52293d71f8e5ba7848ba3a763d244a681f5e1150c84440710b3d52cedd5b1178
+UTF8_BYTES: 5992
 ===== CONTENT START =====
 {
-  "version": "3.2.2",
+  "version": "3.2.3",
   "specification": "ClarityPath public application build guide",
   "date": "2026-11-10",
   "summary": "Working NSW situation catalogue with 729 guide/situation entries in 22 topic groups, 171 legislative reading entry points, institution contacts and 16 expressly sourced escalation pathways; separate encrypted private-case workspace and canonical operator-recorded Solicitors Advocate workflow. External guide texts are linked, not reproduced in full. This is not a certified exhaustive register of NSW law.",
@@ -16151,7 +16245,8 @@ UTF8_BYTES: 5421
     "GitHub private-store encryption, atomic save/readback, stale-write rejection and reviewed additive history merge",
     "Required authenticated owner-hosted AI/research service code; payload preview/approval; cited drafts and source validation",
     "Separate public Build page; public-application replication pack and exact-source manifests",
-    "Installable PWA manifest with supplied-logo-derived launcher icons, homepage Install app control, browser-specific fallback instructions and public-shell-only offline cache"
+    "Installable PWA manifest with supplied-logo-derived launcher icons, homepage Install app control, browser-specific fallback instructions and public-shell-only offline cache",
+    "AI configuration readiness checks, authenticated no-case connection probe and minimal server container deployment file"
   ],
   "configurationRequired": [
     "Private GitHub storage needs the owner's initialised private repository, restricted token and encryption passphrase.",
@@ -16159,14 +16254,16 @@ UTF8_BYTES: 5421
     "NSW is the catalogue jurisdiction. Actual case facts and legal passages still need applicability and current-version checks."
   ],
   "verification": {
-    "core": "PASS — 13 tests, including populated NSW catalogue relationships and sourced escalation prerequisites/alternative routes, plus existing integrity, encryption, canonical workflow, recovery, private-storage model, service and exact pack checks. 10 November 2026.",
+    "core": "PASS — 15 tests, including AI readiness/configuration rejection and byte-safe service authentication, plus existing catalogue, integrity, encryption, workflow, recovery, storage and exact pack checks. 10 November 2026.",
     "browser": "PASS — headless Microsoft Edge: populated public selector before any case; privacy internal-review and 60-day prerequisite display; rental-repairs search; private first/second case creation and switching; original attachment, qualification/snapshot/analysis, canonical engine workflow, summary/selected ZIP, encrypted reload/lock, all nine 360px sections, full Build copy/download. No browser script errors. 10 November 2026. Repeated successfully for release 3.2.0, including exact binary-asset Build-pack copy/download.",
     "privateGitHubLive": "Not performed; adapter tested against a controlled GitHub API model, no real repository credentials supplied.",
     "providerLive": "Not performed; service tested locally with controlled provider responses, no paid provider call.",
     "physicalAndroid": "Not performed; 360px desktop-browser layout emulation only.",
     "securityAudit": "No independent security audit claimed.",
     "legalComplianceAudit": "No completed legal-compliance audit claimed.",
-    "pwa": "PASS — isolated temporary regular-profile Microsoft Edge: correct manifest/icon dimensions and replicated subpath scope, zero Chromium installability errors, browser-menu fallback, synthetic retained-prompt handler, offline workspace/catalogue/case creation, no mobile overflow, and exclusion of private/authenticated responses from public cache. 10 November 2026. No physical-device/OS installation performed."
+    "pwa": "PASS — isolated temporary regular-profile Microsoft Edge: correct manifest/icon dimensions and replicated subpath scope, zero Chromium installability errors, browser-menu fallback, synthetic retained-prompt handler, offline workspace/catalogue/case creation, no mobile overflow, and exclusion of private/authenticated responses from public cache. 10 November 2026. No physical-device/OS installation performed.",
+    "aiReadiness": "PASS — local service health and authenticated capabilities checks; browser rejected unconfigured endpoints, transmitted no case during connection, sent only explicitly approved synthetic selected records/sources, saved cited synthetic draft separately, and cleared a failed replacement connection. No live provider request.",
+    "containerBuild": "Not performed; Docker is unavailable on this workstation. Node.js runtime and readiness endpoint tested directly."
   },
   "incompleteSpecificationItems": [
     "Automatic GitHub App sign-in and hosted authentication broker; current static method is owner-supplied fine-grained token.",
@@ -16183,12 +16280,12 @@ UTF8_BYTES: 5421
 ===== END FILE: release-status.json =====
 
 ===== BEGIN FILE: package.json =====
-SHA256: 045438fac2a1516571a9cf75576e32930115ad1a699531aff83df2ded930207d
-UTF8_BYTES: 621
+SHA256: d90a98c4a87c7418a9d070515b5db6a378bd7b6f6e855d09fc54c1e69022caf0
+UTF8_BYTES: 674
 ===== CONTENT START =====
 {
   "name": "claritypath-personal-intelligence",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "private": true,
   "description": "Owner-controlled case workspace and canonical MAYHEM Solicitors Advocate workflow",
   "scripts": {
@@ -16196,7 +16293,8 @@ UTF8_BYTES: 621
     "test:e2e": "node tests/browser.cjs",
     "service": "node service/server.mjs",
     "package": "node scripts/package-release.mjs",
-    "test:pwa": "node tests/pwa.cjs"
+    "test:pwa": "node tests/pwa.cjs",
+    "check:ai": "node scripts/check-ai-service.mjs"
   },
   "engines": {
     "node": ">=22"
@@ -16231,6 +16329,17 @@ claritypath-full-spec-v2.html
 
 ===== END FILE: .gitignore =====
 
+===== BEGIN FILE: .dockerignore =====
+SHA256: d9c754b5d163a0e7e12e07ef9c1d9627f609ea449a9c42ba75283b78fd7c6431
+UTF8_BYTES: 53
+===== CONTENT START =====
+**
+!service/
+!service/server.mjs
+!service/Dockerfile
+
+===== END FILE: .dockerignore =====
+
 ===== BEGIN FILE: tests/core.test.mjs =====
 SHA256: dc8194bc237c5179013f28707fa27564614b346a15261f71dfe7b23b87afd449
 UTF8_BYTES: 8207
@@ -16263,19 +16372,55 @@ test('import cannot introduce executable source URLs',async()=>{const state=C.em
 ===== END FILE: tests/recovery.test.mjs =====
 
 ===== BEGIN FILE: tests/service.test.mjs =====
-SHA256: 7c5dbb784bdd1f8aebeb6f8b67b73d62ed897aad6ae4d2b6e7bf3d8639f3fef1
-UTF8_BYTES: 1926
+SHA256: 99304a9f9f519ce1e1095e1006bf41ef0881e8f0671a85223516f2581c60d542
+UTF8_BYTES: 4582
 ===== CONTENT START =====
 import test from'node:test';
 import assert from'node:assert/strict';
 import{createService}from'../service/server.mjs';
+import{connectAI}from'../app/ai.mjs';
+
+test('AI readiness distinguishes missing host configuration and verifies only capabilities',async()=>{
+ const secret='synthetic-service-access-key-123456789';
+ for(const configured of [false,true]){
+  let providerCalls=0;
+  const server=createService({secret,providerKey:'synthetic-key',model:configured?'synthetic-model':' ',origins:['https://example.invalid'],fetch:async()=>{providerCalls++;throw Error('Provider must not be contacted by readiness checks')}});
+  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+  const url='http://127.0.0.1:'+server.address().port;
+  try{
+   const health=await fetch(url+'/healthz');
+   assert.equal(health.status,configured?200:503);
+   const healthText=await health.text();assert(!healthText.includes(secret));assert(!healthText.includes('synthetic-key'));
+   if(configured){const connection=await connectAI(url+'/',secret);assert.equal(connection.url,url);assert.equal(connection.capabilities.configured,true)}
+   else await assert.rejects(connectAI(url,secret),/not configured/);
+   // Equal JavaScript string length can have a different UTF-8 byte length.
+   assert.equal((await fetch(url+'/capabilities',{headers:{Authorization:'Bearer '+'é'.repeat(secret.length)}})).status,401);
+   assert.equal((await fetch(url+'/healthz')).status,configured?200:503);
+   assert.equal(providerCalls,0);
+  }finally{await new Promise(resolve=>server.close(resolve))}
+ }
+});
+
+test('AI connection rejects unsupported endpoints and redirects before any case transmission',async()=>{
+ const secret='synthetic-service-access-key-123456789';let calls=0;
+ const request=async(url,options)=>{calls++;assert.equal(options.redirect,'error');assert.equal(options.cache,'no-store');assert.equal(options.body,undefined);return new Response(JSON.stringify({version:1,provider:'OpenAI',model:'synthetic-model',configured:false}))};
+ await assert.rejects(connectAI('http://example.invalid',secret,request),/HTTPS/);
+ await assert.rejects(connectAI('ftp://localhost',secret,request),/HTTPS/);
+ await assert.rejects(connectAI('https://example.invalid/?key=secret',secret,request),/query/);
+ await assert.rejects(connectAI('https://user:password@example.invalid',secret,request),/credentials/);
+ assert.equal(calls,0);
+ await assert.rejects(connectAI('https://example.invalid',secret,request),/not configured/);
+ await assert.rejects(connectAI('https://example.invalid',secret,async()=>new Response('{}')),/supported ClarityPath/);
+ assert.throws(()=>createService({maxRequests:NaN}),/positive safe integer/);
+ assert.throws(()=>createService({maxRequests:0}),/positive safe integer/);
+});
 test('service auth, origin, approval, provider payload, source citation and idempotency',async()=>{let calls=0;const server=createService({secret:'test-service-access-key-123456789',providerKey:'test-not-a-real-key',model:'test-model',origins:['http://localhost:8775'],maxRequests:2,fetch:async(url,options)=>{calls++;const body=JSON.parse(options.body);assert.equal(body.store,false);assert.equal(body.model,'test-model');assert(body.instructions.includes('Private project specifications are excluded.'));return new Response(JSON.stringify({output:[{type:'message',content:[{type:'output_text',text:'Sourced synthetic draft.',annotations:[]}]}],usage:{input_tokens:1}}),{status:200})}});await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port;const headers={Authorization:'Bearer test-service-access-key-123456789','Content-Type':'application/json',Origin:'http://localhost:8775'};try{assert.equal((await fetch(url+'/capabilities')).status,401);assert.equal((await fetch(url+'/capabilities',{headers:{...headers,Origin:'https://untrusted.invalid'}})).status,403);assert.equal((await fetch(url+'/capabilities',{headers})).status,200);const payload={requestId:'REQ-1',approved:true,task:'summary',question:'Summarise the selected synthetic source',records:[],sources:[]};const first=await fetch(url+'/assist',{method:'POST',headers,body:JSON.stringify(payload)});assert.equal(first.status,200);assert.equal((await first.json()).text,'Sourced synthetic draft.');await fetch(url+'/assist',{method:'POST',headers,body:JSON.stringify(payload)});assert.equal(calls,1);assert.equal((await fetch(url+'/assist',{method:'POST',headers,body:JSON.stringify({...payload,requestId:'REQ-2',approved:false})})).status,400);}finally{await new Promise(r=>server.close(r))}});
 
 ===== END FILE: tests/service.test.mjs =====
 
 ===== BEGIN FILE: tests/browser.cjs =====
-SHA256: 37b08b94b92e018e80f190341d3e09250eb6c260f5aa4d6bea8c5306aa061e24
-UTF8_BYTES: 16356
+SHA256: 6d99283e48f1c854ce6433c819afc16167b0c33fb53354fa14a18a00223bcb19
+UTF8_BYTES: 20078
 ===== CONTENT START =====
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
 const{chromium}=require(process.env.PLAYWRIGHT_MODULE || 'playwright');
@@ -16293,6 +16438,25 @@ await page.locator('summary').filter({hasText:/^Freeze an evidence snapshot$/}).
 await nav('research');await page.locator('summary').filter({hasText:/^Add a case source or discovery$/}).click();for(const [field,value]of Object.entries({title:'Fictional test instrument — NOT REAL LAW',publisher:'Synthetic test fixture',url:'https://example.invalid/synthetic-instrument',jurisdiction:'Test jurisdiction',version:'Synthetic version 1',provision:'Synthetic clause 1',extract:'This is fictional source text used exclusively to test the software workflow.',relevance:'Software test only',checkedBy:'Synthetic test authority'}))await page.locator('#sourceForm-'+field).fill(value);await page.locator('#sourceForm button[type=submit]').click();await page.locator('#caseSources article').waitFor();
 await nav('engine');await page.locator('summary').filter({hasText:/^Activate for this case$/}).click();for(const [field,value]of Object.entries({jurisdiction:'Test jurisdiction',target:'Synthetic receiving body',purpose:'Synthetic body-specific review',authority:'Synthetic activation authority'}))await page.locator('#engineForm-'+field).fill(value);await page.locator('#engineForm-snapshotId').selectOption(sid);await page.locator('#engineAnalyses input').first().check();await page.locator('#engineForm button[type=submit]').click();await page.locator('#engineState').getByText(/ENGINE ACTIVE/).waitFor();await page.locator('#obligationForm-sourceId').selectOption({index:1});for(const [field,value]of Object.entries({holder:'Synthetic duty holder',timing:'Synthetic test trigger',required:'Perform the fictional required action',applicability:'Fictional test applicability only'}))await page.locator('#obligationForm-'+field).fill(value);await page.locator('#obligationEvidence input').first().check();await page.locator('#obligationForm button[type=submit]').click();await page.locator('#obligationList article').waitFor();await page.locator('#exposureForm-obligationId').selectOption({index:1});await page.locator('#exposureForm-gap').selectOption('present');await page.locator('#exposureForm-explanation').fill('The fictional requirement differs from the recorded synthetic outcome.');await page.locator('#outcomeEvidence input').first().check();await page.locator('#exposureForm button[type=submit]').click();await page.locator('#exposureList article').waitFor();for(const [field,value]of Object.entries({jurisdictionBasis:'Synthetic basis for the test body',requirements:'Specific fictional format required by this synthetic body',remedy:'Clarify the fictional outcome'}))await page.locator('#submissionForm-'+field).fill(value);await page.locator('#submissionForm button[type=submit]').click();await page.locator('#submissionList pre').filter({hasText:'Synthetic receiving body'}).waitFor();
 await nav('outputs');await page.locator('#outputSelection input').first().check();await page.locator('#sourceSelection input').first().check();await page.getByRole('button',{name:'Create structured summary',exact:true}).click();await page.locator('#summaryPreview pre').waitFor();await page.getByRole('button',{name:'Preview selected handoff',exact:true}).click();await page.locator('#previewDialog[open]').waitFor();const zipWait=page.waitForEvent('download');await page.locator('#dialogApprove').click();const zipFile=await zipWait;const zipBytes=fs.readFileSync(await zipFile.path());assert.equal(zipBytes.readUInt32LE(0),0x04034b50);assert(zipBytes.includes(Buffer.from('Synthetic receiving body')));
+// Exercise the real connection form and payload approval using a synthetic service.
+let aiConfigured=false;const aiRequests=[],syntheticServiceKey='synthetic-browser-service-key-123456789';
+await page.route('https://synthetic-ai.invalid/**',async route=>{
+ const request=route.request(),headers={'Access-Control-Allow-Origin':'http://127.0.0.1:8775','Access-Control-Allow-Headers':'Authorization, Content-Type','Access-Control-Allow-Methods':'GET, POST, OPTIONS'};
+ if(request.method()==='OPTIONS')return route.fulfill({status:204,headers});
+ assert.equal(request.headers().authorization,'Bearer '+syntheticServiceKey);
+ if(request.url().endsWith('/capabilities'))return route.fulfill({status:200,headers,contentType:'application/json',body:JSON.stringify({version:1,configured:aiConfigured,provider:'Synthetic provider',model:'Synthetic model'})});
+ assert(request.url().endsWith('/assist'));const payload=request.postDataJSON();aiRequests.push(payload);
+ return route.fulfill({status:200,headers,contentType:'application/json',body:JSON.stringify({provider:'Synthetic provider',model:'Synthetic model',text:'Synthetic AI draft citing '+rid,recordCitations:[rid],citations:[]})});
+});
+await nav('settings');await page.getByText('Connect required AI and research service',{exact:true}).click();
+const connectSyntheticAI=async()=>{await page.locator('#serviceForm-url').fill('https://synthetic-ai.invalid');await page.locator('#serviceForm-token').fill(syntheticServiceKey);await page.locator('#serviceForm button[type=submit]').click()};
+await connectSyntheticAI();await page.waitForFunction(()=>document.getElementById('status').textContent.includes('not configured'));assert.equal(await page.locator('#serviceInfo').textContent(),'No AI service connected');assert.equal(await page.locator('#serviceForm-token').inputValue(),'');
+aiConfigured=true;await connectSyntheticAI();await page.waitForFunction(()=>document.getElementById('status').textContent.includes('configuration verified'));assert.equal(aiRequests.length,0);
+await nav('outputs');await page.getByText('AI narrative assistance',{exact:true}).click();await page.locator('#aiForm-question').fill('Summarise the selected synthetic account with its record citation.');await page.locator('#aiForm button[type=submit]').click();await page.locator('#previewDialog[open]').waitFor();assert.equal(aiRequests.length,0);assert((await page.locator('#previewDialog').textContent()).includes(rid));await page.locator('#dialogApprove').click();await page.waitForFunction(()=>document.getElementById('status').textContent.includes('AI draft saved separately'));
+assert.equal(aiRequests.length,1);assert.equal(aiRequests[0].records.length,1);assert.equal(aiRequests[0].records[0].id,rid);assert.equal(aiRequests[0].sources.length,1);assert.equal(aiRequests[0].web,false);assert.equal(aiRequests[0].approved,true);assert(!JSON.stringify(aiRequests[0]).includes(syntheticServiceKey));assert(!JSON.stringify(aiRequests[0]).includes('synthetic-original.bin'));assert.equal(aiRequests[0].records[0].files,undefined);assert((await page.locator('#savedSummaries').textContent()).includes('Synthetic AI draft citing '+rid));
+// A failed replacement connection must clear the previous connection.
+await nav('settings');aiConfigured=false;await connectSyntheticAI();await page.waitForFunction(()=>document.getElementById('status').textContent.includes('not configured'));assert.equal(await page.locator('#serviceInfo').textContent(),'No AI service connected');assert.equal(aiRequests.length,1);
+console.log('AI: rejected unconfigured server, verified readiness without case transmission, approved selected payload only, saved cited draft and cleared failed replacement connection.');
 await nav('settings');await page.locator('summary').filter({hasText:/^Keep an encrypted copy on this device$/}).click();await page.locator('#localForm-pass').fill('synthetic browser passphrase');await page.locator('#localForm button[type=submit]').click();await page.waitForFunction(()=>claritypathStatus().encryptedDeviceSaving);await page.reload();await page.locator('#unlockPanel:not([hidden])').waitFor();assert.equal(await page.evaluate(()=>claritypathStatus().caseCount),0);await page.locator('#unlockForm-pass').fill('synthetic browser passphrase');await page.locator('#unlockForm button[type=submit]').click();await page.waitForFunction(()=>claritypathStatus().caseCount===1);assert.equal(await page.evaluate(()=>claritypathStatus().attachmentCount),1);
 await nav('records');await page.screenshot({path:path.join(root,'workspace-desktop.png'),fullPage:true});await page.setViewportSize({width:360,height:800});for(const section of ['catalogue','overview','records','timeline','review','research','engine','outputs','settings']){await nav(section);const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);assert.equal(overflow,false,'horizontal overflow in '+section)}await nav('engine');await page.screenshot({path:path.join(root,'workspace-mobile.png'),fullPage:true});await page.getByRole('button',{name:'Lock / close',exact:true}).click();await page.waitForFunction(()=>claritypathStatus().caseCount===0);assert.equal(await page.evaluate(()=>claritypathStatus().caseCount),0);assert(!(await page.locator('body').textContent()).includes('I observed the synthetic event.'));assert.deepEqual(errors,[]);console.log(JSON.stringify({passed:true,checks:['empty workspace','case creation','original attachment roundtrip','separate review','fact qualification','snapshot freeze','authorised analysis','source ingestion','canonical valid engine flow','source-linked summary','selected ZIP','encrypted reload','all mobile sections','lock clearing'],browserErrors:errors}));await page.goto('http://127.0.0.1:8775/build.html');assert((await page.locator('#spec').textContent()).includes('PUBLIC APPLICATION BUILD GUIDE'));await context.grantPermissions(['clipboard-read','clipboard-write'],{origin:'http://127.0.0.1:8775'});await page.locator('#copyPack').click();await page.getByText('Public application pack copied.',{exact:false}).waitFor();const copied=await page.evaluate(()=>navigator.clipboard.readText());assert.equal(copied.replace(/\r\n?/g,'\n'),fs.readFileSync(path.join(root,'build-pack.txt'),'utf8'));const packWait=page.waitForEvent('download');await page.getByRole('link',{name:'Download public application pack',exact:true}).click();const packFile=await packWait;assert.equal(fs.readFileSync(await packFile.path(),'utf8'),copied.replace(/\r\n?/g,'\n'));console.log('Build page: private specifications excluded; public application pack clipboard/download passed.');const emptyContext=await browser.newContext({viewport:{width:390,height:844}}),emptyPage=await emptyContext.newPage();emptyPage.setDefaultTimeout(12000);await emptyPage.goto('http://127.0.0.1:8775/workspace.html');await emptyPage.waitForFunction(()=>typeof claritypathStatus==='function');await emptyPage.locator('[data-page="outputs"]').click();assert.equal(await emptyPage.locator('#savedCasePicker').isDisabled(),true);await emptyPage.locator('#newCase').click();await emptyPage.locator('#caseForm-title').fill('Synthetic first situation');await emptyPage.locator('#caseForm button[type=submit]').click();await emptyPage.waitForFunction(()=>claritypathStatus().caseCount===1);const firstCase=await emptyPage.locator('#savedCasePicker').inputValue();assert.equal(await emptyPage.locator('#page-records').isVisible(),true);await emptyPage.locator('#savedCasePicker').selectOption('__new__');assert.equal(await emptyPage.locator('#caseForm').isVisible(),true);await emptyPage.locator('#caseForm-title').fill('Synthetic second situation');await emptyPage.locator('#caseForm button[type=submit]').click();await emptyPage.waitForFunction(()=>claritypathStatus().caseCount===2);assert.notEqual(await emptyPage.locator('#savedCasePicker').inputValue(),firstCase);await emptyPage.locator('#savedCasePicker').selectOption(firstCase);assert.equal(await emptyPage.locator('#savedCasePicker').inputValue(),firstCase);console.log('Situation creation: empty summaries screen → visible create action → first situation → create another → switch saved situations passed.');await emptyContext.close();await context.close();}finally{if(browser)await browser.close();await new Promise(r=>server.close(r))}})().catch(e=>{console.error(e);process.exitCode=1});
 
@@ -16317,8 +16481,8 @@ import './package-public.mjs';
 ===== END FILE: scripts/package-release.mjs =====
 
 ===== BEGIN FILE: scripts/package-public.mjs =====
-SHA256: 12fbbbdf140008622740ff15fd52104a4d624858e02e372fc6d75b84c228cc10
-UTF8_BYTES: 6659
+SHA256: fcd43ade8ce8d024fd4b289d4ca81ef55bf23f2398cb0772f6498fcd456b093e
+UTF8_BYTES: 6740
 ===== CONTENT START =====
 import{readFile,writeFile,mkdir,copyFile,readdir,unlink}from'node:fs/promises';
 import{createHash}from'node:crypto';
@@ -16335,7 +16499,7 @@ await write('build.html',build);
 const library=JSON.parse(await read('app/library.json'));
 if(library.some(s=>s.local||s.extent!=='metadata-only'))throw Error('Public library must contain public external legal references only');
 await write('app/library-manifest.json',JSON.stringify({format:'claritypath-source-library-manifest-v1',entries:library.map(s=>({...s,includedExtent:s.extent,sourceStatus:'External public legal reference; no private product specifications included'}))},null,2));
-const files=['manifest.webmanifest','sw.js','app/install.mjs','assets/icon-192.png','assets/icon-512.png','assets/icon-180.png','assets/claritypath-logo.jpg','assets/ICON-ORIGIN.txt','tests/pwa.cjs','disclaimer.html','index.html','workspace.html','build.html','claritypath-public-build.txt','app/catalogue.mjs','app/nsw-catalogue.json','scripts/build-nsw-catalogue.mjs','sources/public/nsw-source-index.json','sources/public/nsw-specialist-index.json','sources/public/nsw-institutions-checked.json','tests/catalogue.test.mjs','app/core.mjs','app/crypto.mjs','app/github.mjs','app/main.mjs','app/output.mjs','app/style.css','app/library.json','app/library-manifest.json','app/build-page.mjs','service/server.mjs','service/README.txt','service/.env.example','OPERATING-GUIDE.txt','README.md','release-status.json','package.json','.gitignore','tests/core.test.mjs','tests/recovery.test.mjs','tests/service.test.mjs','tests/browser.cjs','tests/package.test.mjs','scripts/package-release.mjs','scripts/package-public.mjs','scripts/serve.mjs','.github/workflows/deploy-pages.yml'];
+const files=['manifest.webmanifest','sw.js','app/install.mjs','assets/icon-192.png','assets/icon-512.png','assets/icon-180.png','assets/claritypath-logo.jpg','assets/ICON-ORIGIN.txt','tests/pwa.cjs','disclaimer.html','index.html','workspace.html','build.html','claritypath-public-build.txt','app/catalogue.mjs','app/nsw-catalogue.json','scripts/build-nsw-catalogue.mjs','sources/public/nsw-source-index.json','sources/public/nsw-specialist-index.json','sources/public/nsw-institutions-checked.json','tests/catalogue.test.mjs','app/ai.mjs','app/core.mjs','app/crypto.mjs','app/github.mjs','app/main.mjs','app/output.mjs','app/style.css','app/library.json','app/library-manifest.json','app/build-page.mjs','service/server.mjs','service/Dockerfile','scripts/check-ai-service.mjs','service/README.txt','service/.env.example','OPERATING-GUIDE.txt','README.md','release-status.json','package.json','.gitignore','.dockerignore','tests/core.test.mjs','tests/recovery.test.mjs','tests/service.test.mjs','tests/browser.cjs','tests/package.test.mjs','scripts/package-release.mjs','scripts/package-public.mjs','scripts/serve.mjs','.github/workflows/deploy-pages.yml'];
 if(files.some(p=>/canonical|solicitors-advocate\.txt|full-spec|private-build|attachments/i.test(p)))throw Error('Restricted build input in public manifest');
 const contents=await Promise.all(files.map(async name=>{if(/\.(png|jpg)$/.test(name)){const bytes=await readFile(path.join(root,name));return{path:name,text:bytes.toString('base64'),encoding:'base64',bytes}}const text=(await read(name)).replace(/\r\n?/g,'\n');await write(name,text);return{path:name,text,bytes:Buffer.from(text)}}));
 const manifest={format:'claritypath-public-source-v1',version:status.version,files:contents.map(f=>({path:f.path,bytes:f.bytes.length,sha256:digest(f.bytes),...(f.encoding?{encoding:f.encoding}:{})}))};await write('source-manifest.json',JSON.stringify(manifest,null,2));

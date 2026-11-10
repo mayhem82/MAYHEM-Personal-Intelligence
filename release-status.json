@@ -1,5 +1,5 @@
 {
-  "version": "3.2.2",
+  "version": "3.2.3",
   "specification": "ClarityPath public application build guide",
   "date": "2026-11-10",
   "summary": "Working NSW situation catalogue with 729 guide/situation entries in 22 topic groups, 171 legislative reading entry points, institution contacts and 16 expressly sourced escalation pathways; separate encrypted private-case workspace and canonical operator-recorded Solicitors Advocate workflow. External guide texts are linked, not reproduced in full. This is not a certified exhaustive register of NSW law.",
@@ -16,7 +16,8 @@
     "GitHub private-store encryption, atomic save/readback, stale-write rejection and reviewed additive history merge",
     "Required authenticated owner-hosted AI/research service code; payload preview/approval; cited drafts and source validation",
     "Separate public Build page; public-application replication pack and exact-source manifests",
-    "Installable PWA manifest with supplied-logo-derived launcher icons, homepage Install app control, browser-specific fallback instructions and public-shell-only offline cache"
+    "Installable PWA manifest with supplied-logo-derived launcher icons, homepage Install app control, browser-specific fallback instructions and public-shell-only offline cache",
+    "AI configuration readiness checks, authenticated no-case connection probe and minimal server container deployment file"
   ],
   "configurationRequired": [
     "Private GitHub storage needs the owner's initialised private repository, restricted token and encryption passphrase.",
@@ -24,14 +25,16 @@
     "NSW is the catalogue jurisdiction. Actual case facts and legal passages still need applicability and current-version checks."
   ],
   "verification": {
-    "core": "PASS — 13 tests, including populated NSW catalogue relationships and sourced escalation prerequisites/alternative routes, plus existing integrity, encryption, canonical workflow, recovery, private-storage model, service and exact pack checks. 10 November 2026.",
+    "core": "PASS — 15 tests, including AI readiness/configuration rejection and byte-safe service authentication, plus existing catalogue, integrity, encryption, workflow, recovery, storage and exact pack checks. 10 November 2026.",
     "browser": "PASS — headless Microsoft Edge: populated public selector before any case; privacy internal-review and 60-day prerequisite display; rental-repairs search; private first/second case creation and switching; original attachment, qualification/snapshot/analysis, canonical engine workflow, summary/selected ZIP, encrypted reload/lock, all nine 360px sections, full Build copy/download. No browser script errors. 10 November 2026. Repeated successfully for release 3.2.0, including exact binary-asset Build-pack copy/download.",
     "privateGitHubLive": "Not performed; adapter tested against a controlled GitHub API model, no real repository credentials supplied.",
     "providerLive": "Not performed; service tested locally with controlled provider responses, no paid provider call.",
     "physicalAndroid": "Not performed; 360px desktop-browser layout emulation only.",
     "securityAudit": "No independent security audit claimed.",
     "legalComplianceAudit": "No completed legal-compliance audit claimed.",
-    "pwa": "PASS — isolated temporary regular-profile Microsoft Edge: correct manifest/icon dimensions and replicated subpath scope, zero Chromium installability errors, browser-menu fallback, synthetic retained-prompt handler, offline workspace/catalogue/case creation, no mobile overflow, and exclusion of private/authenticated responses from public cache. 10 November 2026. No physical-device/OS installation performed."
+    "pwa": "PASS — isolated temporary regular-profile Microsoft Edge: correct manifest/icon dimensions and replicated subpath scope, zero Chromium installability errors, browser-menu fallback, synthetic retained-prompt handler, offline workspace/catalogue/case creation, no mobile overflow, and exclusion of private/authenticated responses from public cache. 10 November 2026. No physical-device/OS installation performed.",
+    "aiReadiness": "PASS — local service health and authenticated capabilities checks; browser rejected unconfigured endpoints, transmitted no case during connection, sent only explicitly approved synthetic selected records/sources, saved cited synthetic draft separately, and cleared a failed replacement connection. No live provider request.",
+    "containerBuild": "Not performed; Docker is unavailable on this workstation. Node.js runtime and readiness endpoint tested directly."
   },
   "incompleteSpecificationItems": [
     "Automatic GitHub App sign-in and hosted authentication broker; current static method is owner-supplied fine-grained token.",

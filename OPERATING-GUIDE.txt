@@ -25,7 +25,7 @@ This release records operator-provided qualification and analysis provenance. It
 
 LEGAL SOURCES
 Add the exact source passage, direct URL, provision/paragraph, jurisdiction, version/effective date and relevance to the private case. Record who checked it. Legal instrument applicability is separate from the fact that a URL exists.
-Do not assume this library contains every law relevant to an unknown case. Missing legal text stays a visible gap. The optional research service can retrieve source-backed information after you approve the request; you can also add source text yourself without an API.
+Do not assume this library contains every law relevant to an unknown case. Missing legal text stays a visible gap. The configured research service can retrieve source-backed information after you approve the request; you can also add source text yourself without an API.
 
 SOLICITORS ADVOCATE ENGINE
 Activate the named engine for the selected case, specifying jurisdiction, target recipient/body, purpose, actual activation authority, frozen evidence snapshot and relevant authorised DFAPTA outputs.
@@ -41,6 +41,7 @@ Open the handoff's index.html after extracting it. The recipient does not need C
 required AI SERVICE
 Run the included service under your own account using service/README.txt. Put its provider key only in server-side secrets. GitHub Pages itself cannot run that server.
 Connect its HTTPS endpoint and service access key in the workspace. For a narrative or research request, select the records/sources, enter the question and review the exact JSON payload and provider/model before approving transmission. Attachments and unselected material are not automatically sent.
+The connection checks server configuration and rejects missing provider settings. It sends no case data and makes no provider call. Verify an actual provider response separately with an explicitly approved synthetic record before relying on live AI. Deployment health checks and the no-case command npm run check:ai are described in service/README.txt.
 Generated output is a separate unreviewed draft. Check the direct links, selected case references, source versions and applicability. Provider web citations are clickable; missing/unknown selected-case citations are rejected. A failed provider request does not change the original records.
 No paid provider call or private GitHub account is configured by this public release. These need the actual owner's settings. Never describe them as live-verified before a real authorised connection test succeeds.
 

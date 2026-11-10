@@ -1,0 +1,4 @@
+**
+!service/
+!service/server.mjs
+!service/Dockerfile

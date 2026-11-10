@@ -1,21 +1,22 @@
 import http from'node:http';
 import{timingSafeEqual}from'node:crypto';
-import{readFile}from'node:fs/promises';
 import{fileURLToPath}from'node:url';
-const base=new URL('../',import.meta.url);
 // Private build documents are not provider request context.
 export function createService(config={}){
- const key=config.providerKey||process.env.OPENAI_API_KEY||'',model=config.model||process.env.OPENAI_MODEL||'',secret=config.secret||process.env.SERVICE_ACCESS_KEY||'',originList=config.origins||String(process.env.ALLOWED_ORIGINS||'').split(',').filter(Boolean),providerFetch=config.fetch||fetch;
+ const key=String(config.providerKey??process.env.OPENAI_API_KEY??'').trim(),model=String(config.model??process.env.OPENAI_MODEL??'').trim(),secret=config.secret??process.env.SERVICE_ACCESS_KEY??'',originList=(config.origins??String(process.env.ALLOWED_ORIGINS||'').split(',')).map(origin=>origin.trim()).filter(Boolean),providerFetch=config.fetch||fetch;
  const used=new Map(),inflight=new Set();let day=new Date().toISOString().slice(0,10),requests=0;
- const maxRequests=Number(config.maxRequests||process.env.MAX_REQUESTS_PER_DAY||30);
+ const maxRequests=Number(config.maxRequests??process.env.MAX_REQUESTS_PER_DAY??30);
+ if(!Number.isSafeInteger(maxRequests)||maxRequests<1)throw Error('MAX_REQUESTS_PER_DAY must be a positive safe integer');
+ const ready=()=>!!key.trim()&&!!model.trim()&&secret.length>=24&&originList.length>0;
  const send=(res,status,data)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(JSON.stringify(data))};
  const server=http.createServer(async(req,res)=>{
   const origin=req.headers.origin||'';if(origin){if(!originList.includes(origin))return send(res,403,{error:'Origin not allowed'});res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Vary','Origin');res.setHeader('Access-Control-Allow-Headers','Authorization, Content-Type');res.setHeader('Access-Control-Allow-Methods','GET, POST, OPTIONS');}
   if(req.method==='OPTIONS'){res.writeHead(204);return res.end()}
-  const supplied=String(req.headers.authorization||'').replace(/^Bearer /,'');if(!secret||secret.length<24||supplied.length!==secret.length||!timingSafeEqual(Buffer.from(supplied),Buffer.from(secret)))return send(res,401,{error:'Service authentication required'});
-  if(req.url==='/capabilities'&&req.method==='GET')return send(res,200,{version:1,provider:'OpenAI',model:model||'Not configured',configured:!!key&&!!model,webSearch:true,maxRequestsPerDay:maxRequests,maxInputBytes:750000});
+  if(req.url==='/healthz'&&req.method==='GET')return send(res,ready()?200:503,{status:ready()?'ready':'configuration-required'});
+  const supplied=Buffer.from(String(req.headers.authorization||'').replace(/^Bearer /,'')),expected=Buffer.from(secret);if(secret.length<24||supplied.length!==expected.length||!timingSafeEqual(supplied,expected))return send(res,401,{error:'Service authentication required'});
+  if(req.url==='/capabilities'&&req.method==='GET')return send(res,200,{version:1,provider:'OpenAI',model:model||'Not configured',configured:ready(),webSearch:true,maxRequestsPerDay:maxRequests,maxInputBytes:750000});
   if(req.url!=='/assist'||req.method!=='POST')return send(res,404,{error:'Not found'});
-  if(!key||!model)return send(res,503,{error:'Provider key and model must be configured on the service'});
+  if(!ready())return send(res,503,{error:'Configure provider key, model, service access key and allowed site origins on the host'});
   let payload,requestId;
   try{
    const parts=[];let length=0;for await(const c of req){length+=c.length;if(length>750000){send(res,413,{error:'Selected payload too large'});req.destroy();return}parts.push(c)}payload=JSON.parse(Buffer.concat(parts));requestId=payload.requestId;
