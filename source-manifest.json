@@ -9,18 +9,18 @@
     },
     {
       "path": "AI-SETUP.txt",
-      "bytes": 13225,
-      "sha256": "374d03aa733b52fd1cf372f35615e607562daff0d6ecead8defc2d7f2e911edd"
+      "bytes": 13383,
+      "sha256": "08d2959c5ff18208615df5e759404823dd5d3b76619adaa91e30b3fe1b33ce01"
     },
     {
       "path": "MANUAL-SETUP.txt",
-      "bytes": 15451,
-      "sha256": "d82352277c1766cc4393ccb9e421f4644036abf130e17029c9ccdb6fec1815bc"
+      "bytes": 15609,
+      "sha256": "56c77f9227b2a6a08255f5d35cd1dd5b667bc0dfb97362bee9cc9003ec908f94"
     },
     {
       "path": "setup/start-here.txt",
-      "bytes": 5726,
-      "sha256": "0727068819ea6e2d728fd19beb38ae4d275eb0bc1f779cc140bd2d937d7b4cfb"
+      "bytes": 5884,
+      "sha256": "97c9720b33c49a5c68e59fdb0ece2206240230ad193e4fbf0d5e9079d568f260"
     },
     {
       "path": "setup/manual-steps.txt",
@@ -34,8 +34,8 @@
     },
     {
       "path": "setup.html",
-      "bytes": 28419,
-      "sha256": "4414314dacedca78ccae990511ddd5a284a541dbe0741c95845d52542e7b023a"
+      "bytes": 28577,
+      "sha256": "d1c5e87357048ac8e0ca08ccd59fd2de37d784cff107a298de4285a1780e3a39"
     },
     {
       "path": "operating.html",
@@ -263,8 +263,8 @@
     },
     {
       "path": "release-status.json",
-      "bytes": 8012,
-      "sha256": "e13c2e8f766d41508a9d50141b13f232ae1bab5fcb63751903850a8f8490a74b"
+      "bytes": 8027,
+      "sha256": "12d472da310f534166fe4efc06fea6a02e33efba91a86ebc98c20faad5e6d9bc"
     },
     {
       "path": "package.json",

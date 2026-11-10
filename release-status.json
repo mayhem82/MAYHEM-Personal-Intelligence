@@ -19,7 +19,7 @@
     "Installable PWA manifest with supplied-logo-derived launcher icons, homepage Install app control, browser-specific fallback instructions and public-shell-only offline cache",
     "AI configuration readiness checks, authenticated no-case connection probe and minimal server container deployment file",
     "Protected selected-handoff export with recipient passphrase confirmation, exact source revision, local-only unlock page and readable ZIP recovery without a private workspace connection",
-    "Readable manual and AI installation guides from GitHub signup and coding-assistant connection, with up-front accounts/costs/permissions/privacy/recovery concerns and complete copy/download versions in root AGENTS.md routing and the Build pack"
+    "Readable manual and AI installation guides from GitHub signup and coding-assistant connection, with up-front accounts/costs/permissions/privacy/recovery concerns and complete copy/download versions referenced by root AGENTS.md and included in the Build pack"
   ],
   "configurationRequired": [
     "Private GitHub storage needs the owner's initialised private repository, restricted token and encryption passphrase.",
