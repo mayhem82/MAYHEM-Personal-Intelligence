@@ -1,5 +1,5 @@
 const pages=[
- ['index.html','Home'],['workspace.html','Workspace'],['setup.html','Setup'],['operating.html','Guide'],['build.html','Build'],['handoff.html','Handoff'],['disclaimer.html','Disclaimer']
+ ['index.html','Home'],['first-aid.html','Psychological First Aid'],['workspace.html','Workspace'],['setup.html','Setup'],['operating.html','Guide'],['build.html','Build'],['handoff.html','Handoff'],['disclaimer.html','Disclaimer']
 ];
 const menu=(current,label)=>'<nav class="site-nav" aria-label="'+label+'">'+pages.map(([file,title])=>'<a href="./'+file+'"'+(current===file?' aria-current="page"':'')+'>'+title+'</a>').join('')+'</nav>';
 export function applySiteLayout(html,current,version){

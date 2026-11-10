@@ -1,0 +1,3 @@
+import{mountSupportDirectory}from'./support.mjs?v=3.4.0';
+const host=document.getElementById('support-directory');
+try{const response=await fetch('./app/nsw-catalogue.json');if(!response.ok)throw Error('Support directory unavailable');const data=await response.json();const directory=mountSupportDirectory(host,data);for(const button of document.querySelectorAll('[data-support-category]'))button.addEventListener('click',()=>directory.choose(button.dataset.supportCategory));}catch{host.append(Object.assign(document.createElement('p'),{textContent:'The directory could not load. Use the official support links below or reload this page.'}));}

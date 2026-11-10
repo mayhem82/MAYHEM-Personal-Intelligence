@@ -1,6 +1,6 @@
 // Only public guide section IDs are remembered for this installation and tab.
 const file=location.pathname.split('/').pop()||'index.html';
-if(['setup.html','operating.html','build.html','disclaimer.html'].includes(file)){
+if(['first-aid.html','setup.html','operating.html','build.html','disclaimer.html'].includes(file)){
  const key='claritypath-reading:'+location.pathname;
  const sections=[...document.querySelectorAll('main section[id]')];
  const allowed=new Set(['site-top',...sections.map(section=>section.id)]);

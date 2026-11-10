@@ -1,7 +1,37 @@
 {
   "format": "claritypath-public-source-v1",
-  "version": "3.3.4",
+  "version": "3.4.0",
   "files": [
+    {
+      "path": "first-aid.html",
+      "bytes": 8690,
+      "sha256": "3358163e71998869333894a19d733c7bb2ac064bb0627c5934d60a57739efda9"
+    },
+    {
+      "path": "app/first-aid.mjs",
+      "bytes": 645,
+      "sha256": "b7d5ab1873a22187827665ca7b94d5b4085a6adf63863717675ed2d4bfa031f8"
+    },
+    {
+      "path": "app/support.mjs",
+      "bytes": 2983,
+      "sha256": "649daaa00e15fb7d27d7f87254ce4dfcbc4724919ea9b548b26973fcb4faeb38"
+    },
+    {
+      "path": "app/public-text.mjs",
+      "bytes": 765,
+      "sha256": "e07ef9de0aa663f803479261eafdc2c9929bb7e88fdfd7a3efcbc4b666145d21"
+    },
+    {
+      "path": "sources/public/nsw-mental-health.json",
+      "bytes": 38505,
+      "sha256": "38910e850eed44fe8813c359f1a33289022a91279289b1ea7d7677083d19004e"
+    },
+    {
+      "path": "tests/mental-health.cjs",
+      "bytes": 4707,
+      "sha256": "0567b67e9d66f7b5bd1f47d553675495fe3217831d147be6089858a5431f4254"
+    },
     {
       "path": "AGENTS.md",
       "bytes": 2172,
@@ -34,13 +64,13 @@
     },
     {
       "path": "setup.html",
-      "bytes": 32914,
-      "sha256": "5ebafa65e82b043c82b71f5220de1240e447cca1888d887ef85e05afe91cafce"
+      "bytes": 33022,
+      "sha256": "bd3f73b2010726a8ddce3a7028f8b6f990a5e7e619db336a764d0f36345abb61"
     },
     {
       "path": "operating.html",
-      "bytes": 16598,
-      "sha256": "26ea117703e7680d156ca369138f9c78d3352796d861b7f0dbd8275279db52c7"
+      "bytes": 17472,
+      "sha256": "6d1d6b4ba2384e5ac089dcf445ab13c56719b2f6a0507588a6cfa75c721dd047"
     },
     {
       "path": "scripts/render-setup.mjs",
@@ -49,18 +79,18 @@
     },
     {
       "path": "scripts/site-layout.mjs",
-      "bytes": 1999,
-      "sha256": "615551f29fe9e298be7585f77b6b9cf02df6e76bc98953f25eb818ac4773b3e3"
+      "bytes": 2044,
+      "sha256": "dccb7ecd06660b06e70aa4cbf1745cb8e5aa1c28a92f883c8e35510fa2afa591"
     },
     {
       "path": "app/navigation.mjs",
-      "bytes": 2096,
-      "sha256": "435b3d52c0d6d0581903e7aae5dd7c279449b5352412c8f190d26dae395af126"
+      "bytes": 2113,
+      "sha256": "1bcad13f0ac6670c2e1e43ab4cab6b885a5583938b3d554b689469922482c920"
     },
     {
       "path": "tests/navigation.cjs",
-      "bytes": 5476,
-      "sha256": "f487e5fd963c5c14d1325e0faceca4c8185fcc28fd21b12ac7b9ff0f193314e0"
+      "bytes": 5521,
+      "sha256": "0e7ea2cbefc04842e9bc323d7f8b2d5f4fd43977c124e9d869d8005b5b1375e6"
     },
     {
       "path": "manifest.webmanifest",
@@ -69,8 +99,8 @@
     },
     {
       "path": "sw.js",
-      "bytes": 2270,
-      "sha256": "30affbf8bc07c02fdcab518071b4d0b36c2d14a870f2d880a305ef951ace2e41"
+      "bytes": 2347,
+      "sha256": "e6e7489e30ac71aa96ef09e588e8c43e243a245dd2fbca8534b6f468cba85612"
     },
     {
       "path": "app/install.mjs",
@@ -108,48 +138,48 @@
     },
     {
       "path": "tests/pwa.cjs",
-      "bytes": 6673,
-      "sha256": "d51379e05cb7abdf8888fbda4aa53106de7bb30ad69d50c1207f4086fd3438d2"
+      "bytes": 6916,
+      "sha256": "e31836677deca1de5dd03e6da906e15cb8c8f19646191dc4261fc6edd4e0e844"
     },
     {
       "path": "disclaimer.html",
-      "bytes": 7698,
-      "sha256": "f7bdabbfd8850cf91c6d5f5f46358b9f8ff3df9ad10128e6acad5f16c7ca2040"
+      "bytes": 7806,
+      "sha256": "2402f2473bfea2fbdc5e37ef15899128bbe63a94deed2afd2fe14b436ce8cb5b"
     },
     {
       "path": "index.html",
-      "bytes": 6248,
-      "sha256": "65de314c0d14e849863b5b5a77f562c8f570a9086b4abc986628cbc4d107e426"
+      "bytes": 6750,
+      "sha256": "a0e1979963ac5bc12361a2c935fc60fd6c2b505f494ed472607dbf39fc159fd9"
     },
     {
       "path": "workspace.html",
-      "bytes": 3485,
-      "sha256": "b62231a6d2f01150729ddcdaeb887e8fe95a0953cd2e02560247be575563d734"
+      "bytes": 3593,
+      "sha256": "9fbef15e6d1234035b1cb44749e67ad1553343f4a5fd07613f3bbdbae67c602d"
     },
     {
       "path": "build.html",
-      "bytes": 11419,
-      "sha256": "0efd74b72ede6a247ff68cb2190ce4971a77847680f1a0fbb00e2f1cac3568a5"
+      "bytes": 12139,
+      "sha256": "f8b958a0c065d3b0526768f100730965d6e3d762dc4e6e3bdcf965e7f1e18b18"
     },
     {
       "path": "claritypath-public-build.txt",
-      "bytes": 8695,
-      "sha256": "a4d19c6ddc1629a8826d29795c258e742d858a060d0c87394485e87baf264fa3"
+      "bytes": 9307,
+      "sha256": "be526d85d2fe5f3e7a5ea8d2c771f3b47a9e16a206b151301bfad6649c72a465"
     },
     {
       "path": "app/catalogue.mjs",
-      "bytes": 9067,
-      "sha256": "9f34124b4abdf2829c24665e635baaa8d3b0eb7d8ebd4e76bc19ac41be411165"
+      "bytes": 10790,
+      "sha256": "52902b4142205d6d2b5e055d3784b7500a89bbc97600fae7f99424e35ee622e2"
     },
     {
       "path": "app/nsw-catalogue.json",
-      "bytes": 417487,
-      "sha256": "4b65adee09c57308f184fda03ef809ed9bb3eedc187d09b667471e968ff58b64"
+      "bytes": 456238,
+      "sha256": "9282a5380425209be0ee6c5d01720968947e329e19f1dedf5ac6a9542297042b"
     },
     {
       "path": "scripts/build-nsw-catalogue.mjs",
-      "bytes": 25649,
-      "sha256": "b5ac1b83d6c8e7a725c3b54655a171416618467c33fac2d7c96e111a03081993"
+      "bytes": 26769,
+      "sha256": "57a4c2fb2a8b6e4c452d6a0e82361bc53571b56cce07f49fecab37c7c85df652"
     },
     {
       "path": "sources/public/nsw-source-index.json",
@@ -168,13 +198,13 @@
     },
     {
       "path": "tests/catalogue.test.mjs",
-      "bytes": 1567,
-      "sha256": "d640041b15e569638a89d7c4c7dd6f86d20bfed0de8799d76c58f8705a47e16c"
+      "bytes": 2649,
+      "sha256": "26bf9bf6aa3f1bc6b13e6c6a24b6fb3e3b71e35d7d0f62041bee5783045a0f2f"
     },
     {
       "path": "handoff.html",
-      "bytes": 3251,
-      "sha256": "9987ef7846db5db1e2e19655c507a1b0524ee1ced694f40513d48ead2d15e50e"
+      "bytes": 3359,
+      "sha256": "010f041db930c76123a257074984c2554b711fe8612c008cd8cd586f3bb7aa2d"
     },
     {
       "path": "app/handoff-reader.mjs",
@@ -214,7 +244,7 @@
     {
       "path": "app/main.mjs",
       "bytes": 51556,
-      "sha256": "29cebb146632c9da87723748e61cf7231ae7738bbf1099ec0106430be98ebf17"
+      "sha256": "76ffeb5e943cbb752c340f6aa0b9109ace3df2e78cdbc8b68c89546d37c2dd54"
     },
     {
       "path": "app/output.mjs",
@@ -223,8 +253,8 @@
     },
     {
       "path": "app/style.css",
-      "bytes": 7958,
-      "sha256": "9830e3a3ed08d6eba7d520d7e4a5787f350091e7c69809eed67bb777436b8d45"
+      "bytes": 9530,
+      "sha256": "0e6352b17a8890dc73f809f5ad3690ddd12c117fae0f733e90fa4410f6114e70"
     },
     {
       "path": "app/library.json",
@@ -268,8 +298,8 @@
     },
     {
       "path": "OPERATING-GUIDE.txt",
-      "bytes": 11088,
-      "sha256": "ffe0fff0f786d8c7d04053fc10740642e9ff43e6741475f77a72589c53a182bf"
+      "bytes": 11559,
+      "sha256": "07ed012156d4f7301e3a35218ce49f33eecf9ced576ec1d3df1d045f133982f1"
     },
     {
       "path": "README.md",
@@ -278,13 +308,13 @@
     },
     {
       "path": "release-status.json",
-      "bytes": 8914,
-      "sha256": "93feabcb904b59a6101ddf68ca7b84548cd40b526d42b7760a237c610fb07d8d"
+      "bytes": 10019,
+      "sha256": "2d25ce6df969f0d5c5ed7de8be7e343f137904d4fc53cca8b109786b1df22856"
     },
     {
       "path": "package.json",
-      "bytes": 749,
-      "sha256": "dbaef79dcab6a74c1c3fbafa463c336698475cb606f302bc9c5d0ffda96c432f"
+      "bytes": 807,
+      "sha256": "2ea8da75c86e461220f1c033247bf6992bef59e147df5013abf133748453956f"
     },
     {
       "path": ".gitignore",
@@ -328,8 +358,8 @@
     },
     {
       "path": "scripts/package-public.mjs",
-      "bytes": 8830,
-      "sha256": "a7605dcff8ff7fda7b15208446cf0cfd66503ad63a8d397767d09e6dea1b6a51"
+      "bytes": 8990,
+      "sha256": "348ccdfaf1882f76edffbc34f5f21b51b933bb0e9a803f2b596d9f86f7df7047"
     },
     {
       "path": "scripts/serve.mjs",

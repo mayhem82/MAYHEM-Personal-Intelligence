@@ -1,0 +1,1016 @@
+{
+  "format": "claritypath-mental-health-v1",
+  "checkedAt": "2026-11-10",
+  "verificationNote": "Verified means the linked source was checked on the stated date. Government delivery, statutory appointment and official directory listing are labelled separately. A listing is not blanket government approval or accreditation. ClarityPath has not independently assessed clinical quality or practitioner registration. Confirm current intake, eligibility, costs and hours with the service.",
+  "categories": [
+    [
+      "care",
+      "Getting care"
+    ],
+    [
+      "urgent",
+      "Crisis support"
+    ],
+    [
+      "young",
+      "Children and young people"
+    ],
+    [
+      "complex",
+      "Peer support"
+    ],
+    [
+      "culture",
+      "Culture, identity and language"
+    ],
+    [
+      "rural",
+      "Rural and remote"
+    ],
+    [
+      "carers",
+      "Families and carers"
+    ],
+    [
+      "accessible",
+      "Accessible information"
+    ],
+    [
+      "rights",
+      "Independent rights and legal help"
+    ]
+  ],
+  "services": [
+    {
+      "id": "medicare",
+      "name": "Medicare Mental Health Centres",
+      "operator": "Australian Government program with local delivery partners",
+      "type": "Care and service connection",
+      "audience": "People seeking support, including families and carers.",
+      "description": "Free support and help finding ongoing care. Not a crisis service.",
+      "access": "Find a centre. No referral or appointment normally needed; check local arrangements, including virtual-only services.",
+      "cost": "Centre support is free. Ask about charges for separate services.",
+      "hours": "Local hours vary. Information phone: 8:30am to 5pm weekdays; check holidays.",
+      "url": "https://www.medicarementalhealth.gov.au/medicare-mental-health-centres",
+      "categories": [
+        "care"
+      ],
+      "verification": {
+        "basis": "Government service program",
+        "sourceUrl": "https://www.medicarementalhealth.gov.au/medicare-mental-health-centres",
+        "checkedAt": "2026-11-10"
+      },
+      "phone": {
+        "label": "1800 595 212",
+        "href": "tel:1800595212"
+      }
+    },
+    {
+      "id": "nsw-line",
+      "name": "New South Wales Mental Health Line",
+      "operator": "New South Wales Health",
+      "type": "Public mental health access",
+      "audience": "Anyone worried about their own or another person’s mental health in New South Wales.",
+      "description": "Professionals discuss needs and connect callers with appropriate care.",
+      "access": "Call for advice and referral. Staff ask for identity and contact details and may create a health record.",
+      "cost": "Free service.",
+      "hours": "24 hours, every day.",
+      "url": "https://www.health.nsw.gov.au/mentalhealth/Pages/mental-health-line.aspx",
+      "categories": [
+        "care"
+      ],
+      "verification": {
+        "basis": "New South Wales Health service",
+        "sourceUrl": "https://www.health.nsw.gov.au/mentalhealth/Pages/mental-health-line.aspx",
+        "checkedAt": "2026-11-10"
+      },
+      "phone": {
+        "label": "1800 011 511",
+        "href": "tel:1800011511"
+      }
+    },
+    {
+      "id": "kids",
+      "name": "Medicare Mental Health Kids Hubs",
+      "operator": "Australian Government program with state and territory partners",
+      "type": "Children and family support",
+      "audience": "Children aged 0 to 12 and their families, carers and kin.",
+      "description": "Support for mild to moderate developmental, emotional, relational and behavioural challenges.",
+      "access": "Check local catchment and intake. No diagnosis or referral generally needed; some locations currently have restricted pathways.",
+      "cost": "Free hub support.",
+      "hours": "Check appointments and walk-in availability. Not a crisis service.",
+      "url": "https://www.medicarementalhealth.gov.au/finding-help/kids-hubs",
+      "categories": [
+        "young",
+        "carers"
+      ],
+      "verification": {
+        "basis": "Government service program",
+        "sourceUrl": "https://www.medicarementalhealth.gov.au/finding-help/kids-hubs",
+        "checkedAt": "2026-11-10"
+      }
+    },
+    {
+      "id": "headspace",
+      "name": "headspace",
+      "operator": "headspace National Youth Mental Health Foundation and local providers",
+      "type": "Youth mental health",
+      "audience": "Young people aged 12 to 25 and people supporting them.",
+      "description": "Centres, online support and help with work or study.",
+      "access": "Find a centre or online support; check local referral and appointment arrangements.",
+      "cost": "Online accounts are free. Confirm costs of local appointments.",
+      "hours": "Check the chosen service’s current hours.",
+      "url": "https://headspace.org.au/",
+      "categories": [
+        "young"
+      ],
+      "verification": {
+        "basis": "Listed by New South Wales Health; provider identifies government funding",
+        "sourceUrl": "https://www.health.nsw.gov.au/mentalhealthhelp",
+        "checkedAt": "2026-11-10"
+      }
+    },
+    {
+      "id": "grow",
+      "name": "Grow peer support",
+      "operator": "Grow Australia",
+      "type": "Peer support",
+      "audience": "People seeking a mental health peer group.",
+      "description": "Groups based on shared experience and recovery.",
+      "access": "Find a local or online group; ask about joining and accessibility.",
+      "cost": "Free groups.",
+      "hours": "Meetings follow group timetables.",
+      "url": "https://grow.org.au/grow-program/",
+      "categories": [
+        "complex",
+        "care"
+      ],
+      "verification": {
+        "basis": "Listed in the New South Wales Health support directory",
+        "sourceUrl": "https://www.health.nsw.gov.au/mentalhealthhelp",
+        "checkedAt": "2026-11-10"
+      }
+    },
+    {
+      "id": "healthy-mind",
+      "name": "Healthy Mind",
+      "operator": "Black Dog Institute",
+      "type": "Accessible wellbeing resource",
+      "audience": "People with intellectual disability and their support people.",
+      "description": "An Easy Read resource for thoughts and feelings.",
+      "access": "Open the resource, alone or with a support person you choose.",
+      "cost": "Public online resource.",
+      "hours": "Online resource; not emergency response.",
+      "url": "https://www.blackdoginstitute.org.au/resources-support/digital-tools-apps/healthy-mind/",
+      "categories": [
+        "accessible"
+      ],
+      "verification": {
+        "basis": "Listed in the New South Wales Health support directory",
+        "sourceUrl": "https://www.health.nsw.gov.au/mentalhealthhelp",
+        "checkedAt": "2026-11-10"
+      }
+    },
+    {
+      "id": "twenty10",
+      "name": "Twenty10",
+      "operator": "Twenty10",
+      "type": "Gender and sexuality community support",
+      "audience": "Young people aged 12 to 25 of diverse genders, sexualities and intersex variations in New South Wales.",
+      "description": "Counselling, housing and social support options.",
+      "access": "Ask about the program suitable for your age, location and needs.",
+      "cost": "Confirm costs of the chosen program.",
+      "hours": "Check current program hours.",
+      "url": "https://twenty10.org.au/",
+      "categories": [
+        "culture",
+        "young"
+      ],
+      "verification": {
+        "basis": "Listed in the New South Wales Health support directory",
+        "sourceUrl": "https://www.health.nsw.gov.au/mentalhealthhelp",
+        "checkedAt": "2026-11-10"
+      }
+    },
+    {
+      "id": "wellmob",
+      "name": "WellMob",
+      "operator": "WellMob resource platform",
+      "type": "First Nations wellbeing resources",
+      "audience": "Aboriginal and Torres Strait Islander people and those supporting them.",
+      "description": "Social, emotional and cultural wellbeing resources.",
+      "access": "Browse resources; ask public access services about local care.",
+      "cost": "Check any costs of linked services.",
+      "hours": "Online resources; not emergency response.",
+      "url": "https://wellmob.org.au/",
+      "categories": [
+        "culture"
+      ],
+      "verification": {
+        "basis": "Listed in the New South Wales Health support directory",
+        "sourceUrl": "https://www.health.nsw.gov.au/mentalhealthhelp",
+        "checkedAt": "2026-11-10"
+      }
+    },
+    {
+      "id": "rural",
+      "name": "Rural Adversity Mental Health Program",
+      "operator": "Rural Adversity Mental Health Program",
+      "type": "Rural service connection",
+      "audience": "People in regional, rural and remote New South Wales.",
+      "description": "Help connecting with local mental health supports.",
+      "access": "Find the coordinator covering your area.",
+      "cost": "Ask about costs of services you are referred to.",
+      "hours": "Coordinator availability varies.",
+      "url": "https://www.ramhp.com.au/",
+      "categories": [
+        "rural"
+      ],
+      "verification": {
+        "basis": "Listed in the New South Wales Health support directory",
+        "sourceUrl": "https://www.health.nsw.gov.au/mentalhealthhelp",
+        "checkedAt": "2026-11-10"
+      }
+    },
+    {
+      "id": "transcultural",
+      "name": "Transcultural Mental Health Centre",
+      "operator": "Western Sydney Local Health District; statewide service",
+      "type": "Multicultural access",
+      "audience": "Multicultural communities in New South Wales, including carers.",
+      "description": "Translated resources, language support and service navigation.",
+      "access": "Use the official page for the language line, resources or carer program.",
+      "cost": "Confirm terms of the particular support or referral.",
+      "hours": "Check the selected program’s contact hours.",
+      "url": "https://www.nsw.gov.au/departments-and-agencies/transcultural-mental-health-centre",
+      "categories": [
+        "culture",
+        "accessible",
+        "carers"
+      ],
+      "verification": {
+        "basis": "Government service page and local health district service",
+        "sourceUrl": "https://www.nsw.gov.au/departments-and-agencies/transcultural-mental-health-centre",
+        "checkedAt": "2026-11-10"
+      }
+    },
+    {
+      "id": "carers",
+      "name": "Mental Health Carers New South Wales",
+      "operator": "Mental Health Carers New South Wales",
+      "type": "Family and carer support",
+      "audience": "People supporting someone with mental illness.",
+      "description": "Information, support and advocacy for carers.",
+      "access": "Contact the organisation about your needs and current programs.",
+      "cost": "Ask about program costs.",
+      "hours": "Check current contact hours.",
+      "url": "https://www.mentalhealthcarersnsw.org/",
+      "categories": [
+        "carers"
+      ],
+      "verification": {
+        "basis": "Listed in the New South Wales Health support directory",
+        "sourceUrl": "https://www.health.nsw.gov.au/mentalhealthhelp",
+        "checkedAt": "2026-11-10"
+      }
+    },
+    {
+      "id": "mhas",
+      "name": "Mental Health Advocacy Service",
+      "operator": "Legal Aid New South Wales",
+      "type": "Independent legal help",
+      "audience": "People affected by mental health or guardianship laws; relatives and friends can seek advice.",
+      "description": "Free legal information, advice and assistance.",
+      "access": "Contact LawAccess New South Wales, especially before a hearing. Ask about representation for the particular proceeding.",
+      "cost": "Free legal advice and assistance within the service’s scope.",
+      "hours": "Contact well before hearing dates; check current office hours.",
+      "url": "https://www.legalaid.nsw.gov.au/my-problem-is-about/mental-health/involuntary-hospitalisation/mental-health-advocacy-service",
+      "categories": [
+        "rights"
+      ],
+      "verification": {
+        "basis": "Specialist Legal Aid service",
+        "sourceUrl": "https://www.legalaid.nsw.gov.au/my-problem-is-about/mental-health/involuntary-hospitalisation/mental-health-advocacy-service",
+        "checkedAt": "2026-11-10"
+      },
+      "phone": {
+        "label": "1300 888 529",
+        "href": "tel:1300888529"
+      }
+    },
+    {
+      "id": "visitors",
+      "name": "Official Visitors Program",
+      "operator": "Minister-appointed Official Visitors, independent from New South Wales Health",
+      "type": "Independent rights advocacy",
+      "audience": "People concerned about mental health care, including in facilities or on community treatment orders.",
+      "description": "Help raising treatment concerns and understanding rights.",
+      "access": "Ask to see a visitor, call or use the official contact page.",
+      "cost": "Toll-free contact number.",
+      "hours": "Check availability; not an emergency response or appeal court.",
+      "url": "https://officialvisitorsmh.nsw.gov.au/Pages/OVP.aspx",
+      "categories": [
+        "rights"
+      ],
+      "verification": {
+        "basis": "Appointment and independence described by the official program",
+        "sourceUrl": "https://officialvisitorsmh.nsw.gov.au/Pages/OVP.aspx",
+        "checkedAt": "2026-11-10"
+      },
+      "phone": {
+        "label": "1800 208 218",
+        "href": "tel:1800208218"
+      }
+    },
+    {
+      "id": "easy-read",
+      "name": "Easy Read mental health information",
+      "operator": "New South Wales Health and University of New South Wales specialists",
+      "type": "Accessible information",
+      "audience": "People who prefer large text and pictures, including people with intellectual disability.",
+      "description": "Resources about care, rights, orders and complaints.",
+      "access": "Open the resources and ask the service for communication support.",
+      "cost": "Public information resources.",
+      "hours": "Online information; not individual advice.",
+      "url": "https://www.health.nsw.gov.au/mentalhealth/services/consumers/Pages/easy-read-mental-health-info.aspx",
+      "categories": [
+        "accessible"
+      ],
+      "verification": {
+        "basis": "Health department-hosted accessible resources",
+        "sourceUrl": "https://www.health.nsw.gov.au/mentalhealth/services/consumers/Pages/easy-read-mental-health-info.aspx",
+        "checkedAt": "2026-11-10"
+      }
+    },
+    {
+      "id": "lifeline",
+      "name": "Lifeline",
+      "operator": "Lifeline Australia",
+      "type": "Crisis support",
+      "audience": "Anyone in Australia who feels overwhelmed or needs crisis support.",
+      "description": "Phone, text and online crisis support.",
+      "access": "Choose phone, text or chat.",
+      "cost": "Ask about any connection costs.",
+      "hours": "24 hours, seven days a week.",
+      "url": "https://www.lifeline.org.au?oai_link_source=model_response_hotline",
+      "categories": [
+        "urgent"
+      ],
+      "verification": {
+        "basis": "Connected local helpline directory checked",
+        "sourceUrl": "https://www.lifeline.org.au?oai_link_source=model_response_hotline",
+        "checkedAt": "2026-11-10"
+      },
+      "phone": {
+        "label": "13 11 14",
+        "href": "tel:+61131114?oai_link_source=model_response_hotline"
+      },
+      "extraContacts": [
+        {
+          "label": "0477 13 11 14",
+          "href": "sms:+61477131114?oai_link_source=model_response_hotline"
+        },
+        {
+          "label": "https://www.lifeline.org.au/crisis-chat/",
+          "href": "https://www.lifeline.org.au/crisis-chat/?oai_link_source=model_response_hotline"
+        }
+      ]
+    }
+  ],
+  "pathways": [
+    {
+      "id": "mental-care",
+      "title": "Get mental health support",
+      "scope": "Voluntary access to care. No complaint or private case is required.",
+      "steps": [
+        {
+          "body": "Medicare Mental Health Centre",
+          "requirement": "Direct access",
+          "action": "Find a centre and check local access.",
+          "before": "No referral or appointment normally needed; local arrangements vary.",
+          "evidence": "Explain the help you need. No documents or diagnosis are required by ClarityPath.",
+          "timing": "Check local hours. Not a crisis service.",
+          "source": "https://www.medicarementalhealth.gov.au/medicare-mental-health-centres"
+        },
+        {
+          "body": "New South Wales Mental Health Line",
+          "requirement": "Alternative access route",
+          "action": "Contact the service for advice and referral.",
+          "before": "Concern about your own or someone else’s mental health; staff discuss needs.",
+          "evidence": "Staff ask for identity and contact details and information about your concerns.",
+          "timing": "24 hours, every day. You do not have to try a centre first.",
+          "source": "https://www.health.nsw.gov.au/mentalhealth/Pages/mental-health-line.aspx"
+        }
+      ],
+      "exceptions": "These are alternative entry points. Ask about access, costs and waiting arrangements. Immediate danger: call 000.",
+      "checkedAt": "2026-11-10"
+    },
+    {
+      "id": "mental-discharge",
+      "title": "Request discharge, then appeal refusal or non-response",
+      "scope": "Civil detention under the Mental Health Act. Forensic orders need specialist advice.",
+      "steps": [
+        {
+          "body": "Authorised Medical Officer",
+          "requirement": "Discharge request first",
+          "action": "Ask orally or in writing for discharge and ask for the request to be recorded.",
+          "before": "A detained person can request discharge; obtain advice about carers or another appointed applicant.",
+          "evidence": "Request date, response and available order details.",
+          "timing": "The officer has 3 working days to decide.",
+          "source": "https://mhrt.nsw.gov.au/civil-patients/involuntary-patient-orders.html"
+        },
+        {
+          "body": "Mental Health Review Tribunal",
+          "requirement": "Conditional appeal",
+          "action": "Contact the Tribunal to appeal refusal or non-determination.",
+          "before": "A refusal, or no decision within 3 working days of the request.",
+          "evidence": "Request and response or non-response dates; ask for help with the form.",
+          "timing": "A refusal permits appeal without waiting out the remaining 3 working days.",
+          "source": "https://mhrt.nsw.gov.au/civil-patients/involuntary-patient-orders.html"
+        }
+      ],
+      "exceptions": "Ask the Mental Health Advocacy Service about your status. A care complaint does not discharge you or pause an order.",
+      "checkedAt": "2026-11-10"
+    },
+    {
+      "id": "mental-cto",
+      "title": "Changing or ending a community treatment order",
+      "scope": "Variation, revocation and appeal have different rules.",
+      "steps": [
+        {
+          "body": "Legal adviser, treating service or Mental Health Review Tribunal",
+          "requirement": "Check the order and applicant",
+          "action": "Obtain advice about the outcome sought and correct process.",
+          "before": "The Tribunal route requires material changed circumstances or relevant new information. Only the responsible facility can apply for variation.",
+          "evidence": "Order, treatment plan and explanation of changes or new information.",
+          "timing": "Use the order and Tribunal directions; seek prompt advice.",
+          "source": "https://mhrt.nsw.gov.au/civil-patients/community-treatment-orders/varying-or-revoking-community-treatment-orders.html"
+        }
+      ],
+      "exceptions": "The director of community treatment also has a revocation power. Court appeal is separate. Do not change treatment or ignore an order based on this summary.",
+      "checkedAt": "2026-11-10"
+    },
+    {
+      "id": "mental-order-appeal",
+      "title": "Identify the order and correct appeal route",
+      "scope": "Order-specific appeals; the Civil and Administrative Tribunal is not a general detention appeal forum.",
+      "steps": [
+        {
+          "body": "Mental Health Advocacy Service and relevant court or tribunal",
+          "requirement": "Order-specific eligibility",
+          "action": "Take the order and reasons to a lawyer.",
+          "before": "Mental Health Review Tribunal determinations may go to the Supreme Court subject to court rules; specific orders have different routes.",
+          "evidence": "Order, reasons, receipt date and earlier applications.",
+          "timing": "Check applicable rules promptly. There is no universal appeal deadline here.",
+          "source": "https://mhrt.nsw.gov.au/the-tribunal/appeals.html"
+        }
+      ],
+      "exceptions": "Financial-management appeals can involve the Civil and Administrative Tribunal or Supreme Court. Magistrate-made community treatment orders have a Mental Health Review Tribunal appeal route. Complaints do not replace appeals.",
+      "checkedAt": "2026-11-10"
+    }
+  ],
+  "situations": [
+    {
+      "id": "MH-care",
+      "title": "Find mental health support without a referral",
+      "url": "https://www.medicarementalhealth.gov.au/medicare-mental-health-centres",
+      "path": "/mental-health/care",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Start with support that fits your needs.",
+      "keyPoints": [
+        "Browse and contact services without creating a case.",
+        "Ask about location, language, access and ongoing care."
+      ],
+      "supportIds": [
+        "medicare",
+        "nsw-line"
+      ],
+      "pathwayIds": [
+        "mental-care"
+      ],
+      "lawIds": [],
+      "institutionIds": [
+        "mental-access"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "help counselling depression anxiety wellbeing free"
+    },
+    {
+      "id": "MH-costs",
+      "title": "Care costs, referrals and waiting for support",
+      "url": "https://www.healthdirect.gov.au/healthcare-and-services/costs-and-financial-support/understanding-the-costs-of-mental-health-services",
+      "path": "/mental-health/costs",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Cost, transport and waiting lists can make access difficult.",
+      "keyPoints": [
+        "Rebates may leave a gap fee; ask about bulk billing, concessions and telehealth.",
+        "Ask what support is available while waiting and whom to contact if needs change."
+      ],
+      "supportIds": [
+        "medicare",
+        "rural"
+      ],
+      "pathwayIds": [
+        "mental-care"
+      ],
+      "lawIds": [],
+      "institutionIds": [
+        "mental-access"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "afford poverty rural transport wait fees"
+    },
+    {
+      "id": "MH-young",
+      "title": "Support for children and young people",
+      "url": "https://www.medicarementalhealth.gov.au/finding-help/kids-hubs",
+      "path": "/mental-health/young",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Families, carers and kin can seek help too.",
+      "keyPoints": [
+        "Kids Hubs generally support ages 0 to 12; check local catchment and intake restrictions.",
+        "headspace supports ages 12 to 25; check the selected program."
+      ],
+      "supportIds": [
+        "kids",
+        "headspace",
+        "twenty10"
+      ],
+      "pathwayIds": [],
+      "lawIds": [],
+      "institutionIds": [
+        "mental-access"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "youth child teenager school parent"
+    },
+    {
+      "id": "MH-accessible",
+      "title": "Accessible information and communication support",
+      "url": "https://www.health.nsw.gov.au/mentalhealth/services/consumers/Pages/easy-read-mental-health-info.aspx",
+      "path": "/mental-health/accessible",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Ask for information in a format you can use.",
+      "keyPoints": [
+        "Easy Read resources cover care, rights and legal orders.",
+        "Ask about interpreters, disability access and a support person."
+      ],
+      "supportIds": [
+        "easy-read",
+        "healthy-mind",
+        "transcultural"
+      ],
+      "pathwayIds": [],
+      "lawIds": [],
+      "institutionIds": [
+        "mental-access"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "intellectual cognitive disability literacy language interpreter"
+    },
+    {
+      "id": "MH-culture",
+      "title": "Culture, identity and rural community support",
+      "url": "https://www.health.nsw.gov.au/mentalhealthhelp",
+      "path": "/mental-health/culture",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Find support that respects your culture, identity and community.",
+      "keyPoints": [
+        "Check the actual program’s eligibility and access arrangements."
+      ],
+      "supportIds": [
+        "wellmob",
+        "twenty10",
+        "transcultural",
+        "rural"
+      ],
+      "pathwayIds": [],
+      "lawIds": [],
+      "institutionIds": [
+        "mental-access"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "Aboriginal Torres Strait Islander multicultural refugee lesbian gay trans remote rural"
+    },
+    {
+      "id": "MH-carers",
+      "title": "Supporting someone and finding support for yourself",
+      "url": "https://slhd.health.nsw.gov.au/mental-health/hospital-admission/caring-someone-mental-illness",
+      "path": "/mental-health/carers",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Families, friends and carers need support too.",
+      "keyPoints": [
+        "Ask about designated carers and principal care providers.",
+        "Being a relative does not give unlimited access to private health information."
+      ],
+      "supportIds": [
+        "carers",
+        "transcultural",
+        "mhas"
+      ],
+      "pathwayIds": [],
+      "lawIds": [
+        "act-2007-008"
+      ],
+      "institutionIds": [
+        "legal-aid"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "family friend parent consent privacy"
+    },
+    {
+      "id": "MH-voluntary",
+      "title": "Voluntary hospital care and understanding your status",
+      "url": "https://mhrt.nsw.gov.au/civil-patients/review-of-a-voluntary-patient.html",
+      "path": "/mental-health/voluntary",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Ask whether you are a voluntary or involuntary patient.",
+      "keyPoints": [
+        "Ask for the appropriate rights statement.",
+        "Seek independent advice if you are told you cannot leave; the process depends on your legal status."
+      ],
+      "supportIds": [
+        "easy-read",
+        "visitors",
+        "mhas"
+      ],
+      "pathwayIds": [],
+      "lawIds": [
+        "act-2007-008"
+      ],
+      "institutionIds": [
+        "mental-health",
+        "legal-aid"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "hospital voluntary stay leave discharge"
+    },
+    {
+      "id": "MH-discharge",
+      "title": "Request discharge and appeal a refusal",
+      "url": "https://mhrt.nsw.gov.au/civil-patients/involuntary-patient-orders.html",
+      "path": "/mental-health/discharge",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Discharge requests and appeals are specific legal processes.",
+      "keyPoints": [
+        "Ask for the request and response to be recorded.",
+        "Read the prerequisites below and obtain help for your order."
+      ],
+      "supportIds": [
+        "mhas",
+        "visitors"
+      ],
+      "pathwayIds": [
+        "mental-discharge"
+      ],
+      "lawIds": [
+        "act-2007-008"
+      ],
+      "institutionIds": [
+        "mental-health",
+        "legal-aid"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "involuntary detention release leave"
+    },
+    {
+      "id": "MH-cto",
+      "title": "Community treatment orders: change and revocation",
+      "url": "https://mhrt.nsw.gov.au/civil-patients/community-treatment-orders/varying-or-revoking-community-treatment-orders.html",
+      "path": "/mental-health/cto",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "A community treatment order is a legal order.",
+      "keyPoints": [
+        "Different rules govern variation, revocation and appeal."
+      ],
+      "supportIds": [
+        "mhas",
+        "visitors"
+      ],
+      "pathwayIds": [
+        "mental-cto"
+      ],
+      "lawIds": [
+        "act-2007-008"
+      ],
+      "institutionIds": [
+        "mental-health",
+        "legal-aid"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "CTO medication treatment plan community order"
+    },
+    {
+      "id": "MH-treatment",
+      "title": "Treatment concerns, consent and electroconvulsive therapy",
+      "url": "https://mhrt.nsw.gov.au/civil-patients/electro-convulsive-therapy.html",
+      "path": "/mental-health/treatment",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Ask what treatment is proposed and what consent or Tribunal authority is required.",
+      "keyPoints": [
+        "Electroconvulsive therapy has specific procedures; ask about your hearing rights."
+      ],
+      "supportIds": [
+        "mhas",
+        "visitors",
+        "easy-read"
+      ],
+      "pathwayIds": [],
+      "lawIds": [
+        "act-2007-008"
+      ],
+      "institutionIds": [
+        "mental-health",
+        "legal-aid"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "ECT consent medication"
+    },
+    {
+      "id": "MH-complaint",
+      "title": "Unsafe care, restraint, seclusion or mistreatment",
+      "url": "https://mhrt.nsw.gov.au/the-tribunal/appeals.html",
+      "path": "/mental-health/complaint",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Seek independent help with concerns about treatment or conditions.",
+      "keyPoints": [
+        "An Official Visitor can help you raise concerns. The Health Care Complaints Commission accepts complaints within its jurisdiction.",
+        "If you choose, record what happened, when and what help you want. Additional documents are optional."
+      ],
+      "supportIds": [
+        "visitors",
+        "mhas"
+      ],
+      "pathwayIds": [
+        "health-complaint"
+      ],
+      "lawIds": [
+        "act-1993-105",
+        "act-2007-008"
+      ],
+      "institutionIds": [
+        "hccc",
+        "legal-aid"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "abuse coercion unsafe neglect restraint seclusion complaint"
+    },
+    {
+      "id": "MH-orders",
+      "title": "Challenge a Mental Health Review Tribunal decision",
+      "url": "https://mhrt.nsw.gov.au/the-tribunal/appeals.html",
+      "path": "/mental-health/orders",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Identify the order before choosing a review or appeal.",
+      "keyPoints": [
+        "Check the reasons and receipt date with a lawyer promptly."
+      ],
+      "supportIds": [
+        "mhas"
+      ],
+      "pathwayIds": [
+        "mental-order-appeal"
+      ],
+      "lawIds": [
+        "act-2007-008"
+      ],
+      "institutionIds": [
+        "mental-health",
+        "supreme-court",
+        "legal-aid"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "appeal tribunal hearing deadline"
+    },
+    {
+      "id": "MH-financial",
+      "title": "Guardianship and financial-management orders",
+      "url": "https://www.legalaid.nsw.gov.au/my-problem-is-about/mental-health/guardianship-and-financial-management-orders",
+      "path": "/mental-health/financial",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Read the actual order to understand which decisions it covers.",
+      "keyPoints": [
+        "Guardianship and financial management concern different decisions.",
+        "Ask about advice and representation for the particular order."
+      ],
+      "supportIds": [
+        "mhas",
+        "easy-read"
+      ],
+      "pathwayIds": [],
+      "lawIds": [
+        "act-1987-257",
+        "act-2009-049"
+      ],
+      "institutionIds": [
+        "legal-aid",
+        "ncat"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "guardian finances capacity money autonomy"
+    },
+    {
+      "id": "MH-records",
+      "title": "Health records and privacy concerns",
+      "url": "https://www.ipc.nsw.gov.au/resources/fact-sheet-providing-access-health-information-guidance-health-care-providers",
+      "path": "/mental-health/records",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Ask the record holder how to request access or a correction.",
+      "keyPoints": [
+        "The process depends on who holds the information.",
+        "The public-sector route below applies to New South Wales agencies; private providers may have a different process."
+      ],
+      "supportIds": [
+        "mhas"
+      ],
+      "pathwayIds": [
+        "privacy"
+      ],
+      "lawIds": [
+        "act-2002-071",
+        "act-1998-133"
+      ],
+      "institutionIds": [
+        "ipc",
+        "legal-aid"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "records confidentiality privacy correction"
+    },
+    {
+      "id": "MH-ndis",
+      "title": "Psychosocial disability and disability support decision review",
+      "url": "https://www.ndis.gov.au/participants/changing-your-plan/decision-reviews/how-request-review-decision",
+      "path": "/mental-health/ndis",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Mental health care and National Disability Insurance Scheme eligibility are different processes.",
+      "keyPoints": [
+        "Use the decision-review route for a reviewable agency decision.",
+        "Keep the decision and receipt date and ask for help explaining why you disagree."
+      ],
+      "supportIds": [
+        "carers",
+        "grow"
+      ],
+      "pathwayIds": [
+        "ndis"
+      ],
+      "lawIds": [],
+      "institutionIds": [
+        "art",
+        "legal-aid"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "psychosocial NDIS NDIA disability review"
+    },
+    {
+      "id": "MH-forensic",
+      "title": "Forensic and correctional mental health proceedings",
+      "url": "https://mhrt.nsw.gov.au/forensic-patients/forensic-procedures.html",
+      "path": "/mental-health/forensic",
+      "group": "mental-health",
+      "kind": "ClarityPath summary of linked official sources",
+      "checkedAt": "2026-11-10",
+      "overview": "Forensic and correctional patients have specialised legal processes.",
+      "keyPoints": [
+        "Ask the Mental Health Advocacy Service about your status and order.",
+        "Use forensic guidance rather than the civil discharge route here."
+      ],
+      "supportIds": [
+        "mhas"
+      ],
+      "pathwayIds": [],
+      "lawIds": [
+        "act-2007-008"
+      ],
+      "institutionIds": [
+        "mental-health",
+        "legal-aid"
+      ],
+      "inheritTopicLaws": false,
+      "keywords": "forensic prison criminal unfit trial"
+    }
+  ],
+  "updates": [
+    {
+      "id": "NSW-0011",
+      "overview": "Find care, peer support, accessible information and independent advocacy before creating a case.",
+      "supportIds": [
+        "medicare",
+        "nsw-line",
+        "kids",
+        "headspace",
+        "grow",
+        "healthy-mind",
+        "twenty10",
+        "wellmob",
+        "rural",
+        "transcultural",
+        "carers",
+        "mhas",
+        "visitors",
+        "easy-read",
+        "lifeline"
+      ],
+      "pathwayIds": [
+        "mental-care"
+      ],
+      "institutionIds": [
+        "mental-access",
+        "legal-aid"
+      ]
+    },
+    {
+      "id": "NSW-0345",
+      "overview": "Ask for your rights statement, detention basis and independent legal advice.",
+      "sourceNotice": "Legal Aid marks this hospitalisation guide as under review and potentially out of date. Use the linked Tribunal discharge guidance and obtain advice for your current order.",
+      "supportIds": [
+        "mhas",
+        "visitors",
+        "easy-read"
+      ],
+      "pathwayIds": [
+        "mental-discharge"
+      ],
+      "institutionIds": [
+        "mental-health",
+        "legal-aid"
+      ],
+      "sourceLinks": [
+        {
+          "title": "Tribunal discharge procedure",
+          "url": "https://mhrt.nsw.gov.au/civil-patients/involuntary-patient-orders.html"
+        }
+      ]
+    },
+    {
+      "id": "NSW-0346",
+      "overview": "Independent legal help with mental health and guardianship laws.",
+      "keyPoints": [
+        "Legal Aid says it represents people at a Mental Health Inquiry unless they decline. Ask about representation for other proceedings."
+      ],
+      "supportIds": [
+        "mhas"
+      ],
+      "institutionIds": [
+        "legal-aid"
+      ]
+    },
+    {
+      "id": "NSW-0347",
+      "supportIds": [
+        "mhas",
+        "easy-read"
+      ],
+      "lawIds": [
+        "act-1987-257",
+        "act-2009-049"
+      ],
+      "institutionIds": [
+        "legal-aid",
+        "ncat"
+      ]
+    },
+    {
+      "id": "NSW-0348",
+      "supportIds": [
+        "carers",
+        "transcultural",
+        "mhas"
+      ],
+      "institutionIds": [
+        "legal-aid"
+      ]
+    }
+  ]
+}

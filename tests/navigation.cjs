@@ -9,7 +9,7 @@ const server=http.createServer((req,res)=>{try{const url=new URL(req.url,base);i
   browser=await chromium.launch({headless:true,...(process.platform==='win32'?{channel:'msedge'}:{})});
   const context=await browser.newContext({viewport:{width:360,height:800}}),page=await context.newPage(),errors=[];
   page.on('pageerror',error=>errors.push(error.message));
-  const pages=[['index.html','Home'],['workspace.html','Workspace'],['setup.html','Setup'],['operating.html','Guide'],['build.html','Build'],['handoff.html','Handoff'],['disclaimer.html','Disclaimer']];
+  const pages=[['index.html','Home'],['first-aid.html','Psychological First Aid'],['workspace.html','Workspace'],['setup.html','Setup'],['operating.html','Guide'],['build.html','Build'],['handoff.html','Handoff'],['disclaimer.html','Disclaimer']];
   for(const [file,title]of pages){
    await page.goto(base+file);
    const menu=page.getByRole('navigation',{name:'Main',exact:true}),footer=page.getByRole('navigation',{name:'Footer',exact:true});
@@ -42,6 +42,6 @@ const server=http.createServer((req,res)=>{try{const url=new URL(req.url,base);i
   assert(!JSON.stringify(saved).includes('Synthetic private navigation canary'));assert(!Object.keys(saved).some(key=>key.includes('workspace')));
   for(const entry of Object.values(saved))assert.deepEqual(Object.keys(JSON.parse(entry)),['section']);
   assert.deepEqual(errors,[]);await context.close();
-  console.log(JSON.stringify({sevenConsistentPages:true,currentPageMarkers:true,mobileTouchTargets:true,noMobileOverflow:true,previousNextSteps:true,publicReadingPositionRestored:true,currentPageReturnsToTop:true,privateWorkspaceGuardPreserved:true,publicPositionContainsNoCaseData:true,browserErrors:errors}));
+  console.log(JSON.stringify({eightConsistentPages:true,currentPageMarkers:true,mobileTouchTargets:true,noMobileOverflow:true,previousNextSteps:true,publicReadingPositionRestored:true,currentPageReturnsToTop:true,privateWorkspaceGuardPreserved:true,publicPositionContainsNoCaseData:true,browserErrors:errors}));
  }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve))}
 })().catch(error=>{console.error(error);process.exitCode=1});

@@ -2,7 +2,7 @@ import * as C from './core.mjs';
 import * as V from './crypto.mjs';
 import{GitHubStore}from'./github.mjs';
 import{connectAI}from'./ai.mjs';
-import{mountCatalogue}from'./catalogue.mjs?v=3.3.0';
+import{mountCatalogue}from'./catalogue.mjs?v=3.4.0';
 import{makeHandoff}from'./output.mjs';
 import{protectHandoff}from'./protected-handoff.mjs';
 const $=id=>document.getElementById(id),E=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e};
