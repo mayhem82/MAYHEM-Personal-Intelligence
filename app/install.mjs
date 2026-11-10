@@ -6,7 +6,7 @@ window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();pro
 window.addEventListener('appinstalled',()=>{promptEvent=null;installed()});
 if(standalone())installed();
 if(button)button.addEventListener('click',async()=>{
- if(standalone()){location.href='./workspace.html';return}
+ if(standalone()){location.href='./index.html';return}
  if(promptEvent){const event=promptEvent;promptEvent=null;button.disabled=true;try{await event.prompt();const result=await event.userChoice;if(result.outcome==='accepted'){instructions.textContent='Installation accepted. Your browser will complete the installation.'}else instructions.textContent='Installation dismissed. You can choose Install app again later.';help.hidden=false;button.setAttribute('aria-expanded','true')}catch{showInstructions()}finally{button.disabled=false;delete button.dataset.ready}return}
  showInstructions();
 });

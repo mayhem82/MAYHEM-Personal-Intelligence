@@ -1,7 +1,7 @@
 CLARITYPATH OPERATING GUIDE
 
 START
-Open workspace.html. It starts empty. Choose the visible Create situation button from any section. The situation dropdown lists saved situations and is disabled when none exist. Creation opens the real form and then advances to State what you know. Use Create another situation in the dropdown or the same button to add another. Create a situation with a title, issue, jurisdiction if known, background and desired outcome. Each situation is isolated. You can use the actual application to demonstrate the workflow; there is no separate prefilled demonstration.
+Launch ClarityPath to open Home, then choose Open my workspace. Existing installed copies may take time to receive a changed starting page. Returning to an application that is still open can resume its current page. The public situation catalogue is available immediately; private cases start empty. Choose the visible Create situation button from any section. Your saved cases lists your private situations and is disabled when none exist. Creation opens the real form and then advances to State what you know. Use Create another situation in the dropdown or the same button to add another. Create a situation with a title, issue, jurisdiction if known, background and desired outcome. Each situation is isolated. You can use the actual application to demonstrate the workflow; there is no separate prefilled demonstration.
 
 KEEP YOUR WORK
 Temporary work stays in memory only. Under Storage & connections, enable encrypted device saving with a passphrase of at least 12 characters, download an encrypted backup, or connect an initialised private GitHub repository you own.

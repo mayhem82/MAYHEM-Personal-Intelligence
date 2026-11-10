@@ -39,3 +39,6 @@ Navigation: preserve the same main menu, footer links and current-page marker ac
 
 PSYCHOLOGICAL FIRST AID
 Provide first-aid.html as a readable public page titled Psychological First Aid. Use full terms in its explanations and shared navigation. Include practical supportive first steps with primary sources, separate urgent crisis access and voluntary care, source-verified support cards, and distinct treatment-complaint and legal-order routes. Show the actual verification basis; directory listing does not establish endorsement or accreditation. No case intake, assessment or private-data transmission is required. Include the matching catalogue and public sources in the replication pack.
+
+APPLICATION START
+Installed ClarityPath launches Home at index.html. Keep the manifest identity and repository-relative scope stable when changing its starting page. The Open app action also opens Home; Open my workspace remains the explicit route into the workspace. Verify Home launch online and offline under the new owner’s repository path. Existing installed copies receive the starting-page update through their browser’s installation update process; reopening an existing window can resume its current page.

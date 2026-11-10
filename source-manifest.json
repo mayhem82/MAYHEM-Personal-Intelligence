@@ -1,11 +1,11 @@
 {
   "format": "claritypath-public-source-v1",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "files": [
     {
       "path": "first-aid.html",
       "bytes": 8690,
-      "sha256": "3358163e71998869333894a19d733c7bb2ac064bb0627c5934d60a57739efda9"
+      "sha256": "da284dfa94a511842720d37316edf01695b32235ec1dc266811db9e94ba0b107"
     },
     {
       "path": "app/first-aid.mjs",
@@ -65,12 +65,12 @@
     {
       "path": "setup.html",
       "bytes": 33022,
-      "sha256": "bd3f73b2010726a8ddce3a7028f8b6f990a5e7e619db336a764d0f36345abb61"
+      "sha256": "6ddc0c647c22be64ea3a3f093ccd284cd3331affb142d582013b1f76bb653fa0"
     },
     {
       "path": "operating.html",
-      "bytes": 17472,
-      "sha256": "6d1d6b4ba2384e5ac089dcf445ab13c56719b2f6a0507588a6cfa75c721dd047"
+      "bytes": 17735,
+      "sha256": "62611ecdd8000a5e357a6e348eccff856b49a82990d0c99ebf7d7fe98dca072b"
     },
     {
       "path": "scripts/render-setup.mjs",
@@ -94,18 +94,18 @@
     },
     {
       "path": "manifest.webmanifest",
-      "bytes": 646,
-      "sha256": "41bdb99e3572744cff153cb4cba56ffa3c59d185488c03f7129adee1ba317620"
+      "bytes": 753,
+      "sha256": "aee9fb5c1033bfaf99fb387a1c144d442e4122b8c581d20f3b406e723b7a5fb3"
     },
     {
       "path": "sw.js",
       "bytes": 2347,
-      "sha256": "e6e7489e30ac71aa96ef09e588e8c43e243a245dd2fbca8534b6f468cba85612"
+      "sha256": "809734519dca8d20494ae19c26afbda64f75bb644501b77b8d5d2e631b25d53d"
     },
     {
       "path": "app/install.mjs",
-      "bytes": 2469,
-      "sha256": "b237370e672b5d42a2dbedbc8df5e7dc85d3c0d63119e2677f34a0a795c30cc1"
+      "bytes": 2465,
+      "sha256": "9051047825612eed163c3ff0ba1ba2e7732c8e5c30d76064fa90c27b0176de5f"
     },
     {
       "path": "assets/icon-192.png",
@@ -138,33 +138,33 @@
     },
     {
       "path": "tests/pwa.cjs",
-      "bytes": 6916,
-      "sha256": "e31836677deca1de5dd03e6da906e15cb8c8f19646191dc4261fc6edd4e0e844"
+      "bytes": 7496,
+      "sha256": "e89aaf76b02ddc21956008bc275cb8c88030625076fa0139f06f98dcb9414100"
     },
     {
       "path": "disclaimer.html",
       "bytes": 7806,
-      "sha256": "2402f2473bfea2fbdc5e37ef15899128bbe63a94deed2afd2fe14b436ce8cb5b"
+      "sha256": "14045841b00ec74d26d7ee1380ee1ee507dfff58a28810d9238fb428ddbef6f6"
     },
     {
       "path": "index.html",
-      "bytes": 6750,
-      "sha256": "a0e1979963ac5bc12361a2c935fc60fd6c2b505f494ed472607dbf39fc159fd9"
+      "bytes": 6746,
+      "sha256": "f281be0d2983bb274e7900803180dc133cdda898af9533c02f62f5f7f5da94a2"
     },
     {
       "path": "workspace.html",
       "bytes": 3593,
-      "sha256": "9fbef15e6d1234035b1cb44749e67ad1553343f4a5fd07613f3bbdbae67c602d"
+      "sha256": "2250a26fcec5022bcd253160790fced7938e699495354dff173b87447833ddf7"
     },
     {
       "path": "build.html",
-      "bytes": 12139,
-      "sha256": "f8b958a0c065d3b0526768f100730965d6e3d762dc4e6e3bdcf965e7f1e18b18"
+      "bytes": 12659,
+      "sha256": "0313a4b1b17e6ea019d85c9f4ac67681ae34cfdde4b548f2e1f4f52f0beda1fe"
     },
     {
       "path": "claritypath-public-build.txt",
-      "bytes": 9307,
-      "sha256": "be526d85d2fe5f3e7a5ea8d2c771f3b47a9e16a206b151301bfad6649c72a465"
+      "bytes": 9827,
+      "sha256": "a7c9d777cf136f2a03c9c5e9056c64a499faf2aff8f2b7efbba08a0fc96ed427"
     },
     {
       "path": "app/catalogue.mjs",
@@ -204,7 +204,7 @@
     {
       "path": "handoff.html",
       "bytes": 3359,
-      "sha256": "010f041db930c76123a257074984c2554b711fe8612c008cd8cd586f3bb7aa2d"
+      "sha256": "12c30e9aefa5500fd6cdacc88c9f4810741b650ec60e0752f68acbfc627c2085"
     },
     {
       "path": "app/handoff-reader.mjs",
@@ -298,8 +298,8 @@
     },
     {
       "path": "OPERATING-GUIDE.txt",
-      "bytes": 11559,
-      "sha256": "07ed012156d4f7301e3a35218ce49f33eecf9ced576ec1d3df1d045f133982f1"
+      "bytes": 11822,
+      "sha256": "9eb9066aead53912e5873689ce9d17a6dce096d7003fedcd4fdd1f4534995e29"
     },
     {
       "path": "README.md",
@@ -308,13 +308,13 @@
     },
     {
       "path": "release-status.json",
-      "bytes": 10019,
-      "sha256": "2d25ce6df969f0d5c5ed7de8be7e343f137904d4fc53cca8b109786b1df22856"
+      "bytes": 10940,
+      "sha256": "76c541f8b8164be41222d5d8aa7ebba8b80988c4dc13eb95c518cf63ffad3a62"
     },
     {
       "path": "package.json",
       "bytes": 807,
-      "sha256": "2ea8da75c86e461220f1c033247bf6992bef59e147df5013abf133748453956f"
+      "sha256": "9e51866ef6409892d0f140ba82cf7c5619694099131e4862a8f1ff0ab4b9704a"
     },
     {
       "path": ".gitignore",
