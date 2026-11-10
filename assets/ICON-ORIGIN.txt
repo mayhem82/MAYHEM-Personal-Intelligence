@@ -1,0 +1,6 @@
+ClarityPath branding assets
+The homepage uses the user's supplied 12203.jpg without alteration (assets/claritypath-logo.jpg).
+The app-icon master was prepared with the built-in image-generation tool from that image, then resized deterministically for browser icon sizes: icon-192.png, icon-512.png and icon-180.png. The master remains in the working project; the exact production files are included in the replication pack.
+Creator notice: © 2026 Julian Minko · Architect of MAYHEM · ClarityPath.
+Generation prompt:
+Prepare the attached existing ClarityPath logo as a square installable application icon. This is a faithful format adaptation, not a redesign. Preserve the original gold balanced scales, curved glowing gold path and the exact word ClarityPath (white Clarity, gold Path) on the original deep navy background. Center the complete design on a square navy canvas, with ample safe margin on all sides for rounded or circular app-icon masks. Do not add anything, do not change the mark or typography or wording, do not add a border, and do not draw an enclosing rounded rectangle. Output a single square opaque image suitable for a PWA launcher icon.

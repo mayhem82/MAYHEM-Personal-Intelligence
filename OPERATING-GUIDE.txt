@@ -53,3 +53,6 @@ The receiving AI gets an explicit implementation/setup task inside that pack; no
 NSW SITUATIONS AND ESCALATION
 Start with What is your situation? Browse or search the populated public catalogue without creating a case. Read the selected official guide, topic instruments, body/contact links and escalation prerequisites. Save a copy with Download this situation and pathway sources. Use this situation for a private case pre-fills a case form; nothing is created until you submit. Your saved cases is a separate selector.
 Pathways distinguish mandatory, conditional and direct routes. Check the decision/order-specific deadline and exception in the linked official source. An ordinary complaint does not automatically stop another filing deadline. Full external legal source text is read at its source.
+
+INSTALL CLARITYPATH
+Choose Install app on the homepage. Where the browser provides an installation prompt, accept it there. Otherwise follow the displayed browser-menu instructions; on iPhone/iPad use Safari, Share, Add to Home Screen. Installed launch opens the real workspace. Installation does not connect private storage or send case data. Public application files can work offline after caching; external source reading, GitHub saving and AI assistance still need their respective connections. Protect unsaved work and set up encrypted storage as described above.

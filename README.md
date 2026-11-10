@@ -37,3 +37,5 @@ The public NSW catalogue in app/nsw-catalogue.json is separate from private case
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath. Preserve the creator notice in replicated installations. External source material retains its own attribution.
 
 The separate disclaimer.html page is linked throughout the site and included in the exact replication pack.
+
+Installable app: manifest.webmanifest and sw.js use relative paths for GitHub Pages and replicated destinations. Homepage installation uses browser-native prompts with a manual fallback. Only the explicit public application shell enters Cache Storage. Icon assets are reproduced exactly from base64 blocks in the complete source pack.
