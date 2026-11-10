@@ -1,6 +1,6 @@
 CLARITYPATH PUBLIC APPLICATION BUILD PACK
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath
-Release 3.2.3
+Release 3.3.0
 
 TASK FOR THE RECEIVING AI
 Replicate these exact public application files and configure only the actual owner’s authorised private-storage/hosting connections. Read claritypath-public-build.txt. Private MAYHEM specifications are not included, licensed for redistribution, or authorised as AI request context. Do not retrieve historical copies. Keep them outside the public project and all published packs. Preserve creator/source attribution. Binary blocks marked ENCODING: base64 must be decoded before writing; hashes and byte counts describe actual file bytes. Normalise text blocks to LF, run node scripts/package-release.mjs, then npm test.
@@ -33,13 +33,13 @@ UTF8_BYTES: 646
 ===== END FILE: manifest.webmanifest =====
 
 ===== BEGIN FILE: sw.js =====
-SHA256: e0f770e33621896c3c6064eac4e2f49af4b618b39ff1b95aeb1d28a0d487e30f
-UTF8_BYTES: 2035
+SHA256: efe8fd32f8920b51bcd64f808277bbd8693941ffb66e1333b59ff2b1d5f36c27
+UTF8_BYTES: 2103
 ===== CONTENT START =====
 // Only named public application resources enter Cache Storage. Case records,
 // credentials, GitHub/API calls, query payloads and external sources never do.
-const CACHE='claritypath-public-v3.2.3';
-const PUBLIC=['index.html','workspace.html','disclaimer.html','manifest.webmanifest','app/style.css','app/install.mjs','app/main.mjs','app/ai.mjs','app/core.mjs','app/crypto.mjs','app/github.mjs','app/output.mjs','app/catalogue.mjs','app/library.json','app/nsw-catalogue.json','assets/icon-192.png','assets/icon-512.png','assets/icon-180.png','assets/claritypath-logo.jpg'];
+const CACHE='claritypath-public-v3.3.0';
+const PUBLIC=['index.html','handoff.html','app/handoff-reader.mjs','app/protected-handoff.mjs','workspace.html','disclaimer.html','manifest.webmanifest','app/style.css','app/install.mjs','app/main.mjs','app/ai.mjs','app/core.mjs','app/crypto.mjs','app/github.mjs','app/output.mjs','app/catalogue.mjs','app/library.json','app/nsw-catalogue.json','assets/icon-192.png','assets/icon-512.png','assets/icon-180.png','assets/claritypath-logo.jpg'];
 const base=new URL(self.registration.scope),urls=PUBLIC.map(p=>new URL(p,base).href),allowed=new Set(urls);
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(urls)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const name of await caches.keys())if(name.startsWith('claritypath-public-')&&name!==CACHE)await caches.delete(name);await self.clients.claim()})()));
@@ -121,8 +121,8 @@ Prepare the attached existing ClarityPath logo as a square installable applicati
 ===== END FILE: assets/ICON-ORIGIN.txt =====
 
 ===== BEGIN FILE: tests/pwa.cjs =====
-SHA256: 6910f0bd8813978959fed653aff8ac1973879ef46572544bccc33f7906d4d3d2
-UTF8_BYTES: 5377
+SHA256: 26adcc77cbc825907385c288ac3b1d99eed963e9b18225aa6a5b51596c8f4956
+UTF8_BYTES: 6355
 ===== CONTENT START =====
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
 const{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
@@ -140,9 +140,9 @@ const server=http.createServer((req,res)=>{const url=new URL(req.url,base);if(!u
  await page.locator('#installApp').click();assert((await page.locator('#installInstructions').textContent()).includes('browser menu'));await page.screenshot({path:path.resolve(__dirname,'../install-home-mobile.png'),fullPage:false});
  await page.evaluate(()=>{const e=new Event('beforeinstallprompt',{cancelable:true});e.prompt=async()=>{window.syntheticPromptCalls=(window.syntheticPromptCalls||0)+1};e.userChoice=Promise.resolve({outcome:'accepted'});dispatchEvent(e)});await page.locator('#installApp').click();assert.equal(await page.evaluate(()=>window.syntheticPromptCalls),1);assert((await page.locator('#installInstructions').textContent()).includes('accepted'));
  await page.evaluate(()=>dispatchEvent(new Event('appinstalled')));assert.equal(await page.locator('#installApp').isVisible(),false);assert.equal(await page.locator('#installedApp').isVisible(),true);
- const cacheCheck=await page.evaluate(async()=>{await fetch('./private-case.json');await fetch('./index.html',{headers:{Authorization:'Bearer synthetic-test'}});const cache=await caches.open('claritypath-public-v3.2.3');const urls=(await cache.keys()).map(r=>r.url);return{urls,index:await(await cache.match(new URL('index.html',location.href).href)).text()}});assert(!cacheCheck.urls.some(u=>u.includes('private-case')));assert(!cacheCheck.index.includes('syntheticPrivate'));assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
- await context.setOffline(true);await page.goto(base+'workspace.html');await page.waitForFunction(()=>typeof claritypathStatus==='function');assert((await page.locator('#situationPicker option').count())>700);await page.locator('#newCase').click();await page.locator('#caseForm-title').fill('Synthetic offline PWA case');await page.locator('#caseForm button[type=submit]').click();await page.waitForFunction(()=>claritypathStatus().caseCount===1);assert.deepEqual(errors,[]);
- console.log(JSON.stringify({manifestAndIconDimensions:true,relativeInstallScope:true,chromiumInstallabilityErrors:eligibility.installabilityErrors,fallbackInstructions:true,syntheticPromptHandler:true,publicCacheExcludesPrivateAndAuthenticatedResponses:true,offlineWorkspaceAndCatalogue:true,mobileOverflow:false,physicalInstallationTested:false}));await context.close();
+ const cacheCheck=await page.evaluate(async()=>{await fetch('./private-case.json');await fetch('./index.html',{headers:{Authorization:'Bearer synthetic-test'}});const cache=await caches.open('claritypath-public-v3.3.0');const urls=(await cache.keys()).map(r=>r.url);return{urls,index:await(await cache.match(new URL('index.html',location.href).href)).text()}});assert(!cacheCheck.urls.some(u=>u.includes('private-case')));assert(!cacheCheck.index.includes('syntheticPrivate'));assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
+ await context.setOffline(true);await page.goto(base+'workspace.html');await page.waitForFunction(()=>typeof claritypathStatus==='function');assert((await page.locator('#situationPicker option').count())>700);await page.locator('#newCase').click();await page.locator('#caseForm-title').fill('Synthetic offline PWA case');await page.locator('#caseForm button[type=submit]').click();await page.waitForFunction(()=>claritypathStatus().caseCount===1);const {zip}=await import('../app/output.mjs'),{protectHandoff}=await import('../app/protected-handoff.mjs');const protectedZIP=zip([{name:'README.txt',data:'Synthetic offline recipient package'}]),protectedFile=await protectHandoff(protectedZIP,'synthetic offline passphrase');await page.goto(base+'handoff.html');await page.locator('#handoffFile').setInputFiles({name:'offline-protected.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(protectedFile))});await page.locator('#handoffPass').fill('synthetic offline passphrase');await page.locator('#handoffUnlock').click();await page.locator('#handoffResult:not([hidden])').waitFor();const offlineDownload=page.waitForEvent('download');await page.locator('#handoffDownload').click();assert.deepEqual(fs.readFileSync(await(await offlineDownload).path()),Buffer.from(protectedZIP));assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);assert.deepEqual(errors,[]);
+ console.log(JSON.stringify({manifestAndIconDimensions:true,relativeInstallScope:true,chromiumInstallabilityErrors:eligibility.installabilityErrors,fallbackInstructions:true,syntheticPromptHandler:true,publicCacheExcludesPrivateAndAuthenticatedResponses:true,offlineWorkspaceAndCatalogue:true,offlineProtectedHandoffReader:true,mobileOverflow:false,physicalInstallationTested:false}));await context.close();
 }finally{if(browser)await browser.close();await new Promise(r=>server.close(r))}})().catch(e=>{console.error(e);process.exitCode=1});
 
 ===== END FILE: tests/pwa.cjs =====
@@ -164,27 +164,27 @@ UTF8_BYTES: 7116
 ===== END FILE: disclaimer.html =====
 
 ===== BEGIN FILE: index.html =====
-SHA256: 16f16b9035bacb88a324450e66b0a88fba829f530e6aea6f3e824f482d956319
-UTF8_BYTES: 5613
+SHA256: de16e26d6f2f45f8be51e64dbe8ec26700c3544773500f3fa41b8f07c0a493fa
+UTF8_BYTES: 5724
 ===== CONTENT START =====
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1726"><meta name="referrer" content="no-referrer"><title>ClarityPath · Your information, your case</title><link rel="stylesheet" href="./app/style.css"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" href="./assets/icon-192.png"><link rel="apple-touch-icon" href="./assets/icon-180.png"><meta name="apple-mobile-web-app-title" content="ClarityPath"><meta name="theme-color" content="#0b1726"><script type="module" src="./app/install.mjs"></script></head><body><header class="top"><a class="brand" href="./index.html">ClarityPath</a><nav aria-label="Main"><a href="./workspace.html">Workspace</a><a href="./build.html">Build</a><a href="./OPERATING-GUIDE.txt">Operating guide</a><a href="./disclaimer.html">Disclaimer</a></nav></header><main class="site-main"><img class="home-logo" src="./assets/claritypath-logo.jpg" width="1280" height="715" alt="ClarityPath — gold scales of justice above a winding path"><p class="eyebrow">Personal intelligence · MAYHEM</p><h1>Understand your situation.<br>Build the case you can work with.</h1><p class="lead">Keep your own account, documents and discoveries together. Connect the evidence to its sources, understand what is known and unresolved, and prepare clear material for the person or institution you choose.</p><div class="actions"><a class="button" href="./workspace.html">Open my workspace</a><button id="installApp" class="install-app" type="button" aria-controls="installHelp" aria-expanded="false"><img src="./assets/icon-192.png" width="48" height="48" alt=""><span>Install app</span><span aria-hidden="true">↓</span></button><a id="installedApp" class="button" href="./workspace.html" hidden>Open app</a><a href="./build.html">Read the public build guide</a></div><div id="installHelp" class="notice" role="status" hidden><p id="installInstructions"></p><p class="meta">Installation opens ClarityPath as an app. It does not connect private storage or send your case data anywhere.</p></div><p class="meta">The workspace starts empty. You demonstrate this actual application by using it.</p><section><h2>Practical access to your information</h2><p>Understanding and organising your case should not depend on paying for professional help before you can begin. Use your own records and source-backed material to see what happened, what was required, what remains unanswered and what can be prepared next.</p><div class="stats"><div class="stat"><strong>Record</strong><span>Firsthand accounts and original files</span></div><div class="stat"><strong>Connect</strong><span>Dates, sources, reviews and legal obligations</span></div><div class="stat"><strong>Prepare</strong><span>Summaries and selected handoffs</span></div></div></section><section><h2>Solicitors Advocate Engine</h2><p>MAYHEM’s Legal Reasoning and Regulatory Exposure Engine provides three ordered functions: obligation mapping, exposure assessment and submission framing. The workspace records the cited duty, compares it with verified outcomes, and prepares a draft for the specified recipient, jurisdiction and purpose.</p><p>Original evidence, interpretation and advocacy stay separate. Firsthand accounts do not require an extra document to be recorded as evidence. The engine’s defined inputs and authority requirements remain visible.</p></section><section><h2>Your records stay under your control</h2><p>Keep an encrypted device copy or connect a separate private GitHub repository you own. The public repository contains application code. Private saving requires your repository connection; nothing is uploaded merely by opening the site.</p><p>Structured summaries work without an AI API. AI narrative assistance and live research use your configured service after you review the exact selected payload. No provider key is embedded in the public site.</p></section><section><h2>Sources you can inspect</h2><p>Private MAYHEM build specifications are not part of the public source library. The source library identifies what text is actually included and which entries are external links only. Add the provisions, decisions, official guidance and discoveries relevant to your case, with their actual passages, versions and links.</p><p>The application does not pretend that every law relevant to an unknown case has already been loaded. An absent passage is shown as a gap.</p></section><section><h2>Prepare the handoff you choose</h2><p>Select records and source material, review the summary and download a readable handoff with selected originals and a verification manifest. Creating that file does not contact a solicitor, lodge a complaint or share repository access.</p><a class="button" href="./workspace.html">Start with my situation</a></section><section><h2>Build and replication</h2><p>The separate Build page contains the public ClarityPath application guide, client and service source, operating guide, tests and implementation status. Private MAYHEM specifications are excluded. Copy or download one complete pack to reproduce the site under another owner’s account.</p><a href="./build.html">Open Build</a> · <a href="./release-status.json">Read implementation and test status</a></section></main><footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath · Owner-controlled case workspace · <a href="./build.html">Public build guide and release status</a> · <a href="./disclaimer.html">Disclaimer</a></footer></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1726"><meta name="referrer" content="no-referrer"><title>ClarityPath · Your information, your case</title><link rel="stylesheet" href="./app/style.css"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" href="./assets/icon-192.png"><link rel="apple-touch-icon" href="./assets/icon-180.png"><meta name="apple-mobile-web-app-title" content="ClarityPath"><meta name="theme-color" content="#0b1726"><script type="module" src="./app/install.mjs"></script></head><body><header class="top"><a class="brand" href="./index.html">ClarityPath</a><nav aria-label="Main"><a href="./workspace.html">Workspace</a><a href="./build.html">Build</a><a href="./OPERATING-GUIDE.txt">Operating guide</a><a href="./disclaimer.html">Disclaimer</a></nav></header><main class="site-main"><img class="home-logo" src="./assets/claritypath-logo.jpg" width="1280" height="715" alt="ClarityPath — gold scales of justice above a winding path"><p class="eyebrow">Personal intelligence · MAYHEM</p><h1>Understand your situation.<br>Build the case you can work with.</h1><p class="lead">Keep your own account, documents and discoveries together. Connect the evidence to its sources, understand what is known and unresolved, and prepare clear material for the person or institution you choose.</p><div class="actions"><a class="button" href="./workspace.html">Open my workspace</a><button id="installApp" class="install-app" type="button" aria-controls="installHelp" aria-expanded="false"><img src="./assets/icon-192.png" width="48" height="48" alt=""><span>Install app</span><span aria-hidden="true">↓</span></button><a id="installedApp" class="button" href="./workspace.html" hidden>Open app</a><a href="./build.html">Read the public build guide</a></div><div id="installHelp" class="notice" role="status" hidden><p id="installInstructions"></p><p class="meta">Installation opens ClarityPath as an app. It does not connect private storage or send your case data anywhere.</p></div><p class="meta">The workspace starts empty. You demonstrate this actual application by using it.</p><section><h2>Practical access to your information</h2><p>Understanding and organising your case should not depend on paying for professional help before you can begin. Use your own records and source-backed material to see what happened, what was required, what remains unanswered and what can be prepared next.</p><div class="stats"><div class="stat"><strong>Record</strong><span>Firsthand accounts and original files</span></div><div class="stat"><strong>Connect</strong><span>Dates, sources, reviews and legal obligations</span></div><div class="stat"><strong>Prepare</strong><span>Summaries and selected handoffs</span></div></div></section><section><h2>Solicitors Advocate Engine</h2><p>MAYHEM’s Legal Reasoning and Regulatory Exposure Engine provides three ordered functions: obligation mapping, exposure assessment and submission framing. The workspace records the cited duty, compares it with verified outcomes, and prepares a draft for the specified recipient, jurisdiction and purpose.</p><p>Original evidence, interpretation and advocacy stay separate. Firsthand accounts do not require an extra document to be recorded as evidence. The engine’s defined inputs and authority requirements remain visible.</p></section><section><h2>Your records stay under your control</h2><p>Keep an encrypted device copy or connect a separate private GitHub repository you own. The public repository contains application code. Private saving requires your repository connection; nothing is uploaded merely by opening the site.</p><p>Structured summaries work without an AI API. AI narrative assistance and live research use your configured service after you review the exact selected payload. No provider key is embedded in the public site.</p></section><section><h2>Sources you can inspect</h2><p>Private MAYHEM build specifications are not part of the public source library. The source library identifies what text is actually included and which entries are external links only. Add the provisions, decisions, official guidance and discoveries relevant to your case, with their actual passages, versions and links.</p><p>The application does not pretend that every law relevant to an unknown case has already been loaded. An absent passage is shown as a gap.</p></section><section><h2>Prepare the handoff you choose</h2><p>Select records and source material, review the summary and download a protected handoff with selected originals and a verification manifest. An explicitly chosen readable ZIP is also available. Creating that file does not contact a solicitor, lodge a complaint or share repository access.</p><a class="button" href="./workspace.html">Start with my situation</a> · <a href="./handoff.html">Open a protected handoff</a></section><section><h2>Build and replication</h2><p>The separate Build page contains the public ClarityPath application guide, client and service source, operating guide, tests and implementation status. Private MAYHEM specifications are excluded. Copy or download one complete pack to reproduce the site under another owner’s account.</p><a href="./build.html">Open Build</a> · <a href="./release-status.json">Read implementation and test status</a></section></main><footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath · Owner-controlled case workspace · <a href="./build.html">Public build guide and release status</a> · <a href="./disclaimer.html">Disclaimer</a></footer></body></html>
 
 ===== END FILE: index.html =====
 
 ===== BEGIN FILE: workspace.html =====
-SHA256: dcd3e6721924b175b6eb19c137799d7d56eff8f094c51361e307640d7c1d55b5
+SHA256: 81628313202ab37837a8851bae61ba1eee4733dc149a2fe0daf3e8b711abc6e2
 UTF8_BYTES: 2715
 ===== CONTENT START =====
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; object-src 'none'; base-uri 'none'; form-action 'self'"><title>ClarityPath · Personal workspace</title><link rel="stylesheet" href="./app/style.css?v=3.2.3"><script type="module" src="./app/main.mjs?v=3.2.3"></script><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" href="./assets/icon-192.png"><link rel="apple-touch-icon" href="./assets/icon-180.png"><meta name="apple-mobile-web-app-title" content="ClarityPath"><meta name="theme-color" content="#0b1726"><script type="module" src="./app/install.mjs"></script></head><body><a class="skip" href="#main">Skip to workspace</a><header class="top"><a class="brand" href="./index.html">ClarityPath</a><div id="connectionState">Temporary workspace<span id="saveState">Download or connect private storage to keep your work.</span></div><nav aria-label="Site"><a href="./build.html">Build</a><a href="./disclaimer.html">Disclaimer</a><button id="saveRemote" type="button" disabled>Save privately</button><button id="lock" class="secondary" type="button">Lock / close</button></nav></header><div id="unlockPanel" class="site-main" hidden></div><div id="appShell" class="shell"><aside><label for="situationPicker">What is your situation?</label><select id="situationPicker"><option value="">Loading NSW situations…</option></select><label for="savedCasePicker">Your saved cases</label><select id="savedCasePicker"><option value="">No saved situations yet</option></select><button id="newCase" class="case-create" type="button">Create situation</button><p id="caseHelp" class="meta">Browse situations above, create a private case, or open saved work in Storage &amp; connections.</p><nav id="sections" class="sections" aria-label="Workspace sections"></nav></aside><main id="main" class="content"></main></div><div id="status" role="status" aria-live="polite">Ready. Browse NSW situations or open private work.</div><dialog id="previewDialog"><h2 id="dialogTitle">Review</h2><div id="dialogBody"></div><div class="actions"><button id="dialogApprove">Approve</button><button id="dialogClose" class="secondary">Cancel / close</button></div></dialog><footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath. External source material retains its own attribution. · <a href="./disclaimer.html">Disclaimer</a></footer></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; object-src 'none'; base-uri 'none'; form-action 'self'"><title>ClarityPath · Personal workspace</title><link rel="stylesheet" href="./app/style.css?v=3.3.0"><script type="module" src="./app/main.mjs?v=3.3.0"></script><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" href="./assets/icon-192.png"><link rel="apple-touch-icon" href="./assets/icon-180.png"><meta name="apple-mobile-web-app-title" content="ClarityPath"><meta name="theme-color" content="#0b1726"><script type="module" src="./app/install.mjs"></script></head><body><a class="skip" href="#main">Skip to workspace</a><header class="top"><a class="brand" href="./index.html">ClarityPath</a><div id="connectionState">Temporary workspace<span id="saveState">Download or connect private storage to keep your work.</span></div><nav aria-label="Site"><a href="./build.html">Build</a><a href="./disclaimer.html">Disclaimer</a><button id="saveRemote" type="button" disabled>Save privately</button><button id="lock" class="secondary" type="button">Lock / close</button></nav></header><div id="unlockPanel" class="site-main" hidden></div><div id="appShell" class="shell"><aside><label for="situationPicker">What is your situation?</label><select id="situationPicker"><option value="">Loading NSW situations…</option></select><label for="savedCasePicker">Your saved cases</label><select id="savedCasePicker"><option value="">No saved situations yet</option></select><button id="newCase" class="case-create" type="button">Create situation</button><p id="caseHelp" class="meta">Browse situations above, create a private case, or open saved work in Storage &amp; connections.</p><nav id="sections" class="sections" aria-label="Workspace sections"></nav></aside><main id="main" class="content"></main></div><div id="status" role="status" aria-live="polite">Ready. Browse NSW situations or open private work.</div><dialog id="previewDialog"><h2 id="dialogTitle">Review</h2><div id="dialogBody"></div><div class="actions"><button id="dialogApprove">Approve</button><button id="dialogClose" class="secondary">Cancel / close</button></div></dialog><footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath. External source material retains its own attribution. · <a href="./disclaimer.html">Disclaimer</a></footer></body></html>
 
 
 ===== END FILE: workspace.html =====
 
 ===== BEGIN FILE: build.html =====
-SHA256: 5c01e0a76fc74d054a114f56a6e274a695658f00d269b21312929a5acf034b0a
-UTF8_BYTES: 7656
+SHA256: ee3b796399fd7d9f7968ffc58e56afdca360448697cf1c7787fd4c8175824f3d
+UTF8_BYTES: 8420
 ===== CONTENT START =====
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>ClarityPath · Public build guide</title><link rel="stylesheet" href="./app/style.css"><script type="module" src="./app/build-page.mjs"></script></head><body><header class="top"><a class="brand" href="./index.html">ClarityPath</a><nav aria-label="Main"><a href="./workspace.html">Working application</a><a href="./disclaimer.html">Disclaimer</a></nav></header><main class="site-main"><h1>Build and replicate ClarityPath</h1><p>Public application guide and exact public application files. Private MAYHEM specifications are excluded and are not offered for redistribution.</p><div class="actions"><button id="copyPack">Copy public application pack</button><a class="button" href="./build-pack.txt" download>Download public application pack</a><a href="./claritypath-public-build.txt">Public build guide as text</a></div><p id="buildStatus" role="status"></p><section id="spec"><pre>CLARITYPATH — PUBLIC APPLICATION BUILD GUIDE
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath
@@ -215,12 +215,14 @@ Verify actual file hashes, mobile selection, case entry, source handling, encryp
 AI is a required product feature. Build and connect source-linked AI summaries, explanations and legal research through the owner-controlled service, preserving payload review and source validation. The service code exists, but live operation requires actual private provider credentials, model and HTTPS hosting; do not describe an unconfigured connection as functioning AI. Do not silently downgrade the AI requirement to an optional future feature. Private MAYHEM build specifications are never included as hidden AI context.
 
 AI deployment includes a Node.js start path, a minimal service/Dockerfile, allowlisted .dockerignore, /healthz configuration-readiness endpoint and npm run check:ai authenticated no-case probe. Preserve the distinction between configured server settings and a verified live provider response. The workspace must reject unconfigured capabilities and clear a failed replacement connection. See service/README.txt for host settings and an explicitly approved synthetic-record provider check.
+
+Selected handoffs: make protected export the primary handoff action and require review plus a confirmed handoff passphrase. Encrypt the selected ZIP using the existing authenticated vault/object format with the separate selected-handoff context. Keep case titles, original filenames and source revision inside ciphertext. Preserve an explicit readable-ZIP action. Include handoff.html and its reader/encryption modules in the complete pack and public offline cache. The recipient unlocks on the device without account, workspace connection or uploads, then deliberately downloads a readable ZIP. Test excluded-record isolation, original-byte preservation, passphrase mismatch/cancellation, wrong keys, tampering, a fresh recipient browser and cached offline use.
 </pre></section><section><h2>Public release status</h2><p>Working NSW situation catalogue with 729 guide/situation entries in 22 topic groups, 171 legislative reading entry points, institution contacts and 16 expressly sourced escalation pathways; separate encrypted private-case workspace and canonical operator-recorded Solicitors Advocate workflow. External guide texts are linked, not reproduced in full. This is not a certified exhaustive register of NSW law.</p><a href="./release-status.json">Implementation and verification status</a> · <a href="./source-manifest.json">Public file manifest</a> · <a href="./OPERATING-GUIDE.txt">Operating guide</a></section></main><footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath · <a href="./disclaimer.html">Disclaimer</a></footer></body></html>
 ===== END FILE: build.html =====
 
 ===== BEGIN FILE: claritypath-public-build.txt =====
-SHA256: ee6106e28daeea9e6024cd8ad2d0051cd1c44f691399bf7eb913184d28ce76e9
-UTF8_BYTES: 5766
+SHA256: f86f248a12a84ed4ff37d73b6d449a1810c30b8d3d8759b48bba1b08c788654e
+UTF8_BYTES: 6530
 ===== CONTENT START =====
 CLARITYPATH — PUBLIC APPLICATION BUILD GUIDE
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath
@@ -251,6 +253,8 @@ Verify actual file hashes, mobile selection, case entry, source handling, encryp
 AI is a required product feature. Build and connect source-linked AI summaries, explanations and legal research through the owner-controlled service, preserving payload review and source validation. The service code exists, but live operation requires actual private provider credentials, model and HTTPS hosting; do not describe an unconfigured connection as functioning AI. Do not silently downgrade the AI requirement to an optional future feature. Private MAYHEM build specifications are never included as hidden AI context.
 
 AI deployment includes a Node.js start path, a minimal service/Dockerfile, allowlisted .dockerignore, /healthz configuration-readiness endpoint and npm run check:ai authenticated no-case probe. Preserve the distinction between configured server settings and a verified live provider response. The workspace must reject unconfigured capabilities and clear a failed replacement connection. See service/README.txt for host settings and an explicitly approved synthetic-record provider check.
+
+Selected handoffs: make protected export the primary handoff action and require review plus a confirmed handoff passphrase. Encrypt the selected ZIP using the existing authenticated vault/object format with the separate selected-handoff context. Keep case titles, original filenames and source revision inside ciphertext. Preserve an explicit readable-ZIP action. Include handoff.html and its reader/encryption modules in the complete pack and public offline cache. The recipient unlocks on the device without account, workspace connection or uploads, then deliberately downloads a readable ZIP. Test excluded-record isolation, original-byte preservation, passphrase mismatch/cancellation, wrong keys, tampering, a fresh recipient browser and cached offline use.
 
 ===== END FILE: claritypath-public-build.txt =====
 
@@ -15298,6 +15302,209 @@ test('specific escalation routes preserve prerequisites, alternatives and shorte
 
 ===== END FILE: tests/catalogue.test.mjs =====
 
+===== BEGIN FILE: handoff.html =====
+SHA256: 617f82217a64458a581b2417d61985ee4245b20dbac51f672c40ef45ad9dd271
+UTF8_BYTES: 2541
+===== CONTENT START =====
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>ClarityPath · Open a protected handoff</title>
+  <link rel="stylesheet" href="./app/style.css">
+  <script type="module" src="./app/handoff-reader.mjs"></script>
+</head>
+<body>
+  <header class="top"><a class="brand" href="./index.html">ClarityPath</a><nav aria-label="Main"><a href="./workspace.html">Workspace</a><a href="./disclaimer.html">Disclaimer</a></nav></header>
+  <main class="site-main">
+    <p class="eyebrow">Selected records · Private handoff</p>
+    <h1>Open a protected handoff</h1>
+    <p class="lead">Choose the protected file you received and enter its passphrase. It unlocks on this device.</p>
+    <p>This page sends neither the file nor the passphrase to a server. It needs no account or private-workspace connection.</p>
+    <form id="handoffForm" class="card">
+      <label for="handoffFile">Protected ClarityPath file</label>
+      <input id="handoffFile" type="file" accept=".json,application/json" required>
+      <label for="handoffPass">Handoff passphrase</label>
+      <input id="handoffPass" type="password" autocomplete="off" required minlength="12">
+      <button id="handoffUnlock" type="submit">Unlock on this device</button>
+    </form>
+    <p id="handoffStatus" role="status" aria-live="polite">Ask the sender for the passphrase through a separate channel.</p>
+    <section id="handoffResult" hidden>
+      <h2>The selected package is unlocked</h2>
+      <p>The ZIP you download below is readable. Extract it and open <strong>index.html</strong> for the summary, selected sources and original files. Keep the downloaded ZIP and its contents somewhere private.</p>
+      <div class="actions"><a id="handoffDownload" class="button" download="claritypath-selected-handoff.zip">Download readable ZIP</a><button id="handoffLock" class="secondary" type="button">Clear unlocked package</button></div>
+      <p class="meta">Clearing this page releases its unlocked copy. Downloads already saved on your device remain there.</p>
+    </section>
+  </main>
+  <footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath · <a href="./disclaimer.html">Disclaimer</a></footer>
+</body>
+</html>
+
+===== END FILE: handoff.html =====
+
+===== BEGIN FILE: app/handoff-reader.mjs =====
+SHA256: fc40226a17911ccd14a34d4cb06f985ddd2cc3c8099ce3118762078af3cbf4cf
+UTF8_BYTES: 2393
+===== CONTENT START =====
+import { openProtectedHandoff, MAX_PROTECTED_FILE_BYTES } from './protected-handoff.mjs';
+
+const form = document.getElementById('handoffForm');
+const fileInput = document.getElementById('handoffFile');
+const passInput = document.getElementById('handoffPass');
+const unlock = document.getElementById('handoffUnlock');
+const result = document.getElementById('handoffResult');
+const link = document.getElementById('handoffDownload');
+const status = document.getElementById('handoffStatus');
+let downloadURL = null, generation = 0;
+
+function clearResult() {
+  generation++;
+  if (downloadURL) URL.revokeObjectURL(downloadURL);
+  downloadURL = null;
+  link.removeAttribute('href');
+  result.hidden = true;
+  passInput.value = '';
+}
+
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  if (unlock.disabled) return;
+  const file = fileInput.files[0], passphrase = passInput.value;
+  clearResult();
+  const operation = generation;
+  unlock.disabled = true;
+  fileInput.disabled = true;
+  try {
+    if (!file || file.size > MAX_PROTECTED_FILE_BYTES) throw Error('Choose a protected ClarityPath handoff file of up to 270 MB.');
+    status.textContent = 'Unlocking on this device…';
+    let envelope;
+    try { envelope = JSON.parse(await file.text()); }
+    catch { throw Error('The selected file is not a supported protected handoff. The source file is unchanged.'); }
+    const bytes = await openProtectedHandoff(envelope, passphrase);
+    if (operation !== generation) return;
+    downloadURL = URL.createObjectURL(new Blob([bytes], { type: 'application/zip' }));
+    link.href = downloadURL;
+    result.hidden = false;
+    status.textContent = 'Unlocked on this device. Download the readable ZIP when ready. Nothing was uploaded.';
+    link.focus();
+  } catch (error) {
+    status.textContent = error.message;
+  } finally {
+    passInput.value = '';
+    unlock.disabled = false;
+    fileInput.disabled = false;
+  }
+});
+
+fileInput.addEventListener('change', () => { clearResult(); status.textContent = 'Enter the passphrase for this protected handoff.'; });
+document.getElementById('handoffLock').addEventListener('click', () => {
+  clearResult();
+  form.reset();
+  status.textContent = 'Unlocked copy cleared from this page. Previously saved downloads remain on your device.';
+  fileInput.focus();
+});
+addEventListener('pagehide', () => { clearResult(); form.reset(); });
+
+===== END FILE: app/handoff-reader.mjs =====
+
+===== BEGIN FILE: app/protected-handoff.mjs =====
+SHA256: 093fe1b103b8d7b652261818142d3b5ce881b85eff72c54f7998189fee99c75e
+UTF8_BYTES: 1899
+===== CONTENT START =====
+import { createVault, unlockVault, encrypt, decrypt } from './crypto.mjs';
+
+const FORMAT = 'claritypath-protected-handoff-v1';
+const CONTEXT = 'selected-handoff-zip-v1';
+export const MAX_HANDOFF_BYTES = 200_000_000;
+export const MAX_PROTECTED_FILE_BYTES = 270_000_000;
+
+function checkArchive(bytes) {
+  if (!(bytes instanceof Uint8Array) || bytes.length < 22 || bytes.length > MAX_HANDOFF_BYTES || bytes[0] !== 0x50 || bytes[1] !== 0x4b || bytes[2] !== 3 || bytes[3] !== 4) {
+    throw Error('Choose a selected ZIP handoff of up to 200 MB. Export fewer files if necessary.');
+  }
+}
+
+export async function protectHandoff(bytes, passphrase) {
+  checkArchive(bytes);
+  const { header, key } = await createVault(passphrase);
+  return { format: FORMAT, header, payload: await encrypt(key, bytes, CONTEXT) };
+}
+
+export async function openProtectedHandoff(envelope, passphrase) {
+  const header = envelope?.header, payload = envelope?.payload;
+  const base64 = (value, length) => typeof value === 'string' && value.length === length && /^[A-Za-z0-9+/]+={0,2}$/.test(value);
+  if (envelope?.format !== FORMAT || header?.format !== 'claritypath-vault-v1' || header.iterations !== 600000 ||
+      !base64(header.salt, 24) || !base64(header.iv, 16) || !base64(header.wrappedKey, 64) ||
+      payload?.format !== 'claritypath-object-v1' || payload.context !== CONTEXT || !base64(payload.iv, 16) ||
+      typeof payload.data !== 'string' || payload.data.length < 32 || payload.data.length > Math.ceil((MAX_HANDOFF_BYTES + 16) / 3) * 4 ||
+      payload.data.length % 4 !== 0 || !/^[A-Za-z0-9+/]+={0,2}$/.test(payload.data)) {
+    throw Error('This is not a supported protected ClarityPath handoff, or the file is damaged. The source file is unchanged.');
+  }
+  const key = await unlockVault(header, passphrase);
+  const bytes = await decrypt(key, payload, CONTEXT, true);
+  checkArchive(bytes);
+  return bytes;
+}
+
+===== END FILE: app/protected-handoff.mjs =====
+
+===== BEGIN FILE: tests/handoff.test.mjs =====
+SHA256: bda9da0b37080e214589031cd207f40c5f9578aa8f60dc7ebace878cd07e4529
+UTF8_BYTES: 3519
+===== CONTENT START =====
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import * as C from '../app/core.mjs';
+import { makeHandoff, zip } from '../app/output.mjs';
+import { protectHandoff, openProtectedHandoff } from '../app/protected-handoff.mjs';
+
+test('protected selected handoff hides content, preserves exact ZIP bytes and records its revision', async () => {
+  const state = C.empty(), caseId = C.id('CASE');
+  await C.append(state, 'case.created', caseId, { id: caseId, title: 'Synthetic private case', background: 'Selected background', outcome: 'Selected outcome' });
+  const original = new Uint8Array([0, 255, 17, 99, 0, 231]);
+  const file = await C.addAttachment(new File([original], 'selected-original.bin'), caseId);
+  state.attachments.push(file);
+  const selectedId = C.id('ER'), excludedId = C.id('ER');
+  for (const [id, text, attachments] of [[selectedId, 'Selected synthetic account', [file.id]], [excludedId, 'EXCLUDED PRIVATE ACCOUNT CANARY', []]]) {
+    await C.append(state, 'record.created', caseId, { id, title: text, text, source: 'Synthetic source', date: '', precision: 'Unknown', certainty: 'Certain', corroboration: 'Unknown', dispute: 'Unknown', attachments, links: [] });
+  }
+  const otherId = C.id('CASE');
+  await C.append(state, 'case.created', otherId, { id: otherId, title: 'OTHER CASE PRIVATE CANARY' });
+  const view = C.caseView(state, caseId);
+  view.records = view.records.filter(record => record.id === selectedId);
+  view.sources = []; view.tasks = [];
+  const bytes = await makeHandoff(state, view), readable = C.decode.decode(bytes);
+  assert(readable.includes('Selected synthetic account'));
+  assert(readable.includes(state.events.at(-1).hash));
+  assert(readable.includes('sourceRevision'));
+  assert(Buffer.from(bytes).includes(Buffer.from(original)));
+  assert(!readable.includes('EXCLUDED PRIVATE ACCOUNT CANARY'));
+  assert(!readable.includes('OTHER CASE PRIVATE CANARY'));
+  const envelope = await protectHandoff(bytes, 'synthetic handoff passphrase');
+  const serialized = JSON.stringify(envelope);
+  for (const text of ['Synthetic private case', 'Selected background', 'selected-original.bin', 'Selected synthetic account', state.events.at(-1).hash]) assert(!serialized.includes(text));
+  assert.deepEqual(await openProtectedHandoff(envelope, 'synthetic handoff passphrase'), bytes);
+});
+
+test('protected handoff rejects wrong passphrases, ciphertext changes and unsupported envelopes', async () => {
+  const bytes = zip([{ name: 'README.txt', data: 'Synthetic protected handoff' }]);
+  const envelope = await protectHandoff(bytes, 'synthetic handoff passphrase');
+  await assert.rejects(openProtectedHandoff(envelope, 'wrong synthetic passphrase'), /unlock/);
+  const damaged = structuredClone(envelope);
+  damaged.payload.data = (damaged.payload.data[0] === 'A' ? 'B' : 'A') + damaged.payload.data.slice(1);
+  await assert.rejects(openProtectedHandoff(damaged, 'synthetic handoff passphrase'), /authentication/);
+  for (const invalid of [null, { ...envelope, format: 'future-format' }, { ...envelope, header: { ...envelope.header, iterations: 1e9 } }, { ...envelope, payload: { ...envelope.payload, context: 'portable-workspace' } }]) {
+    await assert.rejects(openProtectedHandoff(invalid, 'synthetic handoff passphrase'), /supported protected/);
+  }
+  await assert.rejects(protectHandoff(new Uint8Array(30), 'synthetic handoff passphrase'), /ZIP handoff/);
+  assert.deepEqual(await openProtectedHandoff(envelope, 'synthetic handoff passphrase'), bytes);
+});
+
+===== END FILE: tests/handoff.test.mjs =====
+
 ===== BEGIN FILE: app/ai.mjs =====
 SHA256: 778641b30918e81bea1f19c65d02752a1f45052088a39fa6c47cbc6933da9713
 UTF8_BYTES: 1685
@@ -15434,15 +15641,16 @@ export class GitHubStore{
 ===== END FILE: app/github.mjs =====
 
 ===== BEGIN FILE: app/main.mjs =====
-SHA256: dffd5e141d4d382f9515e8ff51dd3d62120141441477d37e4794330ead4d06f2
-UTF8_BYTES: 48644
+SHA256: 29cebb146632c9da87723748e61cf7231ae7738bbf1099ec0106430be98ebf17
+UTF8_BYTES: 51556
 ===== CONTENT START =====
 import * as C from './core.mjs';
 import * as V from './crypto.mjs';
 import{GitHubStore}from'./github.mjs';
 import{connectAI}from'./ai.mjs';
-import{mountCatalogue}from'./catalogue.mjs?v=3.2.3';
+import{mountCatalogue}from'./catalogue.mjs?v=3.3.0';
 import{makeHandoff}from'./output.mjs';
+import{protectHandoff}from'./protected-handoff.mjs';
 const $=id=>document.getElementById(id),E=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e};
 let state=C.empty(),selectedCase='',page='catalogue',dirty=false,localHeader=null,localKey=null,storedLocal=null,service=null,library=[],busy=false;
 const remote=new GitHubStore();
@@ -15500,7 +15708,7 @@ const researchForm=form(details(research,'Ask about selected sources'),'research
  engine.append(E('h2','1. Obligation mapping'));const of=form(engine,'obligationForm',[select('sourceId','Checked legislative passage',[]),text('holder','Who owes the duty?'),text('timing','By when / triggering condition'),area('required','What was required?'),area('applicability','Why does this provision apply?')],'Save obligation map',async(d,f)=>{const v=view(),run=currentRun();const data=C.makeObligation(v,{...d,runId:run?.id,evidenceIds:checked('obligationEvidence')});await add('obligation.created',data,'Cited obligation map saved.');f.reset();});choices(of,'obligationEvidence','Verified evidence propositions');box(engine,'obligationList');
  engine.append(E('h2','2. Exposure assessment'));const xf=form(engine,'exposureForm',[select('obligationId','Mapped obligation',[]),select('gap','Assessment',[['','Choose after assessment'],['present','Gap present'],['absent','Gap absent']]),area('explanation','Compare the requirement with verified outcomes')],'Record exposure assessment',async(d,f)=>{const data=C.makeExposure(view(),{...d,runId:currentRun()?.id,evidenceIds:checked('outcomeEvidence')});await add('exposure.assessed',data,'Exposure assessment recorded.');f.reset();});choices(xf,'outcomeEvidence','Verified outcome evidence');box(engine,'exposureList');
  engine.append(E('h2','3. Submission framing'));form(engine,'submissionForm',[area('jurisdictionBasis','Jurisdiction / recipient basis'),area('requirements','Specific recipient requirements and their sources'),area('remedy','Requested outcome / remedy')],'Prepare source-linked submission draft',async(d)=>{const run=currentRun(),text=C.submissionText(view(),{...d,runId:run?.id});await add('submission.created',{id:C.id('SUBMISSION'),...d,runId:run.id,text,reviewStatus:'Draft — owner review required',sourceHash:state.events.at(-1)?.hash},'Recipient-specific draft prepared. Nothing sent.');});box(engine,'submissionList');engine.append(button('Close active engine run',async()=>{const run=currentRun();if(!run)throw Error('No active engine run');await add('engine.closed',{id:run.id},'ENGINE CLOSED: Solicitors Advocate Engine')}));
- const outputs=$('page-outputs');outputs.append(E('p','Select the records and sources to include. Creating a file does not contact anyone or submit a case.'));choices(outputs,'outputSelection','Records');choices(outputs,'sourceSelection','Case sources');const actions=E('div',undefined,'actions');actions.append(button('Create structured summary',()=>makeSummary(false)),button('Preview selected handoff',()=>makeSummary(true)));outputs.append(actions);box(outputs,'summaryPreview');form(details(outputs,'AI narrative assistance'),'aiForm',[area('question','Question or requested summary')],'Preview AI request',async d=>{const selected=selectedOutput();await previewAI('summary',d.question,selected.records,selected.sources,false)});box(outputs,'savedSummaries');
+ const outputs=$('page-outputs');outputs.append(E('p','Select the records and sources to include. Creating a file does not contact anyone or submit a case.'));choices(outputs,'outputSelection','Records');choices(outputs,'sourceSelection','Case sources');const actions=E('div',undefined,'actions');actions.append(button('Create structured summary',()=>makeSummary(false)),button('Preview protected handoff',previewProtectedHandoff,''),button('Preview readable handoff',()=>makeSummary(true)));outputs.append(actions);box(outputs,'summaryPreview');form(details(outputs,'AI narrative assistance'),'aiForm',[area('question','Question or requested summary')],'Preview AI request',async d=>{const selected=selectedOutput();await previewAI('summary',d.question,selected.records,selected.sources,false)});box(outputs,'savedSummaries');
  settingsUI();
 }
 function settingsUI(){const s=$('page-settings');s.append(E('p','The public repository holds code. Case data goes only to the private repository you connect, or to the configured AI service after payload approval. Credentials remain in memory and clear on lock.','notice'));
@@ -15539,11 +15747,32 @@ function renderLibrary(){const q=$('librarySearch').value.toLowerCase();listCard
  listCards('activity',state.events.filter(e=>e.caseId===selectedCase).slice(-20).reverse(),(c,e)=>{c.append(E('p',e.type+' · '+e.at),E('p',e.hash,'meta'))});
 }
 function selectedOutput(){const v=view(),ids=checked('outputSelection');if(!ids.length)throw Error('Select records to include');return{...v,records:v.records.filter(r=>ids.includes(r.id)),sources:v.sources.filter(s=>checked('sourceSelection').includes(s.id)),tasks:[],reviews:v.reviews.filter(r=>ids.includes(r.recordId)),submissions:v.submissions.filter(s=>{const run=v.runs.find(r=>r.id===s.runId),obligations=v.obligations.filter(o=>o.runId===run?.id);const exposures=v.exposures.filter(x=>x.runId===run?.id),sourceIds=checked('sourceSelection');return obligations.length>0&&obligations.every(o=>o.evidenceIds.every(r=>ids.includes(r))&&sourceIds.includes(o.sourceId))&&exposures.every(x=>x.evidenceIds.every(r=>ids.includes(r)))})}}
-async function makeSummary(handoff){const v=selectedOutput(),text=C.summaryText(v);if(handoff){const panel=E('div');panel.append(E('p','Selected handoff: '+v.records.length+' records, '+v.sources.length+' case sources. Original files are included only for selected records. This readable ZIP is not encrypted; anyone with it can read it.'),E('pre',text));await modal('Review selected handoff',panel,async()=>{const bytes=await makeHandoff(state,v);download(bytes,'claritypath-selected-handoff.zip','application/zip');status('Selected readable handoff downloaded. Nothing sent.');},'Download readable selected handoff');}else{const sourceHash=state.events.at(-1)?.hash,sourceEventId=state.events.at(-1)?.id;await add('summary.created',{id:C.id('SUMMARY'),title:'Structured case summary',method:'Deterministic — no AI call',text,sourceHash,sourceEventId},'Source-linked summary created.');$('summaryPreview').replaceChildren(E('pre',text),button('Download readable summary',()=>download(text,'claritypath-summary.txt')));}}
+async function makeSummary(handoff){const v=structuredClone(selectedOutput()),snapshot=structuredClone(state),text=C.summaryText(v);if(handoff){const panel=E('div');panel.append(E('p','Selected handoff: '+v.records.length+' records, '+v.sources.length+' case sources. Original files are included only for selected records. This readable ZIP is not encrypted; anyone with it can read it.'),E('pre',text));await modal('Review selected handoff',panel,async()=>{const bytes=await makeHandoff(snapshot,v);download(bytes,'claritypath-selected-handoff.zip','application/zip');status('Selected readable handoff downloaded. Nothing sent.');},'Download readable selected handoff');}else{const sourceHash=state.events.at(-1)?.hash,sourceEventId=state.events.at(-1)?.id;await add('summary.created',{id:C.id('SUMMARY'),title:'Structured case summary',method:'Deterministic — no AI call',text,sourceHash,sourceEventId},'Source-linked summary created.');$('summaryPreview').replaceChildren(E('pre',text),button('Download readable summary',()=>download(text,'claritypath-summary.txt')));}}
 
 function citedDraft(text,citations){const pre=E('pre');let cursor=0;const sorted=(citations||[]).filter(c=>Number.isInteger(c.start)&&Number.isInteger(c.end)&&c.start>=0&&c.end<=text.length&&c.end>c.start).sort((a,b)=>a.start-b.start);for(const citation of sorted){if(citation.start<cursor)continue;let u;try{u=new URL(citation.url);if(u.protocol!=='https:')continue}catch{continue}pre.append(document.createTextNode(text.slice(cursor,citation.start)));const a=E('a',text.slice(citation.start,citation.end));a.href=u.href;a.target='_blank';a.rel='noopener noreferrer';a.title=citation.title||u.href;pre.append(a);cursor=citation.end}pre.append(document.createTextNode(text.slice(cursor)));return pre}
 
-async function modal(title,body,approve,label='Approve'){const d=$('previewDialog');$('dialogTitle').textContent=title;$('dialogBody').replaceChildren(body);$('dialogApprove').textContent=label;$('dialogApprove').onclick=()=>run(async()=>{d.close();await approve()});$('dialogClose').onclick=()=>d.close();d.showModal();}
+async function previewProtectedHandoff(){
+ const selected=structuredClone(selectedOutput()),snapshot=structuredClone(state);await C.validate(snapshot);
+ const panel=E('div'),pass=E('input'),confirmation=E('input');
+ panel.append(E('p','Selected handoff: '+selected.records.length+' records, '+selected.sources.length+' case sources and their selected originals. Review the case background, desired outcome and source details below. Only this selection at the current revision will be included.'),E('pre',C.summaryText(selected),'service-preview'));
+ pass.type=confirmation.type='password';pass.autocomplete=confirmation.autocomplete='off';pass.id='handoffExportPass';confirmation.id='handoffExportConfirm';pass.minLength=confirmation.minLength=12;
+ const first=E('label','New handoff passphrase — at least 12 characters'),second=E('label','Confirm handoff passphrase');first.htmlFor=pass.id;second.htmlFor=confirmation.id;first.append(pass);second.append(confirmation);panel.append(first,second,E('p','Keep this passphrase separately. Give the recipient the protected file, the unlock-page link and the passphrase through a separate channel. Creating the package sends nothing.'));
+ const reader=E('a','Open the recipient unlock page');reader.href='./handoff.html';reader.target='_blank';reader.rel='noopener noreferrer';panel.append(reader);
+ await modal('Review protected handoff',panel,async()=>{
+  if(pass.value.length<12)throw Error('Use a handoff passphrase of at least 12 characters.');
+  if(pass.value!==confirmation.value)throw Error('The handoff passphrases do not match.');
+  const passphrase=pass.value;pass.value=confirmation.value='';
+  const archive=await makeHandoff(snapshot,selected),envelope=await protectHandoff(archive,passphrase);
+  download(JSON.stringify(envelope),'claritypath-protected-handoff.json','application/json');
+  status('Protected selected handoff downloaded. Give the recipient the unlock-page link and share the passphrase separately. Nothing sent.');
+ },'Download protected handoff');
+}
+async function modal(title,body,approve,label='Approve'){
+ const dialog=$('previewDialog'),accept=$('dialogApprove'),cancel=$('dialogClose'),error=E('p','','notice');error.id='dialogError';error.setAttribute('role','alert');error.tabIndex=-1;error.hidden=true;
+ $('dialogTitle').textContent=title;$('dialogBody').replaceChildren(body,error);accept.textContent=label;accept.disabled=cancel.disabled=false;
+ accept.onclick=async()=>{if(accept.disabled)return;accept.disabled=cancel.disabled=true;error.hidden=true;try{await approve();dialog.close()}catch(e){error.textContent=e.message;error.hidden=false;error.focus();status(e.message,true)}finally{accept.disabled=cancel.disabled=false}};
+ cancel.onclick=()=>dialog.close();dialog.oncancel=event=>{if(accept.disabled)event.preventDefault()};dialog.addEventListener('close',()=>{body.querySelectorAll('input[type=password]').forEach(input=>{input.value=''});$('dialogBody').replaceChildren();accept.onclick=null;cancel.onclick=null;dialog.oncancel=null},{once:true});dialog.showModal();
+}
 async function previewAI(task,question,records,sources,web){if(!service)throw Error('Connect your AI service under Storage & connections. No request was sent.');if(!question.trim())throw Error('Enter a question');if(!records.length&&!sources.length&&!web)throw Error('Select records or sources for this request');const payload={requestId:C.id('REQUEST'),caseId:selectedCase,task,question,web,jurisdiction:view().case.jurisdiction,sourceHash:state.events.at(-1)?.hash,records:records.map(r=>({id:r.id,title:r.title,text:r.text,source:r.source,qualification:C.qualification(view(),r.id)})),sources:sources.map(s=>({id:s.id,title:s.title,url:s.url,provision:s.provision,version:s.version,extract:s.extract})),approved:true};const body=E('div');body.append(E('p','Destination: '+service.url+' · '+service.capabilities.provider+' / '+service.capabilities.model),E('p','The following exact payload will be sent. Provider charges and processing terms apply. Attachments and unselected records are excluded.'),E('pre',JSON.stringify(payload,null,2),'service-preview'));await modal('Approve external AI request',body,async()=>{status('Waiting for the configured AI service…');const r=await fetch(service.url+'/assist',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+service.token},body:JSON.stringify(payload),signal:AbortSignal.timeout(120000)});const response=await r.json();if(!r.ok)throw Error(response.error||'AI request failed');if(typeof response.text!=='string')throw Error('Invalid AI response');for(const citation of response.recordCitations||[])if(!records.some(r=>r.id===citation)&&!sources.some(s=>s.id===citation))throw Error('AI output referenced an unselected source; response rejected');const citationIds=[...response.text.matchAll(/\b(?:ER|SRC)-[a-f0-9-]{36}\b/g)].map(x=>x[0]);if(citationIds.some(cid=>!records.some(r=>r.id===cid)&&!sources.some(s=>s.id===cid)))throw Error('AI output contains an unknown record citation');await add('summary.created',{id:C.id('SUMMARY'),title:task==='research'?'Source-linked research draft':'Narrative draft',method:'AI draft — '+response.provider+' / '+response.model,text:response.text,citations:response.citations||[],recordCitations:response.recordCitations||[],question,sourceHash:payload.sourceHash,requestId:payload.requestId,usage:response.usage,reviewStatus:'Unreviewed'},'AI draft saved separately. Review its sources and applicability.');switchPage('outputs');},'Send selected payload');}
 $('newCase').onclick=openCreate;
 $('savedCasePicker').onchange=()=>{const choice=$('savedCasePicker').value;if(choice==='__new__'){openCreate();return}if(choice){selectedCase=choice;render()}};
@@ -15552,7 +15781,7 @@ $('lock').onclick=()=>run(async()=>{if(dirty&&!localKey&&!confirm('Current work 
 window.addEventListener('beforeunload',e=>{if(dirty&&!localKey){e.preventDefault();e.returnValue=''}});
 initialiseUI();
 try{const catalogue=await mountCatalogue($('page-catalogue'),$('situationPicker'),s=>{openCreate();$('caseForm-title').value=s.title.slice(0,100);$('caseForm-jurisdiction').value='New South Wales, Australia';$('caseForm-background').value='Situation guide: '+s.url;});$('situationPicker').onchange=()=>{switchPage('catalogue');catalogue.show($('situationPicker').value)}}catch(e){$('page-catalogue').append(E('p',e.message,'notice'));status(e.message,true)}
-try{const r=await fetch('./app/library.json?v=3.2.3',{cache:'no-store'});if(r.ok)library=await r.json()}catch{status('Included source library could not be loaded.',true)}
+try{const r=await fetch('./app/library.json?v=3.3.0',{cache:'no-store'});if(r.ok)library=await r.json()}catch{status('Included source library could not be loaded.',true)}
 try{storedLocal=await db('get');if(storedLocal){$('appShell').hidden=true;$('unlockPanel').hidden=false;status('An encrypted device workspace is available. Unlock to continue.')}}catch(e){status('Device storage unavailable; use an encrypted backup or private repository.',true)}
 render();
 // Read-only diagnostic: counts and connection state only; no case text or credentials.
@@ -15562,8 +15791,8 @@ globalThis.claritypathStatus=()=>({caseCount:C.project(state).cases.length,event
 ===== END FILE: app/main.mjs =====
 
 ===== BEGIN FILE: app/output.mjs =====
-SHA256: 2ccad578a6d9f1412b33d2d4ec408fb830852123bbfe5849e1ee493ead10550a
-UTF8_BYTES: 6658
+SHA256: f7bde9621c708444fecb140028e3f616e20655dd5f6b70cce1b6e44ba7ec3586
+UTF8_BYTES: 6816
 ===== CONTENT START =====
 import{attachmentBytes,digest,utf8,summaryText,now}from'./core.mjs';
 const escape=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -15574,7 +15803,7 @@ function concat(arrays){const out=new Uint8Array(arrays.reduce((n,a)=>n+a.length
 // Standard ZIP STORE entries, UTF-8 filenames, CRC32 and a central directory. No external runtime.
 export function zip(files){const locals=[],central=[];let offset=0;for(const file of files){const name=utf8.encode(file.name),data=typeof file.data==='string'?utf8.encode(file.data):file.data;if(data.length>0xffffffff)throw Error('File exceeds ZIP format limit');const checksum=crc(data);const[l,lv]=header(30);lv.setUint32(0,0x04034b50,true);lv.setUint16(4,20,true);lv.setUint16(6,0x800,true);lv.setUint32(14,checksum,true);lv.setUint32(18,data.length,true);lv.setUint32(22,data.length,true);lv.setUint16(26,name.length,true);locals.push(l,name,data);const[c,cv]=header(46);cv.setUint32(0,0x02014b50,true);cv.setUint16(4,20,true);cv.setUint16(6,20,true);cv.setUint16(8,0x800,true);cv.setUint32(16,checksum,true);cv.setUint32(20,data.length,true);cv.setUint32(24,data.length,true);cv.setUint16(28,name.length,true);cv.setUint32(42,offset,true);central.push(c,name);offset+=l.length+name.length+data.length}const directory=concat(central),[end,ev]=header(22);ev.setUint32(0,0x06054b50,true);ev.setUint16(8,files.length,true);ev.setUint16(10,files.length,true);ev.setUint32(12,directory.length,true);ev.setUint32(16,offset,true);return concat([...locals,directory,end])}
 export async function makeHandoff(state,view){
- const files=[],manifest={format:'claritypath-selected-handoff-v1',createdAt:now(),caseId:view.case.id,recordIds:view.records.map(r=>r.id),sourceIds:view.sources.map(s=>s.id),files:[]};
+ const files=[],manifest={format:'claritypath-selected-handoff-v1',createdAt:now(),sourceRevision:{workspaceId:state.id,eventId:state.events.at(-1)?.id||null,hash:state.events.at(-1)?.hash||null},caseId:view.case.id,draftIds:(view.submissions||[]).map(s=>s.id),recordIds:view.records.map(r=>r.id),sourceIds:view.sources.map(s=>s.id),files:[]};
  const add=async(name,data)=>{const bytes=typeof data==='string'?utf8.encode(data):data;files.push({name,data:bytes});manifest.files.push({path:name,size:bytes.length,sha256:await digest(bytes)})};
  await add('README.txt','CLARITYPATH SELECTED HANDOFF\nThis archive contains only selected records and sources. It is readable and NOT encrypted.\nOpen index.html for the summary. Original bytes are in originals/.\nrecords.json and sources.json are machine-readable indexes. manifest.json lists SHA-256 digests for each file except itself.\nTo verify a file, calculate its SHA-256 with an independent tool and compare the hex result. Digests establish byte identity, not truth or legal admissibility.\nNo material was submitted or sent by creating this archive.');
  await add('summary.txt',summaryText(view));
@@ -16141,8 +16370,8 @@ PORT=8787
 ===== END FILE: service/.env.example =====
 
 ===== BEGIN FILE: OPERATING-GUIDE.txt =====
-SHA256: 5e4c0172cb3bc5f46d8a4c6977a17503e3d536ee9bd58746851ca349ca9f6f40
-UTF8_BYTES: 8965
+SHA256: ad563a2b24381096ad6ad324afe4d9b289506be2a2ec8b7ce33f2dece42ac323
+UTF8_BYTES: 9876
 ===== CONTENT START =====
 CLARITYPATH OPERATING GUIDE
 
@@ -16181,8 +16410,9 @@ Activate the named engine for the selected case, specifying jurisdiction, target
 
 SUMMARIES AND HANDOFF
 Choose records and case sources explicitly. Create structured summary works without an AI service. It preserves original accounts, date precision, classifications, review and source references.
-Preview selected handoff creates a readable ZIP containing HTML/text summary, selected record/source indexes, selected original files, eligible selected submission drafts and a SHA-256 manifest. It is NOT encrypted. Download it only after reviewing the scope and readable-file disclosure. An encrypted full-workspace backup is available separately.
-Open the handoff's index.html after extracting it. The recipient does not need ClarityPath to read it. Original files remain separate. Nothing is emailed, lodged or published by creating the handoff.
+Preview protected handoff is the primary handoff action. Review the selected records and sources, case background, desired outcome and originals, then enter and confirm a separate passphrase of at least 12 characters. The download is an encrypted JSON envelope holding only the selected ZIP and its exact source revision. The supported ZIP size is up to 200 MB; export fewer files if needed. Keep the passphrase separately. An encrypted full-workspace backup is a different export.
+Give the recipient the protected file and the site's handoff.html link; share the passphrase through a separate channel. The unlock page needs no account or private repository connection. It decrypts locally, uploads nothing and clears the entered passphrase. After unlocking, the recipient explicitly downloads a readable ZIP, extracts it and opens index.html. The ZIP includes the selected summary, source indexes, originals, eligible submission drafts and SHA-256 manifest. Once downloaded, the readable ZIP must be kept privately. Clear unlocked package releases the page's unlocked copy; it does not remove saved downloads.
+Preview readable handoff is also available as an explicit choice with a clear disclosure. Its ZIP is not encrypted. Nothing is emailed, lodged or published by creating either handoff. Installed public-shell caching includes the recipient page, which works offline after it has been cached; first-time visitors need to load the page and its scripts.
 
 required AI SERVICE
 Run the included service under your own account using service/README.txt. Put its provider key only in server-side secrets. GitHub Pages itself cannot run that server.
@@ -16204,8 +16434,8 @@ Choose Install app on the homepage. Where the browser provides an installation p
 ===== END FILE: OPERATING-GUIDE.txt =====
 
 ===== BEGIN FILE: README.md =====
-SHA256: d4334960f68e51b73df7fd5946755381af8c55111cf5b88357bea7fb809feed0
-UTF8_BYTES: 1217
+SHA256: 1e46a0f999aa6bd18532d8891e1d52d4c4e13f7bca451f0676050667ecb4d24a
+UTF8_BYTES: 1463
 ===== CONTENT START =====
 # ClarityPath
 
@@ -16221,14 +16451,16 @@ Private GitHub storage and required AI service need the actual owner’s configu
 
 The required AI deployment and configuration-only connection check are described in service/README.txt. The service can run on a Node.js host or from service/Dockerfile; the public site stays on GitHub Pages. Readiness checks never count as a live provider test.
 
+Protected selected handoffs use handoff.html for local recipient unlocking. The recipient needs the exported file and its separate passphrase; no private workspace account is required. The recovered ZIP is readable and must be stored privately.
+
 ===== END FILE: README.md =====
 
 ===== BEGIN FILE: release-status.json =====
-SHA256: 52293d71f8e5ba7848ba3a763d244a681f5e1150c84440710b3d52cedd5b1178
-UTF8_BYTES: 5992
+SHA256: db627b4fd490d494712656c87e911c9afd5d7d0dd4dfebcac25e43ef8cede8c6
+UTF8_BYTES: 7052
 ===== CONTENT START =====
 {
-  "version": "3.2.3",
+  "version": "3.3.0",
   "specification": "ClarityPath public application build guide",
   "date": "2026-11-10",
   "summary": "Working NSW situation catalogue with 729 guide/situation entries in 22 topic groups, 171 legislative reading entry points, institution contacts and 16 expressly sourced escalation pathways; separate encrypted private-case workspace and canonical operator-recorded Solicitors Advocate workflow. External guide texts are linked, not reproduced in full. This is not a certified exhaustive register of NSW law.",
@@ -16246,7 +16478,8 @@ UTF8_BYTES: 5992
     "Required authenticated owner-hosted AI/research service code; payload preview/approval; cited drafts and source validation",
     "Separate public Build page; public-application replication pack and exact-source manifests",
     "Installable PWA manifest with supplied-logo-derived launcher icons, homepage Install app control, browser-specific fallback instructions and public-shell-only offline cache",
-    "AI configuration readiness checks, authenticated no-case connection probe and minimal server container deployment file"
+    "AI configuration readiness checks, authenticated no-case connection probe and minimal server container deployment file",
+    "Protected selected-handoff export with recipient passphrase confirmation, exact source revision, local-only unlock page and readable ZIP recovery without a private workspace connection"
   ],
   "configurationRequired": [
     "Private GitHub storage needs the owner's initialised private repository, restricted token and encryption passphrase.",
@@ -16254,16 +16487,17 @@ UTF8_BYTES: 5992
     "NSW is the catalogue jurisdiction. Actual case facts and legal passages still need applicability and current-version checks."
   ],
   "verification": {
-    "core": "PASS — 15 tests, including AI readiness/configuration rejection and byte-safe service authentication, plus existing catalogue, integrity, encryption, workflow, recovery, storage and exact pack checks. 10 November 2026.",
-    "browser": "PASS — headless Microsoft Edge: populated public selector before any case; privacy internal-review and 60-day prerequisite display; rental-repairs search; private first/second case creation and switching; original attachment, qualification/snapshot/analysis, canonical engine workflow, summary/selected ZIP, encrypted reload/lock, all nine 360px sections, full Build copy/download. No browser script errors. 10 November 2026. Repeated successfully for release 3.2.0, including exact binary-asset Build-pack copy/download.",
+    "core": "PASS — 17 tests, including protected-handoff isolation/roundtrip/tamper checks and AI readiness/configuration rejection and byte-safe service authentication, plus existing catalogue, integrity, encryption, workflow, recovery, storage and exact pack checks. 10 November 2026.",
+    "browser": "PASS — headless Microsoft Edge: populated public selector before any case; privacy internal-review and 60-day prerequisite display; rental-repairs search; private first/second case creation and switching; original attachment, qualification/snapshot/analysis, canonical engine workflow, summary/selected ZIP, encrypted reload/lock, all nine 360px sections, full Build copy/download. No browser script errors. 10 November 2026. Repeated successfully for release 3.2.0, including exact binary-asset Build-pack copy/download. Release 3.3.0 also passed protected export, confirmation/cancel clearing, independent recipient download and existing AI regression checks.",
     "privateGitHubLive": "Not performed; adapter tested against a controlled GitHub API model, no real repository credentials supplied.",
     "providerLive": "Not performed; service tested locally with controlled provider responses, no paid provider call.",
     "physicalAndroid": "Not performed; 360px desktop-browser layout emulation only.",
     "securityAudit": "No independent security audit claimed.",
     "legalComplianceAudit": "No completed legal-compliance audit claimed.",
-    "pwa": "PASS — isolated temporary regular-profile Microsoft Edge: correct manifest/icon dimensions and replicated subpath scope, zero Chromium installability errors, browser-menu fallback, synthetic retained-prompt handler, offline workspace/catalogue/case creation, no mobile overflow, and exclusion of private/authenticated responses from public cache. 10 November 2026. No physical-device/OS installation performed.",
+    "pwa": "PASS — isolated temporary regular-profile Microsoft Edge: correct manifest/icon dimensions and replicated subpath scope, zero Chromium installability errors, browser-menu fallback, synthetic retained-prompt handler, offline workspace/catalogue/case creation, no mobile overflow, and exclusion of private/authenticated responses from public cache. 10 November 2026. No physical-device/OS installation performed. Release 3.3.0 includes verified offline protected-handoff unlocking and exact ZIP recovery.",
     "aiReadiness": "PASS — local service health and authenticated capabilities checks; browser rejected unconfigured endpoints, transmitted no case during connection, sent only explicitly approved synthetic selected records/sources, saved cited synthetic draft separately, and cleared a failed replacement connection. No live provider request.",
-    "containerBuild": "Not performed; Docker is unavailable on this workstation. Node.js runtime and readiness endpoint tested directly."
+    "containerBuild": "Not performed; Docker is unavailable on this workstation. Node.js runtime and readiness endpoint tested directly.",
+    "protectedHandoff": "PASS — 10 November 2026: protected selection hides case content and original filenames; correct passphrase recovers exact ZIP bytes; wrong passphrases, altered ciphertext and unsupported formats fail safely; a fresh 360px recipient browser unlocks without workspace/account access or external requests; cached reader unlocks offline; closing previews clears their private contents and password fields. Python zipfile independently verified archive compatibility, every manifest digest and exact original bytes. Desktop-browser mobile emulation only; no physical-phone rehearsal."
   },
   "incompleteSpecificationItems": [
     "Automatic GitHub App sign-in and hosted authentication broker; current static method is owner-supplied fine-grained token.",
@@ -16271,7 +16505,7 @@ UTF8_BYTES: 5992
     "A universal or case-specific full legal corpus is not bundled; source extent and gaps are explicit.",
     "Automated governance authority verification and full MAYHEM investigation orchestration are not implemented; authorised analysis and qualification are operator-provided.",
     "Provider-side dollar budget enforcement and durable multi-instance quota/idempotency store are deployment responsibilities; included service has per-process caps.",
-    "Encrypted selected-handoff archive and recovery-key rotation interface are not provided; readable selected handoffs are explicitly approved and encrypted full backups are available.",
+    "Recovery-key rotation interface is not provided. Protected selected handoffs, explicitly approved readable ZIPs and encrypted full backups are available.",
     "Automated OCR/document-text extraction and PDF-export pagination are not provided."
   ],
   "privateBuildInputs": "Private MAYHEM specifications excluded from public files, library, build pack and provider context."
@@ -16280,16 +16514,16 @@ UTF8_BYTES: 5992
 ===== END FILE: release-status.json =====
 
 ===== BEGIN FILE: package.json =====
-SHA256: d90a98c4a87c7418a9d070515b5db6a378bd7b6f6e855d09fc54c1e69022caf0
-UTF8_BYTES: 674
+SHA256: 5518751f5fdf4ad08efbd31f6542e391a58b6ad14550486f59101b945805d34b
+UTF8_BYTES: 697
 ===== CONTENT START =====
 {
   "name": "claritypath-personal-intelligence",
-  "version": "3.2.3",
+  "version": "3.3.0",
   "private": true,
   "description": "Owner-controlled case workspace and canonical MAYHEM Solicitors Advocate workflow",
   "scripts": {
-    "test": "node --test tests/core.test.mjs tests/recovery.test.mjs tests/service.test.mjs tests/package.test.mjs tests/catalogue.test.mjs",
+    "test": "node --test tests/core.test.mjs tests/handoff.test.mjs tests/recovery.test.mjs tests/service.test.mjs tests/package.test.mjs tests/catalogue.test.mjs",
     "test:e2e": "node tests/browser.cjs",
     "service": "node service/server.mjs",
     "package": "node scripts/package-release.mjs",
@@ -16419,8 +16653,8 @@ test('service auth, origin, approval, provider payload, source citation and idem
 ===== END FILE: tests/service.test.mjs =====
 
 ===== BEGIN FILE: tests/browser.cjs =====
-SHA256: 6d99283e48f1c854ce6433c819afc16167b0c33fb53354fa14a18a00223bcb19
-UTF8_BYTES: 20078
+SHA256: 555d94e29a099dca9e718cab5115437fe55c69cd1654ae98e1d76a40c0002a0f
+UTF8_BYTES: 24415
 ===== CONTENT START =====
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
 const{chromium}=require(process.env.PLAYWRIGHT_MODULE || 'playwright');
@@ -16437,7 +16671,18 @@ await nav('review');await page.locator('#reviewForm-recordId').selectOption(rid)
 await page.locator('summary').filter({hasText:/^Freeze an evidence snapshot$/}).click();await page.locator('#freezeForm-authority').fill('Synthetic authorised evidence-freeze instruction');await page.locator('#freezeForm button[type=submit]').click();await page.locator('#snapshotList article').waitFor();const sid=await page.locator('#snapshotList h3').first().textContent();await page.locator('summary').filter({hasText:/^Add separate analysis output$/}).click();await page.locator('#analysisForm-title').fill('Synthetic relevant descriptive path');await page.locator('#analysisForm-snapshotId').selectOption(sid);await page.locator('#analysisForm-text').fill('Authorised synthetic analysis output for the software test; no real legal finding.');await page.locator('#analysisForm-authority').fill('Synthetic test authority');await page.locator('#analysisForm-confirmed').check();await page.locator('#analysisForm button[type=submit]').click();await page.locator('#analysisList article').waitFor();
 await nav('research');await page.locator('summary').filter({hasText:/^Add a case source or discovery$/}).click();for(const [field,value]of Object.entries({title:'Fictional test instrument — NOT REAL LAW',publisher:'Synthetic test fixture',url:'https://example.invalid/synthetic-instrument',jurisdiction:'Test jurisdiction',version:'Synthetic version 1',provision:'Synthetic clause 1',extract:'This is fictional source text used exclusively to test the software workflow.',relevance:'Software test only',checkedBy:'Synthetic test authority'}))await page.locator('#sourceForm-'+field).fill(value);await page.locator('#sourceForm button[type=submit]').click();await page.locator('#caseSources article').waitFor();
 await nav('engine');await page.locator('summary').filter({hasText:/^Activate for this case$/}).click();for(const [field,value]of Object.entries({jurisdiction:'Test jurisdiction',target:'Synthetic receiving body',purpose:'Synthetic body-specific review',authority:'Synthetic activation authority'}))await page.locator('#engineForm-'+field).fill(value);await page.locator('#engineForm-snapshotId').selectOption(sid);await page.locator('#engineAnalyses input').first().check();await page.locator('#engineForm button[type=submit]').click();await page.locator('#engineState').getByText(/ENGINE ACTIVE/).waitFor();await page.locator('#obligationForm-sourceId').selectOption({index:1});for(const [field,value]of Object.entries({holder:'Synthetic duty holder',timing:'Synthetic test trigger',required:'Perform the fictional required action',applicability:'Fictional test applicability only'}))await page.locator('#obligationForm-'+field).fill(value);await page.locator('#obligationEvidence input').first().check();await page.locator('#obligationForm button[type=submit]').click();await page.locator('#obligationList article').waitFor();await page.locator('#exposureForm-obligationId').selectOption({index:1});await page.locator('#exposureForm-gap').selectOption('present');await page.locator('#exposureForm-explanation').fill('The fictional requirement differs from the recorded synthetic outcome.');await page.locator('#outcomeEvidence input').first().check();await page.locator('#exposureForm button[type=submit]').click();await page.locator('#exposureList article').waitFor();for(const [field,value]of Object.entries({jurisdictionBasis:'Synthetic basis for the test body',requirements:'Specific fictional format required by this synthetic body',remedy:'Clarify the fictional outcome'}))await page.locator('#submissionForm-'+field).fill(value);await page.locator('#submissionForm button[type=submit]').click();await page.locator('#submissionList pre').filter({hasText:'Synthetic receiving body'}).waitFor();
-await nav('outputs');await page.locator('#outputSelection input').first().check();await page.locator('#sourceSelection input').first().check();await page.getByRole('button',{name:'Create structured summary',exact:true}).click();await page.locator('#summaryPreview pre').waitFor();await page.getByRole('button',{name:'Preview selected handoff',exact:true}).click();await page.locator('#previewDialog[open]').waitFor();const zipWait=page.waitForEvent('download');await page.locator('#dialogApprove').click();const zipFile=await zipWait;const zipBytes=fs.readFileSync(await zipFile.path());assert.equal(zipBytes.readUInt32LE(0),0x04034b50);assert(zipBytes.includes(Buffer.from('Synthetic receiving body')));
+await nav('outputs');await page.locator('#outputSelection input').first().check();await page.locator('#sourceSelection input').first().check();await page.getByRole('button',{name:'Create structured summary',exact:true}).click();await page.locator('#summaryPreview pre').waitFor();await page.getByRole('button',{name:'Preview readable handoff',exact:true}).click();await page.locator('#previewDialog[open]').waitFor();const zipWait=page.waitForEvent('download');await page.locator('#dialogApprove').click();const zipFile=await zipWait;const zipBytes=fs.readFileSync(await zipFile.path());assert.equal(zipBytes.readUInt32LE(0),0x04034b50);assert(zipBytes.includes(Buffer.from('Synthetic receiving body')));
+await page.getByRole('button',{name:'Preview protected handoff',exact:true}).click();await page.locator('#previewDialog[open]').waitFor();
+await page.locator('#handoffExportPass').fill('synthetic recipient passphrase');await page.locator('#handoffExportConfirm').fill('different recipient passphrase');await page.locator('#dialogApprove').click();await page.waitForFunction(()=>document.getElementById('dialogError').textContent.includes('do not match'));assert.equal(await page.locator('#previewDialog').isVisible(),true);
+await page.locator('#handoffExportConfirm').fill('synthetic recipient passphrase');const protectedWait=page.waitForEvent('download');await page.locator('#dialogApprove').click();const protectedDownload=await protectedWait,protectedBytes=fs.readFileSync(await protectedDownload.path());assert.equal(protectedDownload.suggestedFilename(),'claritypath-protected-handoff.json');assert(!protectedBytes.includes(Buffer.from('Synthetic direct account')));assert(!protectedBytes.includes(Buffer.from('synthetic-original.bin')));await page.waitForFunction(()=>!document.getElementById('previewDialog').open);await page.waitForFunction(()=>document.getElementById('dialogBody').childElementCount===0);
+await page.getByRole('button',{name:'Preview protected handoff',exact:true}).click();await page.locator('#handoffExportPass').fill('temporary cancelled passphrase');await page.locator('#dialogClose').click();await page.waitForFunction(()=>document.getElementById('dialogBody').childElementCount===0);
+const recipientContext=await browser.newContext({viewport:{width:360,height:800},acceptDownloads:true}),recipient=await recipientContext.newPage(),recipientErrors=[],recipientExternalRequests=[];recipient.on('pageerror',e=>recipientErrors.push(e.message));recipient.on('request',r=>{if(!r.url().startsWith('http://127.0.0.1:8775/'))recipientExternalRequests.push(r.url())});
+await recipient.goto('http://127.0.0.1:8775/handoff.html');await recipient.locator('#handoffFile').setInputFiles({name:'claritypath-protected-handoff.json',mimeType:'application/json',buffer:protectedBytes});await recipient.locator('#handoffPass').fill('incorrect recipient passphrase');await recipient.locator('#handoffUnlock').click();await recipient.waitForFunction(()=>document.getElementById('handoffStatus').textContent.includes('wrong passphrase'));assert.equal(await recipient.locator('#handoffResult').isVisible(),false);assert.equal(await recipient.locator('#handoffPass').inputValue(),'');
+await recipient.locator('#handoffPass').fill('synthetic recipient passphrase');await recipient.locator('#handoffUnlock').click();await recipient.locator('#handoffResult:not([hidden])').waitFor();assert.equal(await recipient.evaluate(()=>typeof claritypathStatus),'undefined');assert.equal(await recipient.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);assert.equal(await recipient.locator('#handoffPass').inputValue(),'');
+const recipientWait=recipient.waitForEvent('download');await recipient.locator('#handoffDownload').click();const recipientDownload=await recipientWait,recipientZIP=fs.readFileSync(await recipientDownload.path());const {openProtectedHandoff}=await import('../app/protected-handoff.mjs');assert.deepEqual(recipientZIP,Buffer.from(await openProtectedHandoff(JSON.parse(protectedBytes),'synthetic recipient passphrase')));assert(recipientZIP.includes(original));assert(recipientZIP.includes(Buffer.from('Synthetic receiving body')));fs.mkdirSync(path.join(root,'test-results'),{recursive:true});fs.writeFileSync(path.join(root,'test-results/protected-handoff-recipient.zip'),recipientZIP);await recipient.screenshot({path:path.join(root,'test-results/handoff-recipient-mobile.png'),fullPage:true});
+await recipient.locator('#handoffLock').click();assert.equal(await recipient.locator('#handoffResult').isVisible(),false);assert.equal(await recipient.locator('#handoffDownload').getAttribute('href'),null);assert.equal(await recipient.locator('#handoffFile').inputValue(),'');assert.deepEqual(recipientErrors,[]);assert.deepEqual(recipientExternalRequests,[]);await recipientContext.close();
+console.log('Protected handoff: passphrase confirmation/cancel clearing, fresh mobile recipient, wrong-passphrase recovery, exact decrypted ZIP/original bytes, no workspace connection or external requests.');
+
 // Exercise the real connection form and payload approval using a synthetic service.
 let aiConfigured=false;const aiRequests=[],syntheticServiceKey='synthetic-browser-service-key-123456789';
 await page.route('https://synthetic-ai.invalid/**',async route=>{
@@ -16481,8 +16726,8 @@ import './package-public.mjs';
 ===== END FILE: scripts/package-release.mjs =====
 
 ===== BEGIN FILE: scripts/package-public.mjs =====
-SHA256: fcd43ade8ce8d024fd4b289d4ca81ef55bf23f2398cb0772f6498fcd456b093e
-UTF8_BYTES: 6740
+SHA256: 1b4e2c753c68d050f51d03a6e73512451da56bdf4397c54125ae3c968a4daf7e
+UTF8_BYTES: 6833
 ===== CONTENT START =====
 import{readFile,writeFile,mkdir,copyFile,readdir,unlink}from'node:fs/promises';
 import{createHash}from'node:crypto';
@@ -16499,7 +16744,7 @@ await write('build.html',build);
 const library=JSON.parse(await read('app/library.json'));
 if(library.some(s=>s.local||s.extent!=='metadata-only'))throw Error('Public library must contain public external legal references only');
 await write('app/library-manifest.json',JSON.stringify({format:'claritypath-source-library-manifest-v1',entries:library.map(s=>({...s,includedExtent:s.extent,sourceStatus:'External public legal reference; no private product specifications included'}))},null,2));
-const files=['manifest.webmanifest','sw.js','app/install.mjs','assets/icon-192.png','assets/icon-512.png','assets/icon-180.png','assets/claritypath-logo.jpg','assets/ICON-ORIGIN.txt','tests/pwa.cjs','disclaimer.html','index.html','workspace.html','build.html','claritypath-public-build.txt','app/catalogue.mjs','app/nsw-catalogue.json','scripts/build-nsw-catalogue.mjs','sources/public/nsw-source-index.json','sources/public/nsw-specialist-index.json','sources/public/nsw-institutions-checked.json','tests/catalogue.test.mjs','app/ai.mjs','app/core.mjs','app/crypto.mjs','app/github.mjs','app/main.mjs','app/output.mjs','app/style.css','app/library.json','app/library-manifest.json','app/build-page.mjs','service/server.mjs','service/Dockerfile','scripts/check-ai-service.mjs','service/README.txt','service/.env.example','OPERATING-GUIDE.txt','README.md','release-status.json','package.json','.gitignore','.dockerignore','tests/core.test.mjs','tests/recovery.test.mjs','tests/service.test.mjs','tests/browser.cjs','tests/package.test.mjs','scripts/package-release.mjs','scripts/package-public.mjs','scripts/serve.mjs','.github/workflows/deploy-pages.yml'];
+const files=['manifest.webmanifest','sw.js','app/install.mjs','assets/icon-192.png','assets/icon-512.png','assets/icon-180.png','assets/claritypath-logo.jpg','assets/ICON-ORIGIN.txt','tests/pwa.cjs','disclaimer.html','index.html','workspace.html','build.html','claritypath-public-build.txt','app/catalogue.mjs','app/nsw-catalogue.json','scripts/build-nsw-catalogue.mjs','sources/public/nsw-source-index.json','sources/public/nsw-specialist-index.json','sources/public/nsw-institutions-checked.json','tests/catalogue.test.mjs','handoff.html','app/handoff-reader.mjs','app/protected-handoff.mjs','tests/handoff.test.mjs','app/ai.mjs','app/core.mjs','app/crypto.mjs','app/github.mjs','app/main.mjs','app/output.mjs','app/style.css','app/library.json','app/library-manifest.json','app/build-page.mjs','service/server.mjs','service/Dockerfile','scripts/check-ai-service.mjs','service/README.txt','service/.env.example','OPERATING-GUIDE.txt','README.md','release-status.json','package.json','.gitignore','.dockerignore','tests/core.test.mjs','tests/recovery.test.mjs','tests/service.test.mjs','tests/browser.cjs','tests/package.test.mjs','scripts/package-release.mjs','scripts/package-public.mjs','scripts/serve.mjs','.github/workflows/deploy-pages.yml'];
 if(files.some(p=>/canonical|solicitors-advocate\.txt|full-spec|private-build|attachments/i.test(p)))throw Error('Restricted build input in public manifest');
 const contents=await Promise.all(files.map(async name=>{if(/\.(png|jpg)$/.test(name)){const bytes=await readFile(path.join(root,name));return{path:name,text:bytes.toString('base64'),encoding:'base64',bytes}}const text=(await read(name)).replace(/\r\n?/g,'\n');await write(name,text);return{path:name,text,bytes:Buffer.from(text)}}));
 const manifest={format:'claritypath-public-source-v1',version:status.version,files:contents.map(f=>({path:f.path,bytes:f.bytes.length,sha256:digest(f.bytes),...(f.encoding?{encoding:f.encoding}:{})}))};await write('source-manifest.json',JSON.stringify(manifest,null,2));

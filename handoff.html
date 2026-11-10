@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>ClarityPath · Open a protected handoff</title>
+  <link rel="stylesheet" href="./app/style.css">
+  <script type="module" src="./app/handoff-reader.mjs"></script>
+</head>
+<body>
+  <header class="top"><a class="brand" href="./index.html">ClarityPath</a><nav aria-label="Main"><a href="./workspace.html">Workspace</a><a href="./disclaimer.html">Disclaimer</a></nav></header>
+  <main class="site-main">
+    <p class="eyebrow">Selected records · Private handoff</p>
+    <h1>Open a protected handoff</h1>
+    <p class="lead">Choose the protected file you received and enter its passphrase. It unlocks on this device.</p>
+    <p>This page sends neither the file nor the passphrase to a server. It needs no account or private-workspace connection.</p>
+    <form id="handoffForm" class="card">
+      <label for="handoffFile">Protected ClarityPath file</label>
+      <input id="handoffFile" type="file" accept=".json,application/json" required>
+      <label for="handoffPass">Handoff passphrase</label>
+      <input id="handoffPass" type="password" autocomplete="off" required minlength="12">
+      <button id="handoffUnlock" type="submit">Unlock on this device</button>
+    </form>
+    <p id="handoffStatus" role="status" aria-live="polite">Ask the sender for the passphrase through a separate channel.</p>
+    <section id="handoffResult" hidden>
+      <h2>The selected package is unlocked</h2>
+      <p>The ZIP you download below is readable. Extract it and open <strong>index.html</strong> for the summary, selected sources and original files. Keep the downloaded ZIP and its contents somewhere private.</p>
+      <div class="actions"><a id="handoffDownload" class="button" download="claritypath-selected-handoff.zip">Download readable ZIP</a><button id="handoffLock" class="secondary" type="button">Clear unlocked package</button></div>
+      <p class="meta">Clearing this page releases its unlocked copy. Downloads already saved on your device remain there.</p>
+    </section>
+  </main>
+  <footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath · <a href="./disclaimer.html">Disclaimer</a></footer>
+</body>
+</html>

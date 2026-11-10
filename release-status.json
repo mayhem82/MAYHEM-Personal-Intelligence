@@ -1,5 +1,5 @@
 {
-  "version": "3.2.3",
+  "version": "3.3.0",
   "specification": "ClarityPath public application build guide",
   "date": "2026-11-10",
   "summary": "Working NSW situation catalogue with 729 guide/situation entries in 22 topic groups, 171 legislative reading entry points, institution contacts and 16 expressly sourced escalation pathways; separate encrypted private-case workspace and canonical operator-recorded Solicitors Advocate workflow. External guide texts are linked, not reproduced in full. This is not a certified exhaustive register of NSW law.",
@@ -17,7 +17,8 @@
     "Required authenticated owner-hosted AI/research service code; payload preview/approval; cited drafts and source validation",
     "Separate public Build page; public-application replication pack and exact-source manifests",
     "Installable PWA manifest with supplied-logo-derived launcher icons, homepage Install app control, browser-specific fallback instructions and public-shell-only offline cache",
-    "AI configuration readiness checks, authenticated no-case connection probe and minimal server container deployment file"
+    "AI configuration readiness checks, authenticated no-case connection probe and minimal server container deployment file",
+    "Protected selected-handoff export with recipient passphrase confirmation, exact source revision, local-only unlock page and readable ZIP recovery without a private workspace connection"
   ],
   "configurationRequired": [
     "Private GitHub storage needs the owner's initialised private repository, restricted token and encryption passphrase.",
@@ -25,16 +26,17 @@
     "NSW is the catalogue jurisdiction. Actual case facts and legal passages still need applicability and current-version checks."
   ],
   "verification": {
-    "core": "PASS — 15 tests, including AI readiness/configuration rejection and byte-safe service authentication, plus existing catalogue, integrity, encryption, workflow, recovery, storage and exact pack checks. 10 November 2026.",
-    "browser": "PASS — headless Microsoft Edge: populated public selector before any case; privacy internal-review and 60-day prerequisite display; rental-repairs search; private first/second case creation and switching; original attachment, qualification/snapshot/analysis, canonical engine workflow, summary/selected ZIP, encrypted reload/lock, all nine 360px sections, full Build copy/download. No browser script errors. 10 November 2026. Repeated successfully for release 3.2.0, including exact binary-asset Build-pack copy/download.",
+    "core": "PASS — 17 tests, including protected-handoff isolation/roundtrip/tamper checks and AI readiness/configuration rejection and byte-safe service authentication, plus existing catalogue, integrity, encryption, workflow, recovery, storage and exact pack checks. 10 November 2026.",
+    "browser": "PASS — headless Microsoft Edge: populated public selector before any case; privacy internal-review and 60-day prerequisite display; rental-repairs search; private first/second case creation and switching; original attachment, qualification/snapshot/analysis, canonical engine workflow, summary/selected ZIP, encrypted reload/lock, all nine 360px sections, full Build copy/download. No browser script errors. 10 November 2026. Repeated successfully for release 3.2.0, including exact binary-asset Build-pack copy/download. Release 3.3.0 also passed protected export, confirmation/cancel clearing, independent recipient download and existing AI regression checks.",
     "privateGitHubLive": "Not performed; adapter tested against a controlled GitHub API model, no real repository credentials supplied.",
     "providerLive": "Not performed; service tested locally with controlled provider responses, no paid provider call.",
     "physicalAndroid": "Not performed; 360px desktop-browser layout emulation only.",
     "securityAudit": "No independent security audit claimed.",
     "legalComplianceAudit": "No completed legal-compliance audit claimed.",
-    "pwa": "PASS — isolated temporary regular-profile Microsoft Edge: correct manifest/icon dimensions and replicated subpath scope, zero Chromium installability errors, browser-menu fallback, synthetic retained-prompt handler, offline workspace/catalogue/case creation, no mobile overflow, and exclusion of private/authenticated responses from public cache. 10 November 2026. No physical-device/OS installation performed.",
+    "pwa": "PASS — isolated temporary regular-profile Microsoft Edge: correct manifest/icon dimensions and replicated subpath scope, zero Chromium installability errors, browser-menu fallback, synthetic retained-prompt handler, offline workspace/catalogue/case creation, no mobile overflow, and exclusion of private/authenticated responses from public cache. 10 November 2026. No physical-device/OS installation performed. Release 3.3.0 includes verified offline protected-handoff unlocking and exact ZIP recovery.",
     "aiReadiness": "PASS — local service health and authenticated capabilities checks; browser rejected unconfigured endpoints, transmitted no case during connection, sent only explicitly approved synthetic selected records/sources, saved cited synthetic draft separately, and cleared a failed replacement connection. No live provider request.",
-    "containerBuild": "Not performed; Docker is unavailable on this workstation. Node.js runtime and readiness endpoint tested directly."
+    "containerBuild": "Not performed; Docker is unavailable on this workstation. Node.js runtime and readiness endpoint tested directly.",
+    "protectedHandoff": "PASS — 10 November 2026: protected selection hides case content and original filenames; correct passphrase recovers exact ZIP bytes; wrong passphrases, altered ciphertext and unsupported formats fail safely; a fresh 360px recipient browser unlocks without workspace/account access or external requests; cached reader unlocks offline; closing previews clears their private contents and password fields. Python zipfile independently verified archive compatibility, every manifest digest and exact original bytes. Desktop-browser mobile emulation only; no physical-phone rehearsal."
   },
   "incompleteSpecificationItems": [
     "Automatic GitHub App sign-in and hosted authentication broker; current static method is owner-supplied fine-grained token.",
@@ -42,7 +44,7 @@
     "A universal or case-specific full legal corpus is not bundled; source extent and gaps are explicit.",
     "Automated governance authority verification and full MAYHEM investigation orchestration are not implemented; authorised analysis and qualification are operator-provided.",
     "Provider-side dollar budget enforcement and durable multi-instance quota/idempotency store are deployment responsibilities; included service has per-process caps.",
-    "Encrypted selected-handoff archive and recovery-key rotation interface are not provided; readable selected handoffs are explicitly approved and encrypted full backups are available.",
+    "Recovery-key rotation interface is not provided. Protected selected handoffs, explicitly approved readable ZIPs and encrypted full backups are available.",
     "Automated OCR/document-text extraction and PDF-export pagination are not provided."
   ],
   "privateBuildInputs": "Private MAYHEM specifications excluded from public files, library, build pack and provider context."

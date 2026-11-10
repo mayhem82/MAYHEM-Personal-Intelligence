@@ -11,3 +11,5 @@ Run node scripts/package-release.mjs, then npm test. The generated site/ directo
 Private GitHub storage and required AI service need the actual owner’s configuration. No real case data or credentials are bundled. The public catalogue, install manifest, icons and public-only offline shell work independently of a saved case.
 
 The required AI deployment and configuration-only connection check are described in service/README.txt. The service can run on a Node.js host or from service/Dockerfile; the public site stays on GitHub Pages. Readiness checks never count as a live provider test.
+
+Protected selected handoffs use handoff.html for local recipient unlocking. The recipient needs the exported file and its separate passphrase; no private workspace account is required. The recovered ZIP is readable and must be stored privately.
