@@ -1,7 +1,17 @@
 {
   "format": "claritypath-public-source-v1",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 1842,
+      "sha256": "1a9a9eeaee19f76ea86b76a9a10d6e0bad43a13a257b035e9e8e0a4a252ca185"
+    },
+    {
+      "path": "SETUP-FOR-NEW-OWNER.txt",
+      "bytes": 7498,
+      "sha256": "5c3a72342cfd4e6ab9650817ffc934ac373bb252dc33afb04f014ab2bae592fa"
+    },
     {
       "path": "manifest.webmanifest",
       "bytes": 646,
@@ -68,13 +78,13 @@
     },
     {
       "path": "build.html",
-      "bytes": 8420,
-      "sha256": "ee3b796399fd7d9f7968ffc58e56afdca360448697cf1c7787fd4c8175824f3d"
+      "bytes": 9732,
+      "sha256": "e84cf7db45e4fd932796b385a2301946ae5a268aad5fc974d10e8b06174c6e2a"
     },
     {
       "path": "claritypath-public-build.txt",
-      "bytes": 6530,
-      "sha256": "f86f248a12a84ed4ff37d73b6d449a1810c30b8d3d8759b48bba1b08c788654e"
+      "bytes": 7692,
+      "sha256": "83fd6b85c3b581c3647a4ce67e3d1d72d1e67e8cb51c09f085e6bedbb114992d"
     },
     {
       "path": "app/catalogue.mjs",
@@ -198,8 +208,8 @@
     },
     {
       "path": "service/README.txt",
-      "bytes": 5166,
-      "sha256": "bb63acd36141526b653808d1a27809480fc167796351c3fced31330e45d7f3d2"
+      "bytes": 5314,
+      "sha256": "e4d4ff5fe60d7503267fa6d1ecf16de64f4fd4707640a45ba1bf61936cb263fb"
     },
     {
       "path": "service/.env.example",
@@ -208,23 +218,23 @@
     },
     {
       "path": "OPERATING-GUIDE.txt",
-      "bytes": 9876,
-      "sha256": "ad563a2b24381096ad6ad324afe4d9b289506be2a2ec8b7ce33f2dece42ac323"
+      "bytes": 10313,
+      "sha256": "955c8ac4e54d29a74ca4912a933b38727318de266a38e928ec135818d78c0f83"
     },
     {
       "path": "README.md",
-      "bytes": 1463,
-      "sha256": "1e46a0f999aa6bd18532d8891e1d52d4c4e13f7bca451f0676050667ecb4d24a"
+      "bytes": 1972,
+      "sha256": "574a112c1a123775f32aa05cab50d6a3368ac4fc7d2ca6c30afdf2622728fbf2"
     },
     {
       "path": "release-status.json",
-      "bytes": 7052,
-      "sha256": "db627b4fd490d494712656c87e911c9afd5d7d0dd4dfebcac25e43ef8cede8c6"
+      "bytes": 7483,
+      "sha256": "7c22e071e88bfaa8ea5e10085067d3c8cd19beead84baf06e373d844e9ce44e7"
     },
     {
       "path": "package.json",
       "bytes": 697,
-      "sha256": "5518751f5fdf4ad08efbd31f6542e391a58b6ad14550486f59101b945805d34b"
+      "sha256": "2f9618342a29e8f4398a5557d39fd35fb406aac9a315563912c0d2855a5a98f0"
     },
     {
       "path": ".gitignore",
@@ -268,8 +278,8 @@
     },
     {
       "path": "scripts/package-public.mjs",
-      "bytes": 6833,
-      "sha256": "1b4e2c753c68d050f51d03a6e73512451da56bdf4397c54125ae3c968a4daf7e"
+      "bytes": 7753,
+      "sha256": "055ba0622848dace7d6f27b8a441109f238fa4a875ba32aceb15eca4e13bd80a"
     },
     {
       "path": "scripts/serve.mjs",

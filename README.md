@@ -4,6 +4,8 @@
 
 Public NSW legal-information catalogue and owner-controlled case workspace.
 
+For a new owner’s installation, follow [SETUP-FOR-NEW-OWNER.txt](SETUP-FOR-NEW-OWNER.txt). The receiving AI is instructed to complete that owner’s own public application repository, separate private encrypted case store, required AI deployment/connections, recovery arrangements and live verification. Root [AGENTS.md](AGENTS.md) carries the same routing instruction for agents opening a clone. Use the source author’s repository as a reference and verify the new owner’s destination before pushing.
+
 Private MAYHEM specifications supplied for building this project are private inputs. They must not be committed, published, included in public source libraries/packs or appended to provider requests. Creator authorisation to use a private build input is not redistribution permission.
 
 Run node scripts/package-release.mjs, then npm test. The generated site/ directory is the only publication artifact. The public Build page and build-pack.txt reproduce only the named public application files. See claritypath-public-build.txt and OPERATING-GUIDE.txt.

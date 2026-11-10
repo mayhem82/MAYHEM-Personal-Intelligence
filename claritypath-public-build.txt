@@ -3,6 +3,10 @@ CLARITYPATH — PUBLIC APPLICATION BUILD GUIDE
 
 This guide describes the public ClarityPath application and its reproducible public files. Julian Minko’s supplied MAYHEM specifications are private build inputs. They are not included, licensed, offered for download or authorised for redistribution by this site or pack. Do not retrieve them from old commits, copies or caches. Do not add them to a source library or AI request.
 
+## 0. Complete setup for the new owner
+When this repository or pack is supplied for cloning/installation, the receiving AI must carry out SETUP-FOR-NEW-OWNER.txt. It is a complete installation task: establish the recipient’s account and destination, create/use their own public application repository and a separate private case-data repository, deploy their site, configure encryption and independent recovery, deploy/connect required AI under their control, test the real authorised connections with synthetic data and publish the matching Build pack. Root AGENTS.md makes this task visible to coding agents working from a clone.
+Use the source project as a reference. Configure the new owner’s actual Git remote, branch, Pages URL, service origin, endpoints and private credentials. Keep their case records and private settings out of the public site. Preserve the creator attribution. Complete independent work while any owner-controlled authentication, private credential entry or applicable charge approval is pending; identify the exact remaining blocker and keep installation marked incomplete until its required connections are genuinely verified.
+
 ## 1. Reproduce the public application
 Use the exact public source files and image bytes in build-pack.txt. Text blocks are UTF-8 with LF line endings. Image blocks marked ENCODING: base64 must be decoded to bytes; the recorded hash and byte count refer to decoded bytes. The pack contains the working application, not a separate prefilled demonstration.
 Preserve the creator notice, Disclaimer page, source attributions and public/private boundary. Installing for a different private-data owner does not transfer the creator’s attribution or rights in private MAYHEM material.

@@ -1,11 +1,71 @@
 CLARITYPATH PUBLIC APPLICATION BUILD PACK
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath
-Release 3.3.0
+Release 3.3.1
 
 TASK FOR THE RECEIVING AI
-Replicate these exact public application files and configure only the actual owner’s authorised private-storage/hosting connections. Read claritypath-public-build.txt. Private MAYHEM specifications are not included, licensed for redistribution, or authorised as AI request context. Do not retrieve historical copies. Keep them outside the public project and all published packs. Preserve creator/source attribution. Binary blocks marked ENCODING: base64 must be decoded before writing; hashes and byte counts describe actual file bytes. Normalise text blocks to LF, run node scripts/package-release.mjs, then npm test.
+Complete the recipient’s own personal intelligence installation. Read AGENTS.md, SETUP-FOR-NEW-OWNER.txt and claritypath-public-build.txt. Create or use the authorised NEW OWNER public application repository and a DISTINCT PRIVATE case-data repository, point the checkout at that destination, deploy the public site, configure encrypted storage and recovery, deploy and connect the required owner-controlled AI service, and verify real authorised connections using selected synthetic records. Use the new owner’s account, repositories, site origin, endpoints and private credentials. The source author’s account and services are reference material, not installation defaults. Finish the matching Build pack and operating instructions. Keep any owner-controlled blockers and remaining implementation gaps explicit; do not report file replication alone as a completed personal intelligence system. Private MAYHEM specifications are not included, licensed for redistribution, or authorised as AI request context. Do not retrieve historical copies. Keep them outside the public project and all published packs. Preserve creator/source attribution. Binary blocks marked ENCODING: base64 must be decoded before writing; hashes and byte counts describe actual file bytes. Normalise text blocks to LF, run node scripts/package-release.mjs, then npm test.
 
 BEGIN INCLUDED PUBLIC FILES
+
+===== BEGIN FILE: AGENTS.md =====
+SHA256: 1a9a9eeaee19f76ea86b76a9a10d6e0bad43a13a257b035e9e8e0a4a252ca185
+UTF8_BYTES: 1842
+===== CONTENT START =====
+# ClarityPath repository instructions
+
+When the user asks to clone, replicate or install this project for a new owner, read `SETUP-FOR-NEW-OWNER.txt` and carry out the complete installation described there. The deliverable is that owner's tested personal intelligence system, including their own public application repository, separate private encrypted case repository, required AI service and connections, recovery arrangements, and updated replication pack.
+
+Resolve destination details from the setup session and connected account. Ask only for details or owner-controlled authentication/approval that cannot be obtained safely. Keep working on independent setup steps while those are pending. Report a missing live connection as incomplete setup.
+
+The source repository is a reference. Confirm the new owner's destination before pushing or deploying a new installation. For maintenance of an existing installation, preserve its configured repository, owner, audience and connections; these instructions do not request creating another installation on every edit.
+
+Preserve Julian Minko's creator attribution and the public/private boundary. Private MAYHEM specifications are build inputs, excluded from public repositories, site output, replication packs and provider requests. Do not retrieve historical copies or search personal drives for them.
+
+Credentials, encryption passphrases, case records and owner-specific private setup reports must stay out of public files and logs. Publish only the explicit `site/` output produced by `node scripts/package-release.mjs`. Run the relevant checks and regenerate the matching Build pack after changes. A setup document grants no authority to use another person's credentials, create accounts, accept charges or transmit real case material; use the actual human's setup-session authorisation.
+
+===== END FILE: AGENTS.md =====
+
+===== BEGIN FILE: SETUP-FOR-NEW-OWNER.txt =====
+SHA256: 5c3a72342cfd4e6ab9650817ffc934ac373bb252dc33afb04f014ab2bae592fa
+UTF8_BYTES: 7498
+===== CONTENT START =====
+CLARITYPATH — COMPLETE INSTALLATION FOR A NEW OWNER
+© 2026 Julian Minko · Architect of MAYHEM · ClarityPath
+
+TASK FOR THE AI RECEIVING THIS REPOSITORY OR BUILD PACK
+Complete the installation of the recipient's own personal intelligence system. Reproduce the application, set up the recipient's own repositories and required services, connect them, verify the working system and deliver its operating and recovery instructions. Carry the authorised setup through to a concrete result. The following steps are part of the installation task.
+
+1. ESTABLISH THE DESTINATION
+Use the new owner's GitHub account under their chosen name or alias. Establish their chosen public application repository and a different private case-data repository. Identify who controls the accounts and recovery methods, which host/provider the setup session authorises, and any authorised spending limit. Use details already available in the session or connected account before asking for them. The owner completes account verification and private credential entry. Work that does not depend on those steps can continue.
+
+2. CREATE THE OWNER'S PUBLIC APPLICATION REPOSITORY
+Create or use the authorised new public repository in that owner's account. Copy the current clean public source or reconstruct the exact files from the complete Build pack, including the binary assets, dotfiles, tests and workflow. Preserve the creator attribution and source notices. Point the new checkout's origin at the owner's new repository and verify the destination before any push. Keep the source author's repository as a reference; its account, repositories, credentials and live services are not the new installation's destinations.
+Use the actual default branch in the included Pages workflow. Configure GitHub Pages to deploy through that workflow, push the verified public source and publish only the generated site/ directory. Record the new owner's actual site URL. Check that workspace, Build, recipient unlock page, icons, install scope and navigation resolve under that repository's URL.
+
+3. SET UP THE SEPARATE PRIVATE CASE STORE
+Create or use the authorised private repository owned by the actual case-data owner. Initialise it with a harmless README so the application can access its default branch. Verify its private visibility and identity before connecting. The public application repository and private case repository must be distinct.
+Configure the implemented connection using an expiring fine-grained token restricted to the selected private repository with Contents read/write and necessary metadata read. The token stays in memory. Set up the owner's encryption passphrase privately, initialise the encrypted store in ClarityPath and perform the first verified save. Set up encrypted device saving if the owner wants it, and give them an independently stored encrypted backup and recovery instructions. Keep the passphrase separately.
+Test with clearly labelled synthetic records and files: save, lock, reopen, unlock and confirm the exact text and original file bytes. Confirm that another case remains isolated and a stale remote revision is not silently overwritten. Record live verification separately from fixture-based tests.
+
+4. DEPLOY AND CONNECT THE REQUIRED AI SERVICE
+AI is a required installation component. Deploy service/server.mjs to the owner-controlled HTTPS server authorised in the setup session, using service/README.txt and service/Dockerfile where applicable. Complete the hosting and provider setup rather than leaving a list of services for the owner to research. Keep the public application on its new GitHub Pages site.
+Configure the owner-controlled provider key, available model, service access key, allowed origins and request limit through the host's private settings. ALLOWED_ORIGINS must contain the new site's exact origin, derived from its actual URL, without its repository path. Set the host's bind/port and health-check settings. Do not reuse the source author's origin, key, endpoint or account. Keep one service process unless a durable shared quota/idempotency mechanism has been implemented and checked.
+Verify /healthz and authenticated capabilities, then connect the real HTTPS endpoint in the new workspace. A configuration check does not verify a provider response. With the owner's applicable transmission/spending authorisation, select only a synthetic record, review and approve the actual payload, obtain a real cited provider draft and confirm it is saved separately. Check that unselected material, attachments and private build specifications are absent from the request. Real case material needs its own explicit selection and approval.
+If authentication, host access, a provider credential or charge approval is missing, finish the independent work and name the exact remaining owner-controlled step. Keep AI setup marked incomplete until a real authorised provider request succeeds. Do not substitute canned output or claim that service source code alone is live AI.
+
+5. VERIFY THE OWNER'S PERSONAL INTELLIGENCE WORKSPACE
+Run node scripts/package-release.mjs and npm test. Run the browser and PWA checks with the declared Playwright dependency and supported browser. Test the actual deployed installation as well as the local source: NSW situation selection, a new private case, original account and attachment, chronology and links, separate review/source handling, the ordered engine workflow, summaries and selected handoff.
+Test a protected selected handoff in a clean recipient browser without the owner's private-workspace connection. Confirm the exact recovered ZIP/original bytes and excluded-record boundary. Check mobile layout, installable scope, public-only offline caching, encrypted reload and lock. Report a physical-device test only if it occurred. Retain test records as clearly identified private fixtures unless the owner authorises their removal; ordinary use must not start with fictitious personal case material presented as real.
+
+6. FINISH THE NEW OWNER'S REPLICATION AND RECOVERY PACK
+Regenerate Build, build-pack.txt, source-manifest.json and release-status.json from the new installation's actual public source. Include these setup instructions so that the next authorised owner can repeat the process for their own repositories and system. Publish that matching pack alongside the tested site. Keep credentials, private repository details and case data out of the public pack.
+Give the owner their public site and repository links, how to reopen private work, renew the restricted connection, keep backups, recover with the passphrase, use AI payload approval and prepare a selected handoff. Keep any private setup report in an ignored private location such as .private-build/; public status records may report verification outcomes without private identifiers or secrets.
+List the actual checks performed and any unresolved implementation or configuration items. Completion means the owner's deployed system and real connections work as verified. An unavailable owner-controlled step remains an explicit blocker, not a completed installation.
+
+PUBLICATION BOUNDARY
+Private MAYHEM specifications are not included or licensed for redistribution. Keep them outside public source, source libraries, packs, logs and AI requests. Do not retrieve old copies or search OneDrive/personal drives for missing instructions. Preserve © 2026 Julian Minko · Architect of MAYHEM · ClarityPath when creating a recipient-owned installation.
+
+===== END FILE: SETUP-FOR-NEW-OWNER.txt =====
 
 ===== BEGIN FILE: manifest.webmanifest =====
 SHA256: 41bdb99e3572744cff153cb4cba56ffa3c59d185488c03f7129adee1ba317620
@@ -183,13 +243,17 @@ UTF8_BYTES: 2715
 ===== END FILE: workspace.html =====
 
 ===== BEGIN FILE: build.html =====
-SHA256: ee3b796399fd7d9f7968ffc58e56afdca360448697cf1c7787fd4c8175824f3d
-UTF8_BYTES: 8420
+SHA256: e84cf7db45e4fd932796b385a2301946ae5a268aad5fc974d10e8b06174c6e2a
+UTF8_BYTES: 9732
 ===== CONTENT START =====
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>ClarityPath · Public build guide</title><link rel="stylesheet" href="./app/style.css"><script type="module" src="./app/build-page.mjs"></script></head><body><header class="top"><a class="brand" href="./index.html">ClarityPath</a><nav aria-label="Main"><a href="./workspace.html">Working application</a><a href="./disclaimer.html">Disclaimer</a></nav></header><main class="site-main"><h1>Build and replicate ClarityPath</h1><p>Public application guide and exact public application files. Private MAYHEM specifications are excluded and are not offered for redistribution.</p><div class="actions"><button id="copyPack">Copy public application pack</button><a class="button" href="./build-pack.txt" download>Download public application pack</a><a href="./claritypath-public-build.txt">Public build guide as text</a></div><p id="buildStatus" role="status"></p><section id="spec"><pre>CLARITYPATH — PUBLIC APPLICATION BUILD GUIDE
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>ClarityPath · Public build guide</title><link rel="stylesheet" href="./app/style.css"><script type="module" src="./app/build-page.mjs"></script></head><body><header class="top"><a class="brand" href="./index.html">ClarityPath</a><nav aria-label="Main"><a href="./workspace.html">Working application</a><a href="./disclaimer.html">Disclaimer</a></nav></header><main class="site-main"><h1>Build and replicate ClarityPath</h1><p>Replicate the application and complete setup of the new owner’s own repositories, private storage, required AI service and personal intelligence workspace. Private MAYHEM specifications are excluded.</p><div class="actions"><a class="button" href="./SETUP-FOR-NEW-OWNER.txt">Complete new-owner setup instructions</a><button id="copyPack">Copy public application pack</button><a class="button" href="./build-pack.txt" download>Download public application pack</a><a href="./claritypath-public-build.txt">Public build guide as text</a></div><p id="buildStatus" role="status"></p><section id="spec"><pre>CLARITYPATH — PUBLIC APPLICATION BUILD GUIDE
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath
 
 This guide describes the public ClarityPath application and its reproducible public files. Julian Minko’s supplied MAYHEM specifications are private build inputs. They are not included, licensed, offered for download or authorised for redistribution by this site or pack. Do not retrieve them from old commits, copies or caches. Do not add them to a source library or AI request.
+
+## 0. Complete setup for the new owner
+When this repository or pack is supplied for cloning/installation, the receiving AI must carry out SETUP-FOR-NEW-OWNER.txt. It is a complete installation task: establish the recipient’s account and destination, create/use their own public application repository and a separate private case-data repository, deploy their site, configure encryption and independent recovery, deploy/connect required AI under their control, test the real authorised connections with synthetic data and publish the matching Build pack. Root AGENTS.md makes this task visible to coding agents working from a clone.
+Use the source project as a reference. Configure the new owner’s actual Git remote, branch, Pages URL, service origin, endpoints and private credentials. Keep their case records and private settings out of the public site. Preserve the creator attribution. Complete independent work while any owner-controlled authentication, private credential entry or applicable charge approval is pending; identify the exact remaining blocker and keep installation marked incomplete until its required connections are genuinely verified.
 
 ## 1. Reproduce the public application
 Use the exact public source files and image bytes in build-pack.txt. Text blocks are UTF-8 with LF line endings. Image blocks marked ENCODING: base64 must be decoded to bytes; the recorded hash and byte count refer to decoded bytes. The pack contains the working application, not a separate prefilled demonstration.
@@ -221,13 +285,17 @@ Selected handoffs: make protected export the primary handoff action and require 
 ===== END FILE: build.html =====
 
 ===== BEGIN FILE: claritypath-public-build.txt =====
-SHA256: f86f248a12a84ed4ff37d73b6d449a1810c30b8d3d8759b48bba1b08c788654e
-UTF8_BYTES: 6530
+SHA256: 83fd6b85c3b581c3647a4ce67e3d1d72d1e67e8cb51c09f085e6bedbb114992d
+UTF8_BYTES: 7692
 ===== CONTENT START =====
 CLARITYPATH — PUBLIC APPLICATION BUILD GUIDE
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath
 
 This guide describes the public ClarityPath application and its reproducible public files. Julian Minko’s supplied MAYHEM specifications are private build inputs. They are not included, licensed, offered for download or authorised for redistribution by this site or pack. Do not retrieve them from old commits, copies or caches. Do not add them to a source library or AI request.
+
+## 0. Complete setup for the new owner
+When this repository or pack is supplied for cloning/installation, the receiving AI must carry out SETUP-FOR-NEW-OWNER.txt. It is a complete installation task: establish the recipient’s account and destination, create/use their own public application repository and a separate private case-data repository, deploy their site, configure encryption and independent recovery, deploy/connect required AI under their control, test the real authorised connections with synthetic data and publish the matching Build pack. Root AGENTS.md makes this task visible to coding agents working from a clone.
+Use the source project as a reference. Configure the new owner’s actual Git remote, branch, Pages URL, service origin, endpoints and private credentials. Keep their case records and private settings out of the public site. Preserve the creator attribution. Complete independent work while any owner-controlled authentication, private credential entry or applicable charge approval is pending; identify the exact remaining blocker and keep installation marked incomplete until its required connections are genuinely verified.
 
 ## 1. Reproduce the public application
 Use the exact public source files and image bytes in build-pack.txt. Text blocks are UTF-8 with LF line endings. Image blocks marked ENCODING: base64 must be decoded to bytes; the recorded hash and byte count refer to decoded bytes. The pack contains the working application, not a separate prefilled demonstration.
@@ -16304,16 +16372,16 @@ try {
 ===== END FILE: scripts/check-ai-service.mjs =====
 
 ===== BEGIN FILE: service/README.txt =====
-SHA256: bb63acd36141526b653808d1a27809480fc167796351c3fced31330e45d7f3d2
-UTF8_BYTES: 5166
+SHA256: e4d4ff5fe60d7503267fa6d1ecf16de64f4fd4707640a45ba1bf61936cb263fb
+UTF8_BYTES: 5314
 ===== CONTENT START =====
 CLARITYPATH required AI / RESEARCH SERVICE
 
-DEPLOY ON THE EXISTING SERVER HOST
+DEPLOY FOR THIS OWNER’S INSTALLATION
 The public application remains on GitHub Pages. It calls this separate server over HTTPS; Pages cannot execute Node.js or hold a private provider key.
 For a Node.js host, use the repository root, Node.js 22 or later, no dependency install step, and start command: node service/server.mjs
 Set HOST=0.0.0.0 and the PORT required by that host. Set the private provider key, model, service access key and ALLOWED_ORIGINS in the host's settings before routing traffic.
-For this deployment the allowed public origin is https://mayhem82.github.io (origin only, without the repository path). A replica must use its own exact origin.
+Set ALLOWED_ORIGINS from this owner’s actual deployed site URL: use its exact origin only, without the repository path. For a new installation derive this from the new owner’s Pages URL; do not carry over the source author’s account origin. Follow SETUP-FOR-NEW-OWNER.txt for the full installation.
 For a container host, build from the repository root: docker build -f service/Dockerfile -t claritypath-ai .
 The allowlisted .dockerignore and Dockerfile include only server code. Secrets are runtime settings, never build arguments or image files. Container building has not been verified on this workstation.
 Configure host health checks to GET /healthz. It returns 200 only when required local settings are present, otherwise 503. The public response contains only a readiness label; it does not test the provider, reveal keys or read case data.
@@ -16370,8 +16438,8 @@ PORT=8787
 ===== END FILE: service/.env.example =====
 
 ===== BEGIN FILE: OPERATING-GUIDE.txt =====
-SHA256: ad563a2b24381096ad6ad324afe4d9b289506be2a2ec8b7ce33f2dece42ac323
-UTF8_BYTES: 9876
+SHA256: 955c8ac4e54d29a74ca4912a933b38727318de266a38e928ec135818d78c0f83
+UTF8_BYTES: 10313
 ===== CONTENT START =====
 CLARITYPATH OPERATING GUIDE
 
@@ -16422,7 +16490,7 @@ Generated output is a separate unreviewed draft. Check the direct links, selecte
 No paid provider call or private GitHub account is configured by this public release. These need the actual owner's settings. Never describe them as live-verified before a real authorised connection test succeeds.
 
 BUILD AND REPLICATION
-The receiving AI gets an explicit implementation/setup task inside that pack; no extra product explanation is required. It still needs destination-specific owner account/host settings and secure credential entry. It must not search OneDrive or personal drives for missing instructions.
+Supply the complete Build pack or cloned public repository to the receiving AI. AGENTS.md and SETUP-FOR-NEW-OWNER.txt direct it to finish the recipient’s own personal intelligence installation: their new public application repository, distinct private case repository, encrypted storage and recovery, required AI hosting/connections, live synthetic-data checks and updated replication pack. The source owner’s account, site origin and services must not become the recipient’s destinations. The owner retains control of authentication and private credential entry. Any unresolved connection or implementation gap remains explicit. The receiving AI must not search OneDrive or personal drives for missing instructions.
 
 NSW SITUATIONS AND ESCALATION
 Start with What is your situation? Browse or search the populated public catalogue without creating a case. Read the selected official guide, topic instruments, body/contact links and escalation prerequisites. Save a copy with Download this situation and pathway sources. Use this situation for a private case pre-fills a case form; nothing is created until you submit. Your saved cases is a separate selector.
@@ -16434,14 +16502,16 @@ Choose Install app on the homepage. Where the browser provides an installation p
 ===== END FILE: OPERATING-GUIDE.txt =====
 
 ===== BEGIN FILE: README.md =====
-SHA256: 1e46a0f999aa6bd18532d8891e1d52d4c4e13f7bca451f0676050667ecb4d24a
-UTF8_BYTES: 1463
+SHA256: 574a112c1a123775f32aa05cab50d6a3368ac4fc7d2ca6c30afdf2622728fbf2
+UTF8_BYTES: 1972
 ===== CONTENT START =====
 # ClarityPath
 
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath.
 
 Public NSW legal-information catalogue and owner-controlled case workspace.
+
+For a new owner’s installation, follow [SETUP-FOR-NEW-OWNER.txt](SETUP-FOR-NEW-OWNER.txt). The receiving AI is instructed to complete that owner’s own public application repository, separate private encrypted case store, required AI deployment/connections, recovery arrangements and live verification. Root [AGENTS.md](AGENTS.md) carries the same routing instruction for agents opening a clone. Use the source author’s repository as a reference and verify the new owner’s destination before pushing.
 
 Private MAYHEM specifications supplied for building this project are private inputs. They must not be committed, published, included in public source libraries/packs or appended to provider requests. Creator authorisation to use a private build input is not redistribution permission.
 
@@ -16456,11 +16526,11 @@ Protected selected handoffs use handoff.html for local recipient unlocking. The 
 ===== END FILE: README.md =====
 
 ===== BEGIN FILE: release-status.json =====
-SHA256: db627b4fd490d494712656c87e911c9afd5d7d0dd4dfebcac25e43ef8cede8c6
-UTF8_BYTES: 7052
+SHA256: 7c22e071e88bfaa8ea5e10085067d3c8cd19beead84baf06e373d844e9ce44e7
+UTF8_BYTES: 7483
 ===== CONTENT START =====
 {
-  "version": "3.3.0",
+  "version": "3.3.1",
   "specification": "ClarityPath public application build guide",
   "date": "2026-11-10",
   "summary": "Working NSW situation catalogue with 729 guide/situation entries in 22 topic groups, 171 legislative reading entry points, institution contacts and 16 expressly sourced escalation pathways; separate encrypted private-case workspace and canonical operator-recorded Solicitors Advocate workflow. External guide texts are linked, not reproduced in full. This is not a certified exhaustive register of NSW law.",
@@ -16479,7 +16549,8 @@ UTF8_BYTES: 7052
     "Separate public Build page; public-application replication pack and exact-source manifests",
     "Installable PWA manifest with supplied-logo-derived launcher icons, homepage Install app control, browser-specific fallback instructions and public-shell-only offline cache",
     "AI configuration readiness checks, authenticated no-case connection probe and minimal server container deployment file",
-    "Protected selected-handoff export with recipient passphrase confirmation, exact source revision, local-only unlock page and readable ZIP recovery without a private workspace connection"
+    "Protected selected-handoff export with recipient passphrase confirmation, exact source revision, local-only unlock page and readable ZIP recovery without a private workspace connection",
+    "Complete new-owner installation instructions in root AGENTS.md, the Build page and replication pack, covering recipient-owned repositories, required services, recovery and live connection verification"
   ],
   "configurationRequired": [
     "Private GitHub storage needs the owner's initialised private repository, restricted token and encryption passphrase.",
@@ -16497,7 +16568,8 @@ UTF8_BYTES: 7052
     "pwa": "PASS — isolated temporary regular-profile Microsoft Edge: correct manifest/icon dimensions and replicated subpath scope, zero Chromium installability errors, browser-menu fallback, synthetic retained-prompt handler, offline workspace/catalogue/case creation, no mobile overflow, and exclusion of private/authenticated responses from public cache. 10 November 2026. No physical-device/OS installation performed. Release 3.3.0 includes verified offline protected-handoff unlocking and exact ZIP recovery.",
     "aiReadiness": "PASS — local service health and authenticated capabilities checks; browser rejected unconfigured endpoints, transmitted no case during connection, sent only explicitly approved synthetic selected records/sources, saved cited synthetic draft separately, and cleared a failed replacement connection. No live provider request.",
     "containerBuild": "Not performed; Docker is unavailable on this workstation. Node.js runtime and readiness endpoint tested directly.",
-    "protectedHandoff": "PASS — 10 November 2026: protected selection hides case content and original filenames; correct passphrase recovers exact ZIP bytes; wrong passphrases, altered ciphertext and unsupported formats fail safely; a fresh 360px recipient browser unlocks without workspace/account access or external requests; cached reader unlocks offline; closing previews clears their private contents and password fields. Python zipfile independently verified archive compatibility, every manifest digest and exact original bytes. Desktop-browser mobile emulation only; no physical-phone rehearsal."
+    "protectedHandoff": "PASS — 10 November 2026: protected selection hides case content and original filenames; correct passphrase recovers exact ZIP bytes; wrong passphrases, altered ciphertext and unsupported formats fail safely; a fresh 360px recipient browser unlocks without workspace/account access or external requests; cached reader unlocks offline; closing previews clears their private contents and password fields. Python zipfile independently verified archive compatibility, every manifest digest and exact original bytes. Desktop-browser mobile emulation only; no physical-phone rehearsal.",
+    "newOwnerSetup": "Instructions and public pack updated for recipient-owned installation. This documentation release does not provision a new owner account/repository or claim an additional live storage/provider test."
   },
   "incompleteSpecificationItems": [
     "Automatic GitHub App sign-in and hosted authentication broker; current static method is owner-supplied fine-grained token.",
@@ -16514,12 +16586,12 @@ UTF8_BYTES: 7052
 ===== END FILE: release-status.json =====
 
 ===== BEGIN FILE: package.json =====
-SHA256: 5518751f5fdf4ad08efbd31f6542e391a58b6ad14550486f59101b945805d34b
+SHA256: 2f9618342a29e8f4398a5557d39fd35fb406aac9a315563912c0d2855a5a98f0
 UTF8_BYTES: 697
 ===== CONTENT START =====
 {
   "name": "claritypath-personal-intelligence",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "private": true,
   "description": "Owner-controlled case workspace and canonical MAYHEM Solicitors Advocate workflow",
   "scripts": {
@@ -16726,8 +16798,8 @@ import './package-public.mjs';
 ===== END FILE: scripts/package-release.mjs =====
 
 ===== BEGIN FILE: scripts/package-public.mjs =====
-SHA256: 1b4e2c753c68d050f51d03a6e73512451da56bdf4397c54125ae3c968a4daf7e
-UTF8_BYTES: 6833
+SHA256: 055ba0622848dace7d6f27b8a441109f238fa4a875ba32aceb15eca4e13bd80a
+UTF8_BYTES: 7753
 ===== CONTENT START =====
 import{readFile,writeFile,mkdir,copyFile,readdir,unlink}from'node:fs/promises';
 import{createHash}from'node:crypto';
@@ -16739,16 +16811,16 @@ const digest=value=>createHash('sha256').update(value).digest('hex');
 const escape=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 // Private build inputs are never read by this public packager.
 const guide=await read('claritypath-public-build.txt'),status=JSON.parse(await read('release-status.json'));
-const build='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>ClarityPath · Public build guide</title><link rel="stylesheet" href="./app/style.css"><script type="module" src="./app/build-page.mjs"></script></head><body><header class="top"><a class="brand" href="./index.html">ClarityPath</a><nav aria-label="Main"><a href="./workspace.html">Working application</a><a href="./disclaimer.html">Disclaimer</a></nav></header><main class="site-main"><h1>Build and replicate ClarityPath</h1><p>Public application guide and exact public application files. Private MAYHEM specifications are excluded and are not offered for redistribution.</p><div class="actions"><button id="copyPack">Copy public application pack</button><a class="button" href="./build-pack.txt" download>Download public application pack</a><a href="./claritypath-public-build.txt">Public build guide as text</a></div><p id="buildStatus" role="status"></p><section id="spec"><pre>'+escape(guide)+'</pre></section><section><h2>Public release status</h2><p>'+escape(status.summary)+'</p><a href="./release-status.json">Implementation and verification status</a> · <a href="./source-manifest.json">Public file manifest</a> · <a href="./OPERATING-GUIDE.txt">Operating guide</a></section></main><footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath · <a href="./disclaimer.html">Disclaimer</a></footer></body></html>';
+const build='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>ClarityPath · Public build guide</title><link rel="stylesheet" href="./app/style.css"><script type="module" src="./app/build-page.mjs"></script></head><body><header class="top"><a class="brand" href="./index.html">ClarityPath</a><nav aria-label="Main"><a href="./workspace.html">Working application</a><a href="./disclaimer.html">Disclaimer</a></nav></header><main class="site-main"><h1>Build and replicate ClarityPath</h1><p>Replicate the application and complete setup of the new owner’s own repositories, private storage, required AI service and personal intelligence workspace. Private MAYHEM specifications are excluded.</p><div class="actions"><a class="button" href="./SETUP-FOR-NEW-OWNER.txt">Complete new-owner setup instructions</a><button id="copyPack">Copy public application pack</button><a class="button" href="./build-pack.txt" download>Download public application pack</a><a href="./claritypath-public-build.txt">Public build guide as text</a></div><p id="buildStatus" role="status"></p><section id="spec"><pre>'+escape(guide)+'</pre></section><section><h2>Public release status</h2><p>'+escape(status.summary)+'</p><a href="./release-status.json">Implementation and verification status</a> · <a href="./source-manifest.json">Public file manifest</a> · <a href="./OPERATING-GUIDE.txt">Operating guide</a></section></main><footer class="site-main meta">© 2026 Julian Minko · Architect of MAYHEM · ClarityPath · <a href="./disclaimer.html">Disclaimer</a></footer></body></html>';
 await write('build.html',build);
 const library=JSON.parse(await read('app/library.json'));
 if(library.some(s=>s.local||s.extent!=='metadata-only'))throw Error('Public library must contain public external legal references only');
 await write('app/library-manifest.json',JSON.stringify({format:'claritypath-source-library-manifest-v1',entries:library.map(s=>({...s,includedExtent:s.extent,sourceStatus:'External public legal reference; no private product specifications included'}))},null,2));
-const files=['manifest.webmanifest','sw.js','app/install.mjs','assets/icon-192.png','assets/icon-512.png','assets/icon-180.png','assets/claritypath-logo.jpg','assets/ICON-ORIGIN.txt','tests/pwa.cjs','disclaimer.html','index.html','workspace.html','build.html','claritypath-public-build.txt','app/catalogue.mjs','app/nsw-catalogue.json','scripts/build-nsw-catalogue.mjs','sources/public/nsw-source-index.json','sources/public/nsw-specialist-index.json','sources/public/nsw-institutions-checked.json','tests/catalogue.test.mjs','handoff.html','app/handoff-reader.mjs','app/protected-handoff.mjs','tests/handoff.test.mjs','app/ai.mjs','app/core.mjs','app/crypto.mjs','app/github.mjs','app/main.mjs','app/output.mjs','app/style.css','app/library.json','app/library-manifest.json','app/build-page.mjs','service/server.mjs','service/Dockerfile','scripts/check-ai-service.mjs','service/README.txt','service/.env.example','OPERATING-GUIDE.txt','README.md','release-status.json','package.json','.gitignore','.dockerignore','tests/core.test.mjs','tests/recovery.test.mjs','tests/service.test.mjs','tests/browser.cjs','tests/package.test.mjs','scripts/package-release.mjs','scripts/package-public.mjs','scripts/serve.mjs','.github/workflows/deploy-pages.yml'];
+const files=['AGENTS.md','SETUP-FOR-NEW-OWNER.txt','manifest.webmanifest','sw.js','app/install.mjs','assets/icon-192.png','assets/icon-512.png','assets/icon-180.png','assets/claritypath-logo.jpg','assets/ICON-ORIGIN.txt','tests/pwa.cjs','disclaimer.html','index.html','workspace.html','build.html','claritypath-public-build.txt','app/catalogue.mjs','app/nsw-catalogue.json','scripts/build-nsw-catalogue.mjs','sources/public/nsw-source-index.json','sources/public/nsw-specialist-index.json','sources/public/nsw-institutions-checked.json','tests/catalogue.test.mjs','handoff.html','app/handoff-reader.mjs','app/protected-handoff.mjs','tests/handoff.test.mjs','app/ai.mjs','app/core.mjs','app/crypto.mjs','app/github.mjs','app/main.mjs','app/output.mjs','app/style.css','app/library.json','app/library-manifest.json','app/build-page.mjs','service/server.mjs','service/Dockerfile','scripts/check-ai-service.mjs','service/README.txt','service/.env.example','OPERATING-GUIDE.txt','README.md','release-status.json','package.json','.gitignore','.dockerignore','tests/core.test.mjs','tests/recovery.test.mjs','tests/service.test.mjs','tests/browser.cjs','tests/package.test.mjs','scripts/package-release.mjs','scripts/package-public.mjs','scripts/serve.mjs','.github/workflows/deploy-pages.yml'];
 if(files.some(p=>/canonical|solicitors-advocate\.txt|full-spec|private-build|attachments/i.test(p)))throw Error('Restricted build input in public manifest');
 const contents=await Promise.all(files.map(async name=>{if(/\.(png|jpg)$/.test(name)){const bytes=await readFile(path.join(root,name));return{path:name,text:bytes.toString('base64'),encoding:'base64',bytes}}const text=(await read(name)).replace(/\r\n?/g,'\n');await write(name,text);return{path:name,text,bytes:Buffer.from(text)}}));
 const manifest={format:'claritypath-public-source-v1',version:status.version,files:contents.map(f=>({path:f.path,bytes:f.bytes.length,sha256:digest(f.bytes),...(f.encoding?{encoding:f.encoding}:{})}))};await write('source-manifest.json',JSON.stringify(manifest,null,2));
-let pack='CLARITYPATH PUBLIC APPLICATION BUILD PACK\n© 2026 Julian Minko · Architect of MAYHEM · ClarityPath\nRelease '+status.version+'\n\nTASK FOR THE RECEIVING AI\nReplicate these exact public application files and configure only the actual owner’s authorised private-storage/hosting connections. Read claritypath-public-build.txt. Private MAYHEM specifications are not included, licensed for redistribution, or authorised as AI request context. Do not retrieve historical copies. Keep them outside the public project and all published packs. Preserve creator/source attribution. Binary blocks marked ENCODING: base64 must be decoded before writing; hashes and byte counts describe actual file bytes. Normalise text blocks to LF, run node scripts/package-release.mjs, then npm test.\n\nBEGIN INCLUDED PUBLIC FILES\n';
+let pack='CLARITYPATH PUBLIC APPLICATION BUILD PACK\n© 2026 Julian Minko · Architect of MAYHEM · ClarityPath\nRelease '+status.version+'\n\nTASK FOR THE RECEIVING AI\nComplete the recipient’s own personal intelligence installation. Read AGENTS.md, SETUP-FOR-NEW-OWNER.txt and claritypath-public-build.txt. Create or use the authorised NEW OWNER public application repository and a DISTINCT PRIVATE case-data repository, point the checkout at that destination, deploy the public site, configure encrypted storage and recovery, deploy and connect the required owner-controlled AI service, and verify real authorised connections using selected synthetic records. Use the new owner’s account, repositories, site origin, endpoints and private credentials. The source author’s account and services are reference material, not installation defaults. Finish the matching Build pack and operating instructions. Keep any owner-controlled blockers and remaining implementation gaps explicit; do not report file replication alone as a completed personal intelligence system. Private MAYHEM specifications are not included, licensed for redistribution, or authorised as AI request context. Do not retrieve historical copies. Keep them outside the public project and all published packs. Preserve creator/source attribution. Binary blocks marked ENCODING: base64 must be decoded before writing; hashes and byte counts describe actual file bytes. Normalise text blocks to LF, run node scripts/package-release.mjs, then npm test.\n\nBEGIN INCLUDED PUBLIC FILES\n';
 for(const f of contents)pack+='\n===== BEGIN FILE: '+f.path+' =====\nSHA256: '+digest(f.bytes)+'\nUTF8_BYTES: '+f.bytes.length+'\n'+(f.encoding?'ENCODING: '+f.encoding+'\n':'')+'===== CONTENT START =====\n'+f.text+'\n===== END FILE: '+f.path+' =====\n';pack+='\nEND OF CLARITYPATH PUBLIC APPLICATION PACK\n';await write('build-pack.txt',pack);
 const stage=path.resolve(root,'site');if(stage!==path.join(root,'site'))throw Error('Invalid public stage');
 const allowed=new Set([...files,'source-manifest.json','build-pack.txt']);

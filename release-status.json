@@ -1,5 +1,5 @@
 {
-  "version": "3.3.0",
+  "version": "3.3.1",
   "specification": "ClarityPath public application build guide",
   "date": "2026-11-10",
   "summary": "Working NSW situation catalogue with 729 guide/situation entries in 22 topic groups, 171 legislative reading entry points, institution contacts and 16 expressly sourced escalation pathways; separate encrypted private-case workspace and canonical operator-recorded Solicitors Advocate workflow. External guide texts are linked, not reproduced in full. This is not a certified exhaustive register of NSW law.",
@@ -18,7 +18,8 @@
     "Separate public Build page; public-application replication pack and exact-source manifests",
     "Installable PWA manifest with supplied-logo-derived launcher icons, homepage Install app control, browser-specific fallback instructions and public-shell-only offline cache",
     "AI configuration readiness checks, authenticated no-case connection probe and minimal server container deployment file",
-    "Protected selected-handoff export with recipient passphrase confirmation, exact source revision, local-only unlock page and readable ZIP recovery without a private workspace connection"
+    "Protected selected-handoff export with recipient passphrase confirmation, exact source revision, local-only unlock page and readable ZIP recovery without a private workspace connection",
+    "Complete new-owner installation instructions in root AGENTS.md, the Build page and replication pack, covering recipient-owned repositories, required services, recovery and live connection verification"
   ],
   "configurationRequired": [
     "Private GitHub storage needs the owner's initialised private repository, restricted token and encryption passphrase.",
@@ -36,7 +37,8 @@
     "pwa": "PASS — isolated temporary regular-profile Microsoft Edge: correct manifest/icon dimensions and replicated subpath scope, zero Chromium installability errors, browser-menu fallback, synthetic retained-prompt handler, offline workspace/catalogue/case creation, no mobile overflow, and exclusion of private/authenticated responses from public cache. 10 November 2026. No physical-device/OS installation performed. Release 3.3.0 includes verified offline protected-handoff unlocking and exact ZIP recovery.",
     "aiReadiness": "PASS — local service health and authenticated capabilities checks; browser rejected unconfigured endpoints, transmitted no case during connection, sent only explicitly approved synthetic selected records/sources, saved cited synthetic draft separately, and cleared a failed replacement connection. No live provider request.",
     "containerBuild": "Not performed; Docker is unavailable on this workstation. Node.js runtime and readiness endpoint tested directly.",
-    "protectedHandoff": "PASS — 10 November 2026: protected selection hides case content and original filenames; correct passphrase recovers exact ZIP bytes; wrong passphrases, altered ciphertext and unsupported formats fail safely; a fresh 360px recipient browser unlocks without workspace/account access or external requests; cached reader unlocks offline; closing previews clears their private contents and password fields. Python zipfile independently verified archive compatibility, every manifest digest and exact original bytes. Desktop-browser mobile emulation only; no physical-phone rehearsal."
+    "protectedHandoff": "PASS — 10 November 2026: protected selection hides case content and original filenames; correct passphrase recovers exact ZIP bytes; wrong passphrases, altered ciphertext and unsupported formats fail safely; a fresh 360px recipient browser unlocks without workspace/account access or external requests; cached reader unlocks offline; closing previews clears their private contents and password fields. Python zipfile independently verified archive compatibility, every manifest digest and exact original bytes. Desktop-browser mobile emulation only; no physical-phone rehearsal.",
+    "newOwnerSetup": "Instructions and public pack updated for recipient-owned installation. This documentation release does not provision a new owner account/repository or claim an additional live storage/provider test."
   },
   "incompleteSpecificationItems": [
     "Automatic GitHub App sign-in and hosted authentication broker; current static method is owner-supplied fine-grained token.",

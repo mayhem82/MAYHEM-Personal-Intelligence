@@ -47,7 +47,7 @@ Generated output is a separate unreviewed draft. Check the direct links, selecte
 No paid provider call or private GitHub account is configured by this public release. These need the actual owner's settings. Never describe them as live-verified before a real authorised connection test succeeds.
 
 BUILD AND REPLICATION
-The receiving AI gets an explicit implementation/setup task inside that pack; no extra product explanation is required. It still needs destination-specific owner account/host settings and secure credential entry. It must not search OneDrive or personal drives for missing instructions.
+Supply the complete Build pack or cloned public repository to the receiving AI. AGENTS.md and SETUP-FOR-NEW-OWNER.txt direct it to finish the recipient’s own personal intelligence installation: their new public application repository, distinct private case repository, encrypted storage and recovery, required AI hosting/connections, live synthetic-data checks and updated replication pack. The source owner’s account, site origin and services must not become the recipient’s destinations. The owner retains control of authentication and private credential entry. Any unresolved connection or implementation gap remains explicit. The receiving AI must not search OneDrive or personal drives for missing instructions.
 
 NSW SITUATIONS AND ESCALATION
 Start with What is your situation? Browse or search the populated public catalogue without creating a case. Read the selected official guide, topic instruments, body/contact links and escalation prerequisites. Save a copy with Download this situation and pathway sources. Use this situation for a private case pre-fills a case form; nothing is created until you submit. Your saved cases is a separate selector.

@@ -1,10 +1,10 @@
 CLARITYPATH required AI / RESEARCH SERVICE
 
-DEPLOY ON THE EXISTING SERVER HOST
+DEPLOY FOR THIS OWNER’S INSTALLATION
 The public application remains on GitHub Pages. It calls this separate server over HTTPS; Pages cannot execute Node.js or hold a private provider key.
 For a Node.js host, use the repository root, Node.js 22 or later, no dependency install step, and start command: node service/server.mjs
 Set HOST=0.0.0.0 and the PORT required by that host. Set the private provider key, model, service access key and ALLOWED_ORIGINS in the host's settings before routing traffic.
-For this deployment the allowed public origin is https://mayhem82.github.io (origin only, without the repository path). A replica must use its own exact origin.
+Set ALLOWED_ORIGINS from this owner’s actual deployed site URL: use its exact origin only, without the repository path. For a new installation derive this from the new owner’s Pages URL; do not carry over the source author’s account origin. Follow SETUP-FOR-NEW-OWNER.txt for the full installation.
 For a container host, build from the repository root: docker build -f service/Dockerfile -t claritypath-ai .
 The allowlisted .dockerignore and Dockerfile include only server code. Secrets are runtime settings, never build arguments or image files. Container building has not been verified on this workstation.
 Configure host health checks to GET /healthz. It returns 200 only when required local settings are present, otherwise 503. The public response contains only a readiness label; it does not test the provider, reveal keys or read case data.
