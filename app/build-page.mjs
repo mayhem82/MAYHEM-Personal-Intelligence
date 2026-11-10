@@ -1,1 +1,7 @@
-const b=document.getElementById('copyPack'),s=document.getElementById('buildStatus');b.onclick=async()=>{b.disabled=true;s.textContent='Loading the complete build pack…';try{const r=await fetch('./build-pack.txt',{cache:'no-store'});if(!r.ok)throw Error('Download unavailable');const text=await r.text();await navigator.clipboard.writeText(text);s.textContent='Public application pack copied. Private MAYHEM specifications are excluded.'}catch{s.textContent='Clipboard copy is unavailable. Download the complete build pack and open/copy that text file.'}finally{b.disabled=false}};
+for(const config of [
+ {button:'copyPack',status:'buildStatus',file:'build-pack.txt',loading:'Loading the complete build pack…',success:'Public application pack copied. Private MAYHEM specifications are excluded.',failure:'Clipboard copy is unavailable. Download the complete build pack and open/copy that text file.'},
+ {button:'copySetup',status:'setupStatus',file:'SETUP-FOR-NEW-OWNER.txt',loading:'Loading the complete setup instructions…',success:'Complete setup instructions copied.',failure:'Clipboard copy is unavailable. Use Download setup text to keep the complete instructions.'}
+]){
+ const button=document.getElementById(config.button),status=document.getElementById(config.status);if(!button||!status)continue;
+ button.onclick=async()=>{button.disabled=true;status.textContent=config.loading;try{const response=await fetch('./'+config.file,{cache:'no-store'});if(!response.ok)throw Error('Download unavailable');await navigator.clipboard.writeText(await response.text());status.textContent=config.success}catch{status.textContent=config.failure}finally{button.disabled=false}};
+}

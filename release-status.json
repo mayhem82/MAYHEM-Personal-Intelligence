@@ -1,5 +1,5 @@
 {
-  "version": "3.3.1",
+  "version": "3.3.2",
   "specification": "ClarityPath public application build guide",
   "date": "2026-11-10",
   "summary": "Working NSW situation catalogue with 729 guide/situation entries in 22 topic groups, 171 legislative reading entry points, institution contacts and 16 expressly sourced escalation pathways; separate encrypted private-case workspace and canonical operator-recorded Solicitors Advocate workflow. External guide texts are linked, not reproduced in full. This is not a certified exhaustive register of NSW law.",
@@ -38,7 +38,8 @@
     "aiReadiness": "PASS — local service health and authenticated capabilities checks; browser rejected unconfigured endpoints, transmitted no case during connection, sent only explicitly approved synthetic selected records/sources, saved cited synthetic draft separately, and cleared a failed replacement connection. No live provider request.",
     "containerBuild": "Not performed; Docker is unavailable on this workstation. Node.js runtime and readiness endpoint tested directly.",
     "protectedHandoff": "PASS — 10 November 2026: protected selection hides case content and original filenames; correct passphrase recovers exact ZIP bytes; wrong passphrases, altered ciphertext and unsupported formats fail safely; a fresh 360px recipient browser unlocks without workspace/account access or external requests; cached reader unlocks offline; closing previews clears their private contents and password fields. Python zipfile independently verified archive compatibility, every manifest digest and exact original bytes. Desktop-browser mobile emulation only; no physical-phone rehearsal.",
-    "newOwnerSetup": "Instructions and public pack updated for recipient-owned installation. This documentation release does not provision a new owner account/repository or claim an additional live storage/provider test."
+    "newOwnerSetup": "Instructions and public pack updated for recipient-owned installation. This documentation release does not provision a new owner account/repository or claim an additional live storage/provider test.",
+    "setupReadability": "PASS — 10 November 2026: generated setup.html visually checked at 360px browser width; 18px minimum body text, readable line spacing and no horizontal overflow. Every source paragraph preserved; section links, exact full-text clipboard/download and existing Build-pack copy verified. Browser phone-width emulation, not a physical-device test."
   },
   "incompleteSpecificationItems": [
     "Automatic GitHub App sign-in and hosted authentication broker; current static method is owner-supplied fine-grained token.",

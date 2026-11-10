@@ -1,6 +1,6 @@
 {
   "format": "claritypath-public-source-v1",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "files": [
     {
       "path": "AGENTS.md",
@@ -11,6 +11,11 @@
       "path": "SETUP-FOR-NEW-OWNER.txt",
       "bytes": 7498,
       "sha256": "5c3a72342cfd4e6ab9650817ffc934ac373bb252dc33afb04f014ab2bae592fa"
+    },
+    {
+      "path": "setup.html",
+      "bytes": 9479,
+      "sha256": "54bc551f2d8b042282a1a7acc6cc2d7c2a948d92512fe959bf4a76691df68f52"
     },
     {
       "path": "manifest.webmanifest",
@@ -78,13 +83,13 @@
     },
     {
       "path": "build.html",
-      "bytes": 9732,
-      "sha256": "e84cf7db45e4fd932796b385a2301946ae5a268aad5fc974d10e8b06174c6e2a"
+      "bytes": 9924,
+      "sha256": "f89b83abfa951ac09334da16f50d404255c4d7520f59c2f0f20bd3633ff9b3f9"
     },
     {
       "path": "claritypath-public-build.txt",
-      "bytes": 7692,
-      "sha256": "83fd6b85c3b581c3647a4ce67e3d1d72d1e67e8cb51c09f085e6bedbb114992d"
+      "bytes": 7897,
+      "sha256": "3d5583b66c88186d2ecb74635caf9efd603d90c51766f4607ceacba6e3ebb2f8"
     },
     {
       "path": "app/catalogue.mjs",
@@ -173,8 +178,8 @@
     },
     {
       "path": "app/style.css",
-      "bytes": 5861,
-      "sha256": "eea043e3d84d95d2475893a9e8ad6d43cb9c5a47b17765b0eb664bd6a5e3b7b5"
+      "bytes": 6175,
+      "sha256": "2b7c36a57c2175a7cbe888c304e625e87957473922d9c937ec348ae521ea8762"
     },
     {
       "path": "app/library.json",
@@ -188,8 +193,8 @@
     },
     {
       "path": "app/build-page.mjs",
-      "bytes": 584,
-      "sha256": "8e9cb31304076d08a52b5edd34eabb22fa3fb9a843b58b76bb06289fb2589b99"
+      "bytes": 1097,
+      "sha256": "caec9745b9bfbe518718906a0f0708558fed0d336d9d98901bef7cb85295cb33"
     },
     {
       "path": "service/server.mjs",
@@ -223,18 +228,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 1972,
-      "sha256": "574a112c1a123775f32aa05cab50d6a3368ac4fc7d2ca6c30afdf2622728fbf2"
+      "bytes": 2057,
+      "sha256": "6e15497cbff4b873ad136e162a39fa6e5a84cac2d41e7388d57204e25d5509b8"
     },
     {
       "path": "release-status.json",
-      "bytes": 7483,
-      "sha256": "7c22e071e88bfaa8ea5e10085067d3c8cd19beead84baf06e373d844e9ce44e7"
+      "bytes": 7855,
+      "sha256": "ac60c47bb111cc73a22581951525b7f75b0d2be050be84bbeae240cbf9882044"
     },
     {
       "path": "package.json",
       "bytes": 697,
-      "sha256": "2f9618342a29e8f4398a5557d39fd35fb406aac9a315563912c0d2855a5a98f0"
+      "sha256": "cb326a6a0c7b03c3c3900ec7a75cccd9c4a9b5bd07016c2d70f91a2479e4020e"
     },
     {
       "path": ".gitignore",
@@ -278,8 +283,8 @@
     },
     {
       "path": "scripts/package-public.mjs",
-      "bytes": 7753,
-      "sha256": "055ba0622848dace7d6f27b8a441109f238fa4a875ba32aceb15eca4e13bd80a"
+      "bytes": 10086,
+      "sha256": "b1f18e4b504d86875c0f6ac3e7f226d343aaad41c0ac27f9967024d213ca28ad"
     },
     {
       "path": "scripts/serve.mjs",
