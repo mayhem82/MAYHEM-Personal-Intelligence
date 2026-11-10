@@ -25,14 +25,37 @@ function linesHTML(lines) {
   close(); return html;
 }
 
+function stepNavigation(prefix,index,step,titles,blocks){
+ const link=(href,text)=>'<a href="'+href+'">'+escape(text)+'</a>';
+ const all='<a href="#'+(prefix==='start'?'setup-content':prefix==='operating'?'setup-content':prefix+'-setup')+'">All '+(prefix==='manual'?'manual steps':prefix==='ai'?'AI steps':'instructions')+'</a>';
+ let before='',after='';
+ if(step&&titles){
+  const number=Number(step[1]);
+  before=number>1?link('#'+prefix+'-step-'+(number-1),'Previous: '+titles[number-2]):link('#'+prefix+'-setup','Back to '+(prefix==='manual'?'manual':'AI')+' overview');
+  after=number<6?link('#'+prefix+'-step-'+(number+1),'Next: '+titles[number]):link(prefix==='manual'?'./operating.html':'#ai-section-7',prefix==='manual'?'Next: Use ClarityPath':'Next: Publication boundary');
+ }else if(prefix==='start'){
+  before=index>0?link(index===1?'#before-you-start':'#start-github','Previous step'):'';
+  after=index===0?link('#start-github','Next: Set up GitHub'):index===1?link('#connect-ai','Next: Connect a coding AI'):'';
+  if(index>=1)after+=link('#manual-setup','Continue manually')+link('#ai-setup','Continue with an AI');
+ }else if(prefix==='operating'){
+  if(index>0)before=link('#operating-section-'+(index-1),'Previous: '+blocks[index-1].split('\n')[0]);
+  if(index<blocks.length-1)after=link('#operating-section-'+(index+1),'Next: '+blocks[index+1].split('\n')[0]);
+  else after=link('./workspace.html','Open workspace');
+ }else if(prefix==='ai'){
+  after=index===0?link('#ai-step-1','Start the AI setup steps'):link('./workspace.html','Open workspace');
+ }
+ return '<nav class="guide-step-nav" aria-label="Section navigation">'+before+all+after+'</nav>';
+}
+
 function documentHTML(text, prefix, titles, level = 3) {
-  return text.trim().split(/\n\s*\n/).slice(1).map((block, index) => {
+  const blocks=text.trim().split(/\n\s*\n/).slice(1);
+  return blocks.map((block, index) => {
     const [heading, ...lines] = block.split('\n'), step = heading.match(/^([1-6])\. /);
     const commonIds = ['before-you-start', 'start-github', 'connect-ai'];
     const commonTitles = ['Before you start', 'First, set up your GitHub account', 'Connect a coding AI to GitHub'];
     const id = prefix === 'start' ? commonIds[index] : prefix + (step ? '-step-' + step[1] : '-section-' + index);
     const title = prefix === 'start' ? commonTitles[index] : step && titles ? step[1] + '. ' + titles[Number(step[1]) - 1] : heading;
-    return '<section id="' + id + '"><h' + level + '>' + escape(title) + '</h' + level + '>' + linesHTML(lines) + '</section>';
+    return '<section id="' + id + '"><h' + level + '>' + escape(title) + '</h' + level + '>' + linesHTML(lines) + stepNavigation(prefix,index,step,titles,blocks) + '</section>';
   }).join('');
 }
 

@@ -58,3 +58,6 @@ Choose Install app on the homepage. Where the browser provides an installation p
 
 READABLE SETUP GUIDES
 Open setup.html for both routes, with all account, cost, permission, privacy and recovery concerns first. Start by setting up GitHub, then connect a coding assistant if using the AI-assisted route, or follow the manual steps. Each guide has its own complete copy and download. Open operating.html to read this operating guide on a phone.
+
+SITE NAVIGATION
+The same Home, Workspace, Setup, Guide, Build, Handoff and Disclaimer links appear on each main page. The current page is marked. Guide sections have previous/next links. This tab remembers only the last section read in public guides; choosing the current page in the menu or Back to top returns to its beginning. Workspace saving and unsaved-work warnings remain separate from this public reading position.
