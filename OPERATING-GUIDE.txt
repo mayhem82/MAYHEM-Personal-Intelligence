@@ -49,3 +49,7 @@ No paid provider call or private GitHub account is configured by this public rel
 BUILD AND REPLICATION
 Build is a separate page. Copy complete build pack includes the entire specification, full canonical text, actual application and service source, source library, setup guides, tests, dependency information and release-status report. It contains no case data or credentials.
 The receiving AI gets an explicit implementation/setup task inside that pack; no extra product explanation is required. It still needs destination-specific owner account/host settings and secure credential entry. It must not search OneDrive or personal drives for missing instructions.
+
+NSW SITUATIONS AND ESCALATION
+Start with What is your situation? Browse or search the populated public catalogue without creating a case. Read the selected official guide, topic instruments, body/contact links and escalation prerequisites. Save a copy with Download this situation and pathway sources. Use this situation for a private case pre-fills a case form; nothing is created until you submit. Your saved cases is a separate selector.
+Pathways distinguish mandatory, conditional and direct routes. Check the decision/order-specific deadline and exception in the linked official source. An ordinary complaint does not automatically stop another filing deadline. Full external legal source text is read at its source.
