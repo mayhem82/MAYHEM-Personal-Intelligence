@@ -1,11 +1,26 @@
 {
   "format": "claritypath-public-source-v1",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "files": [
+    {
+      "path": "app/home-view.mjs",
+      "bytes": 5183,
+      "sha256": "591218ea0f7c09351d19cb014871fb573aa7367b79aa417c84af01ad0236abf1"
+    },
+    {
+      "path": "app/startup.mjs",
+      "bytes": 4496,
+      "sha256": "65a18b1157b7598c9d6c1effda84a7486096659e9f7d12570b38232dac1aba59"
+    },
+    {
+      "path": "tests/launch.cjs",
+      "bytes": 8920,
+      "sha256": "d9155c8c9caa843d42fda7b9b5d20b966b189c9ce8d85555b5ff89b2fb3e7f1a"
+    },
     {
       "path": "first-aid.html",
       "bytes": 8690,
-      "sha256": "da284dfa94a511842720d37316edf01695b32235ec1dc266811db9e94ba0b107"
+      "sha256": "02a56f725f6b129559b5155d77a49fc3a40078b55f771164bb7e35f1942aeb34"
     },
     {
       "path": "app/first-aid.mjs",
@@ -65,12 +80,12 @@
     {
       "path": "setup.html",
       "bytes": 33022,
-      "sha256": "6ddc0c647c22be64ea3a3f093ccd284cd3331affb142d582013b1f76bb653fa0"
+      "sha256": "6d2feb1a64c922f0aaf5208160554a4c3d2a24e8f85975c94b81dce2c39ec42b"
     },
     {
       "path": "operating.html",
-      "bytes": 17735,
-      "sha256": "62611ecdd8000a5e357a6e348eccff856b49a82990d0c99ebf7d7fe98dca072b"
+      "bytes": 18066,
+      "sha256": "b05504d79e275a9d6fb4c521fb2a64bb48056b3d9e347f7faaa6acede232f232"
     },
     {
       "path": "scripts/render-setup.mjs",
@@ -84,8 +99,8 @@
     },
     {
       "path": "app/navigation.mjs",
-      "bytes": 2113,
-      "sha256": "1bcad13f0ac6670c2e1e43ab4cab6b885a5583938b3d554b689469922482c920"
+      "bytes": 2277,
+      "sha256": "382de27916c07961049a3e6c5ab47f125291799ec0e75bcd121673c6c647fa2f"
     },
     {
       "path": "tests/navigation.cjs",
@@ -94,13 +109,13 @@
     },
     {
       "path": "manifest.webmanifest",
-      "bytes": 753,
-      "sha256": "aee9fb5c1033bfaf99fb387a1c144d442e4122b8c581d20f3b406e723b7a5fb3"
+      "bytes": 816,
+      "sha256": "03522e29eba359a8dad9e37b3bd98604dd50670c6f602223488e653a6591df73"
     },
     {
       "path": "sw.js",
-      "bytes": 2347,
-      "sha256": "809734519dca8d20494ae19c26afbda64f75bb644501b77b8d5d2e631b25d53d"
+      "bytes": 2385,
+      "sha256": "edd42c796bb44f05c63979cad236320e91d595f5ff1d618fb07b28d6421e13ae"
     },
     {
       "path": "app/install.mjs",
@@ -139,32 +154,32 @@
     {
       "path": "tests/pwa.cjs",
       "bytes": 7496,
-      "sha256": "e89aaf76b02ddc21956008bc275cb8c88030625076fa0139f06f98dcb9414100"
+      "sha256": "1ff80d69c2053b7f7114deff0267a5cd155c835b4454da5d3adb3804ff72fb33"
     },
     {
       "path": "disclaimer.html",
       "bytes": 7806,
-      "sha256": "14045841b00ec74d26d7ee1380ee1ee507dfff58a28810d9238fb428ddbef6f6"
+      "sha256": "9833d73f055164c4dd10add3816f775dfb58a8b6d38b822e68deec8cab692a35"
     },
     {
       "path": "index.html",
-      "bytes": 6746,
-      "sha256": "f281be0d2983bb274e7900803180dc133cdda898af9533c02f62f5f7f5da94a2"
+      "bytes": 6805,
+      "sha256": "264a3ccba524b2a3bd101fc39bf89bdf7518b81be19a4d877671cf8addd47f35"
     },
     {
       "path": "workspace.html",
       "bytes": 3593,
-      "sha256": "2250a26fcec5022bcd253160790fced7938e699495354dff173b87447833ddf7"
+      "sha256": "38feab1a741fa84b28dbc3d8facc573729d81e9d712cb4f18e46fa2d79a64df7"
     },
     {
       "path": "build.html",
-      "bytes": 12659,
-      "sha256": "0313a4b1b17e6ea019d85c9f4ac67681ae34cfdde4b548f2e1f4f52f0beda1fe"
+      "bytes": 13945,
+      "sha256": "79fe9b14a3ca7d5c8496aee48cac8dc1c6ba5fa73a2b29075f8d38d7b8241725"
     },
     {
       "path": "claritypath-public-build.txt",
-      "bytes": 9827,
-      "sha256": "a7c9d777cf136f2a03c9c5e9056c64a499faf2aff8f2b7efbba08a0fc96ed427"
+      "bytes": 11113,
+      "sha256": "72ce545c5aa67d2d70a79aa19323d6433a6ae0dcbb5f815ebd059844508e697a"
     },
     {
       "path": "app/catalogue.mjs",
@@ -204,7 +219,7 @@
     {
       "path": "handoff.html",
       "bytes": 3359,
-      "sha256": "12c30e9aefa5500fd6cdacc88c9f4810741b650ec60e0752f68acbfc627c2085"
+      "sha256": "d4ab00fc080b80774f08812cb5e47a61d6c8a67b6e4fc80571b9e06db3f1e06b"
     },
     {
       "path": "app/handoff-reader.mjs",
@@ -243,8 +258,8 @@
     },
     {
       "path": "app/main.mjs",
-      "bytes": 51556,
-      "sha256": "76ffeb5e943cbb752c340f6aa0b9109ace3df2e78cdbc8b68c89546d37c2dd54"
+      "bytes": 51669,
+      "sha256": "3374e04184cee0207eab0670a936d2b25a028bb60282ed19124305f4b9335abe"
     },
     {
       "path": "app/output.mjs",
@@ -253,8 +268,8 @@
     },
     {
       "path": "app/style.css",
-      "bytes": 9530,
-      "sha256": "0e6352b17a8890dc73f809f5ad3690ddd12c117fae0f733e90fa4410f6114e70"
+      "bytes": 9717,
+      "sha256": "0cc4373cc7f6344dbf74b09d7eec334aed59cd0a34a54708cd6ad2e91d076cd9"
     },
     {
       "path": "app/library.json",
@@ -298,8 +313,8 @@
     },
     {
       "path": "OPERATING-GUIDE.txt",
-      "bytes": 11822,
-      "sha256": "9eb9066aead53912e5873689ce9d17a6dce096d7003fedcd4fdd1f4534995e29"
+      "bytes": 12153,
+      "sha256": "0135149197b4b345e0cc0490b9b64a52158319b622f1e6faced3c6b89ee6c8ce"
     },
     {
       "path": "README.md",
@@ -308,13 +323,13 @@
     },
     {
       "path": "release-status.json",
-      "bytes": 10940,
-      "sha256": "76c541f8b8164be41222d5d8aa7ebba8b80988c4dc13eb95c518cf63ffad3a62"
+      "bytes": 11610,
+      "sha256": "c8bb2878241f229946c2f1974c4fc22237945bc80a60382657362c2fb8168116"
     },
     {
       "path": "package.json",
-      "bytes": 807,
-      "sha256": "9e51866ef6409892d0f140ba82cf7c5619694099131e4862a8f1ff0ab4b9704a"
+      "bytes": 851,
+      "sha256": "c8f2470bac3b217bb48e5a88ca9c83d4a19aa662648c51bf1d3f68856aadbd35"
     },
     {
       "path": ".gitignore",
@@ -358,8 +373,8 @@
     },
     {
       "path": "scripts/package-public.mjs",
-      "bytes": 8990,
-      "sha256": "348ccdfaf1882f76edffbc34f5f21b51b933bb0e9a803f2b596d9f86f7df7047"
+      "bytes": 9566,
+      "sha256": "9780fd2399643617ed9934ce758be0244613d435d583213fe244efdb3e370593"
     },
     {
       "path": "scripts/serve.mjs",

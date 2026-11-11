@@ -1,6 +1,6 @@
 {
   "name": "claritypath-personal-intelligence",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "private": true,
   "description": "Owner-controlled case workspace and canonical MAYHEM Solicitors Advocate workflow",
   "scripts": {
@@ -11,7 +11,8 @@
     "test:pwa": "node tests/pwa.cjs",
     "check:ai": "node scripts/check-ai-service.mjs",
     "test:navigation": "node tests/navigation.cjs",
-    "test:mental-health": "node tests/mental-health.cjs"
+    "test:mental-health": "node tests/mental-health.cjs",
+    "test:launch": "node tests/launch.cjs"
   },
   "engines": {
     "node": ">=22"

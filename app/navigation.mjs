@@ -1,3 +1,5 @@
+import{installLaunchNavigation}from'./startup.mjs?v=3.4.2';
+installLaunchNavigation();
 // Only public guide section IDs are remembered for this installation and tab.
 const file=location.pathname.split('/').pop()||'index.html';
 if(['first-aid.html','setup.html','operating.html','build.html','disclaimer.html'].includes(file)){
@@ -7,6 +9,7 @@ if(['first-aid.html','setup.html','operating.html','build.html','disclaimer.html
  const valid=id=>typeof id==='string'&&/^[a-z][a-z0-9-]{0,80}$/.test(id)&&allowed.has(id);
  let lastSection=valid(location.hash.slice(1))?location.hash.slice(1):'site-top',scheduled=false;
  function sample(){
+  if(document.documentElement.classList.contains('showing-app-home'))return;
   scheduled=false;
   const section=sections.filter(section=>section.getBoundingClientRect().top<=100).at(-1);
   // Moving to the header to use its menu must not erase the reading position.

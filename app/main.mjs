@@ -1,3 +1,5 @@
+import{prepareWorkspaceEntry}from'./startup.mjs?v=3.4.2';
+if(!prepareWorkspaceEntry())await new Promise(()=>{});
 import * as C from './core.mjs';
 import * as V from './crypto.mjs';
 import{GitHubStore}from'./github.mjs';
