@@ -1,17 +1,18 @@
-CLARITYPATH — START HERE FOR MANUAL OR AI SETUP
+CLARITYPATH — START HERE FOR MANUAL OR ARTIFICIAL INTELLIGENCE SETUP
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath
 
 BEFORE YOU START
-- Accounts: the owner needs GitHub, an AI provider account and a server host for ClarityPath's required AI. The AI-assisted installation route also needs a coding assistant with GitHub access. Check account access before committing to a plan.
-- Two AI roles: a coding assistant helps install and maintain the system. The AI service inside ClarityPath answers approved requests from selected case material. Connecting the coding assistant to GitHub does not create or activate the site's AI service.
-- Costs: the coding assistant, server hosting and provider API may have separate charges or usage limits. Check the current plans and agree a spending limit before enabling billed services. A request-count cap is not a guaranteed currency limit.
+- Complete system installation: finish the owner’s public site, backend service, required artificial intelligence connection, the separate private case repository already created for this installation, and verified recovery. Adding a phone icon opens the published site; account and service configuration remain part of the full setup. Mark installation complete only after the connection and recovery checks succeed.
+- Accounts: the owner needs GitHub, an artificial intelligence provider account and a server host for ClarityPath's required artificial intelligence. The artificial intelligence-assisted installation route also needs a coding assistant with GitHub access. Check account access before committing to a plan.
+- Two artificial intelligence roles: a coding assistant helps install and maintain the system. The artificial intelligence service inside ClarityPath answers approved requests from selected case material. Connecting the coding assistant to GitHub does not create or activate the site's artificial intelligence service.
+- Costs: the coding assistant, server hosting and provider application programming interface may have separate charges or usage limits. Check the current plans and agree a spending limit before enabling billed services. A request-count cap is not a guaranteed currency limit.
 - Ownership: use the recipient's own public application repository and a different private case-data repository. The public repository contains the website's code. Preserve Julian Minko's creator attribution. An alias does not guarantee anonymity.
-- Privacy: case records and originals must be encrypted before private repository upload. The selected payload goes to the configured AI service only after its separate review/approval. The AI host and provider process that selected text in readable form; review their privacy, retention and data-handling terms before using real case material. Never put case data, tokens or passphrases in the public repository or replication pack.
-- Permissions and secrets: give the coding assistant only the repositories needed for installation. It does not need private case content to copy the public application. Enter credentials in the relevant account, host or ClarityPath password field, not ordinary AI chat. Review requested access and any publication before approving it.
+- Privacy: case records and originals must be encrypted before private repository upload. The selected payload goes to the configured artificial intelligence service only after its separate review/approval. The artificial intelligence host and provider process that selected text in readable form; review their privacy, retention and data-handling terms before using real case material. Never put case data, tokens or passphrases in the public repository or replication pack.
+- Permissions and secrets: give the coding assistant only the repositories needed for installation. It does not need private case content to copy the public application. Enter credentials in the relevant account, host or ClarityPath password field, not ordinary artificial intelligence chat. Review requested access and any publication before approving it.
 - Recovery: keep the GitHub recovery methods, encryption passphrase and an independent encrypted backup somewhere you control. ClarityPath cannot reset a lost encryption passphrase. An unlocked or downloaded readable ZIP needs private storage too.
 - Devices: both guides below are readable on a phone. Some initial repository file uploads and cloud-environment creation use web/desktop screens; a computer may be easier for folder uploads. Codex mobile can use an already published cloud environment. No account action is required simply to read this guide.
-- Current limits: inspect release-status.json before real-case use. Source code and a configured connection are not proof of working live AI. The included service has process-local request limits; automatic GitHub App sign-in, recovery-key rotation and full investigation orchestration are not complete. No independent security or legal-compliance audit is claimed.
-- Completion: confirm the new owner's actual deployed URL, a verified encrypted private save/reopen, a real approved synthetic AI response, recovery and selected handoff. Any missing connection or implementation item remains explicitly incomplete.
+- Current limits: inspect release-status.json before real-case use. Source code and a configured connection are not proof of working live artificial intelligence. The included service has process-local request limits; automatic GitHub App sign-in, recovery-key rotation and full investigation orchestration are not complete. No independent security or legal-compliance audit is claimed.
+- Completion: confirm the new owner's actual deployed URL, a verified encrypted private save/reopen, a real approved synthetic artificial intelligence response, recovery and selected handoff. Any missing connection or implementation item remains explicitly incomplete.
 Reference: Current implementation and verification status | ./build.html#release-status
 
 FIRST, SET UP YOUR GITHUB ACCOUNT
@@ -19,16 +20,16 @@ FIRST, SET UP YOUR GITHUB ACCOUNT
 2) Set up two-factor authentication and keep the recovery information privately. Choose the public username/alias and review which profile and commit email details will be visible.
 3) Create the owner's public application repository, for example claritypath. Add a README so it has an initial branch. Record the actual owner/repository and default branch.
 4) Create a different repository for the owner's case data. Select Private and add a README. Keep GitHub Pages off for this private case repository.
-5) Choose the manual route below, or connect a coding AI using the next section. Creating these repositories does not yet install the application or connect its runtime AI.
+5) Choose the manual route below, or connect a coding artificial intelligence using the next section. Creating these repositories does not yet install the application or connect its runtime artificial intelligence.
 Reference: Create a GitHub account | https://docs.github.com/en/account-and-profile/how-tos/account-management/creating-an-account-on-github
 Reference: Open GitHub signup | https://github.com/signup
 
-CONNECT A CODING AI TO YOUR GITHUB, IF USING THE AI ROUTE
+CONNECT A CODING ARTIFICIAL INTELLIGENCE TO YOUR GITHUB, IF USING THE ARTIFICIAL INTELLIGENCE ROUTE
 1) Choose a coding assistant that can edit a repository, run checks and propose or publish changes. Check that your account has the required access. A code-search connection alone does not perform the installation.
 2) One supported example is Codex Cloud. Sign in to ChatGPT. On the web or desktop, choose Work in, then Cloud, open Select environment and choose Create environment.
 3) Select the new owner's public application repository. Connect GitHub if prompted, sign in as that owner and review the requested permissions. Where repository selection is offered, limit access to the selected application repository. Do not grant access to private case content merely to copy public code.
 4) Select Get started, review the prepared environment and any missing access, save it and select Publish. Wait for Environment published. On mobile, select the published environment in Codex.
-5) Start a new task in that environment. Give it the ClarityPath source repository or complete Build pack, together with Copy AI setup instructions below. Check that the task names the owner's new repository as its destination before accepting a push or publication.
+5) Start a new task in that environment. Give it the ClarityPath source repository or complete Build pack, together with Copy artificial intelligence setup instructions below. Check that the task names the owner's new repository as its destination before accepting a push or publication.
 6) Review the actual changes and test results. The owner still controls account verification, private credential entry and any charge approvals. Then follow the same completion checks as the manual route.
 Reference: Open ChatGPT | https://chatgpt.com/
 Reference: Official OpenAI documentation for Codex Cloud | https://learn.chatgpt.com/docs/cloud

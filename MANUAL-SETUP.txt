@@ -1,17 +1,18 @@
-CLARITYPATH — START HERE FOR MANUAL OR AI SETUP
+CLARITYPATH — START HERE FOR MANUAL OR ARTIFICIAL INTELLIGENCE SETUP
 © 2026 Julian Minko · Architect of MAYHEM · ClarityPath
 
 BEFORE YOU START
-- Accounts: the owner needs GitHub, an AI provider account and a server host for ClarityPath's required AI. The AI-assisted installation route also needs a coding assistant with GitHub access. Check account access before committing to a plan.
-- Two AI roles: a coding assistant helps install and maintain the system. The AI service inside ClarityPath answers approved requests from selected case material. Connecting the coding assistant to GitHub does not create or activate the site's AI service.
-- Costs: the coding assistant, server hosting and provider API may have separate charges or usage limits. Check the current plans and agree a spending limit before enabling billed services. A request-count cap is not a guaranteed currency limit.
+- Complete system installation: finish the owner’s public site, backend service, required artificial intelligence connection, the separate private case repository already created for this installation, and verified recovery. Adding a phone icon opens the published site; account and service configuration remain part of the full setup. Mark installation complete only after the connection and recovery checks succeed.
+- Accounts: the owner needs GitHub, an artificial intelligence provider account and a server host for ClarityPath's required artificial intelligence. The artificial intelligence-assisted installation route also needs a coding assistant with GitHub access. Check account access before committing to a plan.
+- Two artificial intelligence roles: a coding assistant helps install and maintain the system. The artificial intelligence service inside ClarityPath answers approved requests from selected case material. Connecting the coding assistant to GitHub does not create or activate the site's artificial intelligence service.
+- Costs: the coding assistant, server hosting and provider application programming interface may have separate charges or usage limits. Check the current plans and agree a spending limit before enabling billed services. A request-count cap is not a guaranteed currency limit.
 - Ownership: use the recipient's own public application repository and a different private case-data repository. The public repository contains the website's code. Preserve Julian Minko's creator attribution. An alias does not guarantee anonymity.
-- Privacy: case records and originals must be encrypted before private repository upload. The selected payload goes to the configured AI service only after its separate review/approval. The AI host and provider process that selected text in readable form; review their privacy, retention and data-handling terms before using real case material. Never put case data, tokens or passphrases in the public repository or replication pack.
-- Permissions and secrets: give the coding assistant only the repositories needed for installation. It does not need private case content to copy the public application. Enter credentials in the relevant account, host or ClarityPath password field, not ordinary AI chat. Review requested access and any publication before approving it.
+- Privacy: case records and originals must be encrypted before private repository upload. The selected payload goes to the configured artificial intelligence service only after its separate review/approval. The artificial intelligence host and provider process that selected text in readable form; review their privacy, retention and data-handling terms before using real case material. Never put case data, tokens or passphrases in the public repository or replication pack.
+- Permissions and secrets: give the coding assistant only the repositories needed for installation. It does not need private case content to copy the public application. Enter credentials in the relevant account, host or ClarityPath password field, not ordinary artificial intelligence chat. Review requested access and any publication before approving it.
 - Recovery: keep the GitHub recovery methods, encryption passphrase and an independent encrypted backup somewhere you control. ClarityPath cannot reset a lost encryption passphrase. An unlocked or downloaded readable ZIP needs private storage too.
 - Devices: both guides below are readable on a phone. Some initial repository file uploads and cloud-environment creation use web/desktop screens; a computer may be easier for folder uploads. Codex mobile can use an already published cloud environment. No account action is required simply to read this guide.
-- Current limits: inspect release-status.json before real-case use. Source code and a configured connection are not proof of working live AI. The included service has process-local request limits; automatic GitHub App sign-in, recovery-key rotation and full investigation orchestration are not complete. No independent security or legal-compliance audit is claimed.
-- Completion: confirm the new owner's actual deployed URL, a verified encrypted private save/reopen, a real approved synthetic AI response, recovery and selected handoff. Any missing connection or implementation item remains explicitly incomplete.
+- Current limits: inspect release-status.json before real-case use. Source code and a configured connection are not proof of working live artificial intelligence. The included service has process-local request limits; automatic GitHub App sign-in, recovery-key rotation and full investigation orchestration are not complete. No independent security or legal-compliance audit is claimed.
+- Completion: confirm the new owner's actual deployed URL, a verified encrypted private save/reopen, a real approved synthetic artificial intelligence response, recovery and selected handoff. Any missing connection or implementation item remains explicitly incomplete.
 Reference: Current implementation and verification status | ./build.html#release-status
 
 FIRST, SET UP YOUR GITHUB ACCOUNT
@@ -19,16 +20,16 @@ FIRST, SET UP YOUR GITHUB ACCOUNT
 2) Set up two-factor authentication and keep the recovery information privately. Choose the public username/alias and review which profile and commit email details will be visible.
 3) Create the owner's public application repository, for example claritypath. Add a README so it has an initial branch. Record the actual owner/repository and default branch.
 4) Create a different repository for the owner's case data. Select Private and add a README. Keep GitHub Pages off for this private case repository.
-5) Choose the manual route below, or connect a coding AI using the next section. Creating these repositories does not yet install the application or connect its runtime AI.
+5) Choose the manual route below, or connect a coding artificial intelligence using the next section. Creating these repositories does not yet install the application or connect its runtime artificial intelligence.
 Reference: Create a GitHub account | https://docs.github.com/en/account-and-profile/how-tos/account-management/creating-an-account-on-github
 Reference: Open GitHub signup | https://github.com/signup
 
-CONNECT A CODING AI TO YOUR GITHUB, IF USING THE AI ROUTE
+CONNECT A CODING ARTIFICIAL INTELLIGENCE TO YOUR GITHUB, IF USING THE ARTIFICIAL INTELLIGENCE ROUTE
 1) Choose a coding assistant that can edit a repository, run checks and propose or publish changes. Check that your account has the required access. A code-search connection alone does not perform the installation.
 2) One supported example is Codex Cloud. Sign in to ChatGPT. On the web or desktop, choose Work in, then Cloud, open Select environment and choose Create environment.
 3) Select the new owner's public application repository. Connect GitHub if prompted, sign in as that owner and review the requested permissions. Where repository selection is offered, limit access to the selected application repository. Do not grant access to private case content merely to copy public code.
 4) Select Get started, review the prepared environment and any missing access, save it and select Publish. Wait for Environment published. On mobile, select the published environment in Codex.
-5) Start a new task in that environment. Give it the ClarityPath source repository or complete Build pack, together with Copy AI setup instructions below. Check that the task names the owner's new repository as its destination before accepting a push or publication.
+5) Start a new task in that environment. Give it the ClarityPath source repository or complete Build pack, together with Copy artificial intelligence setup instructions below. Check that the task names the owner's new repository as its destination before accepting a push or publication.
 6) Review the actual changes and test results. The owner still controls account verification, private credential entry and any charge approvals. Then follow the same completion checks as the manual route.
 Reference: Open ChatGPT | https://chatgpt.com/
 Reference: Official OpenAI documentation for Codex Cloud | https://learn.chatgpt.com/docs/cloud
@@ -41,7 +42,7 @@ CLARITYPATH — MANUAL INSTALLATION STEPS
 1) Complete Start here above. Open the source application repository, choose Code, then Download ZIP. Extract the current source snapshot. The download contains application code, not anyone's private workspace.
 2) Open the new owner's public application repository. Choose Add file, then Upload files. Upload the extracted project's contents into the repository root, including its folders, .github workflow folder, dotfiles, assets and setup instructions. Do not upload an extra enclosing folder or a private backup.
 3) Commit the upload. If you use Git or GitHub Desktop instead, copy the source snapshot into the new repository's checkout, confirm its origin is the new owner's repository, then commit and push there.
-4) Confirm that index.html, workspace.html, package.json and .github/workflows/deploy-pages.yml are at the expected paths in the new repository. Keep the copyright/source notices.
+4) Confirm that index.html, workspace.html, package.json and .github/workflows/deploy-pages.yml are at the expected paths in the new repository. Confirm app/startup.mjs and app/home-view.mjs are included. The package command regenerates the Home view from the public index.html; keep private records out of it. Keep the copyright/source notices.
 Check: the address bar and repository owner show the recipient's new public repository.
 Reference: Source application repository | https://github.com/mayhem82/MAYHEM-Personal-Intelligence
 Reference: Upload repository files | https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository
@@ -50,8 +51,8 @@ Reference: Upload repository files | https://docs.github.com/en/repositories/wor
 1) In the new public repository, open Settings, then Pages. Under Build and deployment, set Source to GitHub Actions. The repository already supplies the Publish ClarityPath workflow.
 2) Check that the workflow's push branch matches the repository's actual default branch. If it differs from main, edit the branch name in .github/workflows/deploy-pages.yml and commit the change.
 3) Open Actions, select Publish ClarityPath and run it for that branch if a successful deployment has not already occurred. Wait for its checks and deployment to succeed.
-4) Open the published URL shown in Pages or the deployment. Check Workspace, Build, setup instructions and the protected-handoff unlock page. Record your actual site URL; do not reuse the source author's site address.
-Check: the owner's site opens, the situation catalogue is populated, and Build contains the matching full replication pack.
+4) Open the published URL shown in Pages or the deployment. Check Home, Workspace, Psychological First Aid, Build, setup instructions, the operating guide and the protected-handoff unlock page. Record your actual site URL; do not reuse the source author's site address.
+Check: Home opens first, Workspace contains the public situation catalogue, and Build contains the matching full replication pack. Continue the private-storage, service and verification steps to complete installation.
 Reference: Configure GitHub Pages publishing | https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 
 3. CONNECT AND TEST PRIVATE STORAGE
@@ -64,8 +65,8 @@ Reference: Configure GitHub Pages publishing | https://docs.github.com/en/pages/
 Check: private save and reopen preserve the exact test account and original bytes. A local device copy is a separate save mechanism.
 Reference: GitHub token setup | https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
 
-4. DEPLOY AND CONNECT THE SITE'S AI
-1) Create or sign in to the owner's AI provider and chosen HTTPS hosting accounts. The supplied server uses the OpenAI Responses API. In the provider project, create an application service account/key with the needed model access and set the account's cost controls. Choose an available model supporting the required Responses and web-search capabilities.
+4. DEPLOY AND CONNECT THE SITE'S ARTIFICIAL INTELLIGENCE
+1) Create or sign in to the owner's artificial intelligence provider and chosen HTTPS hosting accounts. The supplied server uses the OpenAI Responses application programming interface. In the provider project, create an application service account/key with the needed model access and set the account's cost controls. Choose an available model supporting the required Responses and web-search capabilities.
 2) A concrete hosting route is Render: open the dashboard, choose New, then Web Service and connect the owner's public application repository. Select the intended branch, a Node runtime of version 22 or later, build command node --version and start command node service/server.mjs. Review the host's plan and charges before creating the service.
 3) In the host's private environment settings enter the following values. Use the host-provided PORT. Configure the health-check path as /healthz, and keep one service process while quota/idempotency storage is process-local.
 ENV OPENAI_API_KEY = The provider project service-account key, stored only on the server.
@@ -75,29 +76,34 @@ ENV ALLOWED_ORIGINS = The owner's actual site origin, such as https://YOUR-USERN
 ENV MAX_REQUESTS_PER_DAY = 30, or the owner's chosen request cap. This is not a currency guarantee.
 ENV HOST = 0.0.0.0
 4) Deploy and wait for the service to report ready. Opening its /healthz URL should return ready. This checks settings, not the provider. If a free host is sleeping, let this URL wake it before connecting from ClarityPath.
-5) In ClarityPath, open Storage & connections, then Connect required AI and research service. Enter the final HTTPS Service URL and the SERVICE_ACCESS_KEY in Service access key. Choose Connect service. The provider API key does not go in this browser field.
-6) In Summaries & handoff select only your synthetic test record, open AI narrative assistance, enter a summary question and choose Preview AI request. Check the destination, question and selected material, then approve the request. Verify that the returned draft cites the selected record and remains separate from the original.
-Check: a real approved provider draft has returned. A ready health check or connected coding assistant alone does not establish working site AI.
+5) In ClarityPath, open Storage & connections, then Connect required artificial intelligence and research service. Enter the final HTTPS Service URL and the SERVICE_ACCESS_KEY in Service access key. Choose Connect service. The provider application programming interface key does not go in this browser field.
+6) In Summaries & handoff select only your synthetic test record, open artificial intelligence narrative assistance, enter a summary question and choose Preview artificial intelligence request. Check the destination, question and selected material, then approve the request. Verify that the returned draft cites the selected record and remains separate from the original.
+Check: a real approved provider draft has returned. A ready health check or connected coding assistant alone does not establish working site artificial intelligence.
 Reference: Official OpenAI key guidance | https://developers.openai.com/api/docs/guides/api-keys
 Reference: Render web services | https://render.com/docs/web-services
 Reference: Render free-host limitations | https://render.com/docs/free
 
 5. TEST THE PERSONAL INTELLIGENCE WORKFLOW
-1) Browse a NSW situation, create a private case and record a synthetic firsthand account with its actual date precision, source, certainty and dispute fields. Add a file and a related record. Confirm switching cases keeps them separate.
+1) Browse a New South Wales situation, create a private case and record a synthetic firsthand account with its actual date precision, source, certainty and dispute fields. Add a file and a related record. Confirm switching cases keeps them separate.
 2) Add a separate review and a source passage with its actual URL, provision/version and case relevance. Use the operating guide for qualification, snapshots, authorised analysis and the ordered Solicitors Advocate Engine workflow. Do not invent facts or authority to make a test pass.
 3) Create a structured summary, then Preview protected handoff for an explicit selection. Review its scope and confirm a separate handoff passphrase. Open the protected file at the owner's handoff.html page in a clean browser, unlock it, download/extract the readable ZIP and compare its selected records and original files.
 4) In Storage & connections choose Verify records and attachments. Test encrypted reload and lock, backup recovery in a separate empty test workspace, phone layout and installation. Keep clearly labelled test material separate from real case work.
-5) If running the source locally with Node.js and the declared development dependency, run the package and test commands. The published workflow runs package/core checks, while manual use of the actual site verifies the live connections and recipient experience.
+5) Install the owner’s app from Home when testing on a phone. Open the icon and check that Home appears. Enter Workspace, keep a clearly labelled test record and some unfinished form text, leave the app running, switch to another app and tap the ClarityPath icon again. Expect Home; choose Open my workspace and confirm the record and unfinished text remain. Selecting a file and returning from its picker should keep the current form. Returning Home is not a save; verify private saving or an encrypted backup before fully closing the app. Record a real phone result only when you have performed it.
+6) If testing an older installed copy, save any existing work and choose Home once to load the updated public application before retesting its launcher. Keep the same installation identity and private device data. The automated launch check below covers the older address and the return path without native browser launch support.
+7) If running the source locally with Node.js and the declared development dependency, run the package and test commands. The published workflow runs package/core checks, while manual use of the actual site verifies the live connections and recipient experience.
 COMMAND node scripts/package-release.mjs
 COMMAND npm test
 COMMAND npm run test:e2e
 COMMAND npm run test:pwa
+COMMAND npm run test:navigation
+COMMAND npm run test:mental-health
+COMMAND npm run test:launch
 Check: record any failed or unperformed checks. A physical-phone check and a browser emulation check are different results.
 Reference: Operating guide | ./operating.html
 
 6. KEEP YOUR OWN SYSTEM READY TO USE
 1) After any source changes, regenerate the public site and matching Build pack, commit the authorised public source to the owner's repository and let its workflow publish. Keep case records and credentials in their private locations.
 2) Keep the owner's public site/repository links, private connection details, token renewal date, encryption passphrases, service URL/access key and provider/host account recovery information privately as appropriate. Save an independent encrypted backup.
-3) Confirm the copied Build pack contains both manual and AI setup instructions for a future owner. Keep the creator attribution and public/private boundary intact.
-4) Before treating installation as complete, confirm the actual private save/reopen, real approved synthetic AI response, recovery and recipient handoff. Record unresolved implementation/configuration items from release-status.json. Creating the system does not send a complaint, contact a solicitor or share the private repository.
+3) Confirm the copied Build pack contains both manual and artificial intelligence setup instructions for a future owner. Keep the creator attribution and public/private boundary intact.
+4) Before treating installation as complete, confirm the actual private save/reopen, real approved synthetic artificial intelligence response, recovery and recipient handoff. Record unresolved implementation/configuration items from release-status.json. Creating the system does not send a complaint, contact a solicitor or share the private repository.
 Check: the owner controls the accounts, can reopen the work and knows how to keep it and choose what to share.

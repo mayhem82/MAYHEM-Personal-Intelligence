@@ -5,7 +5,7 @@ CLARITYPATH — MANUAL INSTALLATION STEPS
 1) Complete Start here above. Open the source application repository, choose Code, then Download ZIP. Extract the current source snapshot. The download contains application code, not anyone's private workspace.
 2) Open the new owner's public application repository. Choose Add file, then Upload files. Upload the extracted project's contents into the repository root, including its folders, .github workflow folder, dotfiles, assets and setup instructions. Do not upload an extra enclosing folder or a private backup.
 3) Commit the upload. If you use Git or GitHub Desktop instead, copy the source snapshot into the new repository's checkout, confirm its origin is the new owner's repository, then commit and push there.
-4) Confirm that index.html, workspace.html, package.json and .github/workflows/deploy-pages.yml are at the expected paths in the new repository. Keep the copyright/source notices.
+4) Confirm that index.html, workspace.html, package.json and .github/workflows/deploy-pages.yml are at the expected paths in the new repository. Confirm app/startup.mjs and app/home-view.mjs are included. The package command regenerates the Home view from the public index.html; keep private records out of it. Keep the copyright/source notices.
 Check: the address bar and repository owner show the recipient's new public repository.
 Reference: Source application repository | https://github.com/mayhem82/MAYHEM-Personal-Intelligence
 Reference: Upload repository files | https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository
@@ -14,8 +14,8 @@ Reference: Upload repository files | https://docs.github.com/en/repositories/wor
 1) In the new public repository, open Settings, then Pages. Under Build and deployment, set Source to GitHub Actions. The repository already supplies the Publish ClarityPath workflow.
 2) Check that the workflow's push branch matches the repository's actual default branch. If it differs from main, edit the branch name in .github/workflows/deploy-pages.yml and commit the change.
 3) Open Actions, select Publish ClarityPath and run it for that branch if a successful deployment has not already occurred. Wait for its checks and deployment to succeed.
-4) Open the published URL shown in Pages or the deployment. Check Workspace, Build, setup instructions and the protected-handoff unlock page. Record your actual site URL; do not reuse the source author's site address.
-Check: the owner's site opens, the situation catalogue is populated, and Build contains the matching full replication pack.
+4) Open the published URL shown in Pages or the deployment. Check Home, Workspace, Psychological First Aid, Build, setup instructions, the operating guide and the protected-handoff unlock page. Record your actual site URL; do not reuse the source author's site address.
+Check: Home opens first, Workspace contains the public situation catalogue, and Build contains the matching full replication pack. Continue the private-storage, service and verification steps to complete installation.
 Reference: Configure GitHub Pages publishing | https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 
 3. CONNECT AND TEST PRIVATE STORAGE
@@ -28,8 +28,8 @@ Reference: Configure GitHub Pages publishing | https://docs.github.com/en/pages/
 Check: private save and reopen preserve the exact test account and original bytes. A local device copy is a separate save mechanism.
 Reference: GitHub token setup | https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
 
-4. DEPLOY AND CONNECT THE SITE'S AI
-1) Create or sign in to the owner's AI provider and chosen HTTPS hosting accounts. The supplied server uses the OpenAI Responses API. In the provider project, create an application service account/key with the needed model access and set the account's cost controls. Choose an available model supporting the required Responses and web-search capabilities.
+4. DEPLOY AND CONNECT THE SITE'S ARTIFICIAL INTELLIGENCE
+1) Create or sign in to the owner's artificial intelligence provider and chosen HTTPS hosting accounts. The supplied server uses the OpenAI Responses application programming interface. In the provider project, create an application service account/key with the needed model access and set the account's cost controls. Choose an available model supporting the required Responses and web-search capabilities.
 2) A concrete hosting route is Render: open the dashboard, choose New, then Web Service and connect the owner's public application repository. Select the intended branch, a Node runtime of version 22 or later, build command node --version and start command node service/server.mjs. Review the host's plan and charges before creating the service.
 3) In the host's private environment settings enter the following values. Use the host-provided PORT. Configure the health-check path as /healthz, and keep one service process while quota/idempotency storage is process-local.
 ENV OPENAI_API_KEY = The provider project service-account key, stored only on the server.
@@ -39,29 +39,34 @@ ENV ALLOWED_ORIGINS = The owner's actual site origin, such as https://YOUR-USERN
 ENV MAX_REQUESTS_PER_DAY = 30, or the owner's chosen request cap. This is not a currency guarantee.
 ENV HOST = 0.0.0.0
 4) Deploy and wait for the service to report ready. Opening its /healthz URL should return ready. This checks settings, not the provider. If a free host is sleeping, let this URL wake it before connecting from ClarityPath.
-5) In ClarityPath, open Storage & connections, then Connect required AI and research service. Enter the final HTTPS Service URL and the SERVICE_ACCESS_KEY in Service access key. Choose Connect service. The provider API key does not go in this browser field.
-6) In Summaries & handoff select only your synthetic test record, open AI narrative assistance, enter a summary question and choose Preview AI request. Check the destination, question and selected material, then approve the request. Verify that the returned draft cites the selected record and remains separate from the original.
-Check: a real approved provider draft has returned. A ready health check or connected coding assistant alone does not establish working site AI.
+5) In ClarityPath, open Storage & connections, then Connect required artificial intelligence and research service. Enter the final HTTPS Service URL and the SERVICE_ACCESS_KEY in Service access key. Choose Connect service. The provider application programming interface key does not go in this browser field.
+6) In Summaries & handoff select only your synthetic test record, open artificial intelligence narrative assistance, enter a summary question and choose Preview artificial intelligence request. Check the destination, question and selected material, then approve the request. Verify that the returned draft cites the selected record and remains separate from the original.
+Check: a real approved provider draft has returned. A ready health check or connected coding assistant alone does not establish working site artificial intelligence.
 Reference: Official OpenAI key guidance | https://developers.openai.com/api/docs/guides/api-keys
 Reference: Render web services | https://render.com/docs/web-services
 Reference: Render free-host limitations | https://render.com/docs/free
 
 5. TEST THE PERSONAL INTELLIGENCE WORKFLOW
-1) Browse a NSW situation, create a private case and record a synthetic firsthand account with its actual date precision, source, certainty and dispute fields. Add a file and a related record. Confirm switching cases keeps them separate.
+1) Browse a New South Wales situation, create a private case and record a synthetic firsthand account with its actual date precision, source, certainty and dispute fields. Add a file and a related record. Confirm switching cases keeps them separate.
 2) Add a separate review and a source passage with its actual URL, provision/version and case relevance. Use the operating guide for qualification, snapshots, authorised analysis and the ordered Solicitors Advocate Engine workflow. Do not invent facts or authority to make a test pass.
 3) Create a structured summary, then Preview protected handoff for an explicit selection. Review its scope and confirm a separate handoff passphrase. Open the protected file at the owner's handoff.html page in a clean browser, unlock it, download/extract the readable ZIP and compare its selected records and original files.
 4) In Storage & connections choose Verify records and attachments. Test encrypted reload and lock, backup recovery in a separate empty test workspace, phone layout and installation. Keep clearly labelled test material separate from real case work.
-5) If running the source locally with Node.js and the declared development dependency, run the package and test commands. The published workflow runs package/core checks, while manual use of the actual site verifies the live connections and recipient experience.
+5) Install the owner’s app from Home when testing on a phone. Open the icon and check that Home appears. Enter Workspace, keep a clearly labelled test record and some unfinished form text, leave the app running, switch to another app and tap the ClarityPath icon again. Expect Home; choose Open my workspace and confirm the record and unfinished text remain. Selecting a file and returning from its picker should keep the current form. Returning Home is not a save; verify private saving or an encrypted backup before fully closing the app. Record a real phone result only when you have performed it.
+6) If testing an older installed copy, save any existing work and choose Home once to load the updated public application before retesting its launcher. Keep the same installation identity and private device data. The automated launch check below covers the older address and the return path without native browser launch support.
+7) If running the source locally with Node.js and the declared development dependency, run the package and test commands. The published workflow runs package/core checks, while manual use of the actual site verifies the live connections and recipient experience.
 COMMAND node scripts/package-release.mjs
 COMMAND npm test
 COMMAND npm run test:e2e
 COMMAND npm run test:pwa
+COMMAND npm run test:navigation
+COMMAND npm run test:mental-health
+COMMAND npm run test:launch
 Check: record any failed or unperformed checks. A physical-phone check and a browser emulation check are different results.
 Reference: Operating guide | ./operating.html
 
 6. KEEP YOUR OWN SYSTEM READY TO USE
 1) After any source changes, regenerate the public site and matching Build pack, commit the authorised public source to the owner's repository and let its workflow publish. Keep case records and credentials in their private locations.
 2) Keep the owner's public site/repository links, private connection details, token renewal date, encryption passphrases, service URL/access key and provider/host account recovery information privately as appropriate. Save an independent encrypted backup.
-3) Confirm the copied Build pack contains both manual and AI setup instructions for a future owner. Keep the creator attribution and public/private boundary intact.
-4) Before treating installation as complete, confirm the actual private save/reopen, real approved synthetic AI response, recovery and recipient handoff. Record unresolved implementation/configuration items from release-status.json. Creating the system does not send a complaint, contact a solicitor or share the private repository.
+3) Confirm the copied Build pack contains both manual and artificial intelligence setup instructions for a future owner. Keep the creator attribution and public/private boundary intact.
+4) Before treating installation as complete, confirm the actual private save/reopen, real approved synthetic artificial intelligence response, recovery and recipient handoff. Record unresolved implementation/configuration items from release-status.json. Creating the system does not send a complaint, contact a solicitor or share the private repository.
 Check: the owner controls the accounts, can reopen the work and knows how to keep it and choose what to share.
