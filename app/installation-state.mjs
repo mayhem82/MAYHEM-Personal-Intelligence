@@ -31,6 +31,7 @@ export class InstallationSession{
  add('save',2,'Current workspace save and remote readback verified',repository&&revision&&this.savedRevision===current.revision);
  add('load',2,'Encrypted workspace loaded and validated this session',repository&&this.loaded);
  add('reopenedContents',2,'Reopened record and original file compared with the saved test material',repository&&this.loaded&&this.owner.reopenedContents,'owner');
+ add('remembered',2,'Private repository connection encrypted for reopening on this device',repository&&current.rememberedRepository);
  add('service',3,'Required service configuration checked without case transmission',service);
  add('provider',3,'Separately approved service request returned a validated response',service&&this.providerReply);
  add('backupPrepared',4,'Encrypted backup prepared for download',revision&&this.backupPrepared===current.revision,'prepared');

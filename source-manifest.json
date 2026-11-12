@@ -1,26 +1,36 @@
 {
   "format": "claritypath-public-source-v1",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "files": [
     {
+      "path": "app/remembered-repository.mjs",
+      "bytes": 2493,
+      "sha256": "d7d60c9048a809844670c161fc834c379795efb69d628632a7f1f42d5265139a"
+    },
+    {
+      "path": "tests/connection.test.mjs",
+      "bytes": 3840,
+      "sha256": "b219262489aacc1255dab23b4239ca3da4292f1bf7ebbf6a5ce454518120535e"
+    },
+    {
       "path": "app/installation.mjs",
-      "bytes": 15556,
-      "sha256": "323ea7d31cadb12053865116348768686ea94be1f99b9121a20dbf3c96810af1"
+      "bytes": 15829,
+      "sha256": "8dbe86d51ea977ad2601d41edfad612d30216f58040dc6e670219476d025eb21"
     },
     {
       "path": "app/installation-state.mjs",
-      "bytes": 4373,
-      "sha256": "26a700e43bd1daa36e230ab1d38ac61ee7102330c893ef54c07d545a470c0dac"
+      "bytes": 4507,
+      "sha256": "6bb49c253c2e2b83a06461dfe44b8ba8ba869578c1d1ffd57e7e8e71482d59e5"
     },
     {
       "path": "tests/installation.test.mjs",
-      "bytes": 2761,
-      "sha256": "94692422cbe01a61007512d639d0ff20025900a6134d1517f9274f93eec7c14b"
+      "bytes": 2787,
+      "sha256": "13f2845fe56c9ae9c3c61a01d011f527e989918c299e7c894b30b0077e16ce77"
     },
     {
       "path": "tests/installation.cjs",
-      "bytes": 16010,
-      "sha256": "a7b292ef93bd48b1464ce63d17f51f346586d3abef49578f1750417aa01fcffc"
+      "bytes": 25415,
+      "sha256": "616f9145a994c2fe6434c4fb98c10d630f7808bf7efee526e7005d9e901cf22f"
     },
     {
       "path": "app/home-view.mjs",
@@ -40,7 +50,7 @@
     {
       "path": "first-aid.html",
       "bytes": 8690,
-      "sha256": "c9bd575e7cea682bdde22cdff5689d089da425041fcda4493a755367f1638623"
+      "sha256": "b87296a175c64855b84f1dd388370dc4287c8f08a3813e69f5467508eed343c7"
     },
     {
       "path": "app/first-aid.mjs",
@@ -69,18 +79,18 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 3603,
-      "sha256": "bd199eb20e5e35606a150fb737a567b090fca53fcd7eba979e3e0a931ecbcc6b"
+      "bytes": 4159,
+      "sha256": "12dd6eaf0a24bf8dfb50681ca4a2ef31712f3514a685534723909652263b5a6c"
     },
     {
       "path": "AI-SETUP.txt",
-      "bytes": 17094,
-      "sha256": "acb981cdd64470396114df9cb9e51beb1380f982de3481e5f1f819e9bcb1ec32"
+      "bytes": 17689,
+      "sha256": "5ec192384a32d74b32febd01e36732cec7ed27a3952fe3632e7b36f9d7108b6a"
     },
     {
       "path": "MANUAL-SETUP.txt",
-      "bytes": 19652,
-      "sha256": "7aa55042e3eb3adbd89d2b4c0f536c7a845e0baf40da06038ea7be51c5be6ee6"
+      "bytes": 20151,
+      "sha256": "6c19d6c03b30f8e27c177736c45da54a06ea613e76611f6f59c20991405cba95"
     },
     {
       "path": "setup/start-here.txt",
@@ -89,23 +99,23 @@
     },
     {
       "path": "setup/manual-steps.txt",
-      "bytes": 12354,
-      "sha256": "d348219dea1167cebe133e2482e513ee6565897a781d0d7ee6c6812529b61c21"
+      "bytes": 12853,
+      "sha256": "3d0f09e3dc44be5dce1bd9af6db54000672f24db92dbcbbe1b3324a49f793744"
     },
     {
       "path": "SETUP-FOR-NEW-OWNER.txt",
-      "bytes": 9796,
-      "sha256": "cf21351cc5ef4084cfbd54a7fa6f7c6446797e0360797b1b7ca4721f5ea98ed2"
+      "bytes": 10391,
+      "sha256": "1b483baa44f9ec907f548ca5020e594f06ff15a9c56585d978ce3a8d5835f73c"
     },
     {
       "path": "setup.html",
-      "bytes": 39742,
-      "sha256": "482facbe124f8163353daa757616ceff1b457bf65063e17ad26d45d6f206a745"
+      "bytes": 40857,
+      "sha256": "1ef3a45de429d98f9589d7ac463690f8157fdc5776a5d942baa448b32f398656"
     },
     {
       "path": "operating.html",
-      "bytes": 20896,
-      "sha256": "e3033ac8693b15a0f0528febd3df5fcf993c6534ae47a2bc0c82c82d7ab6ddc4"
+      "bytes": 22520,
+      "sha256": "17f54fdc22dc7e5dbadb8b0551d1764c35f21c25a9483f1ecf79f8c34fc6cc21"
     },
     {
       "path": "scripts/render-setup.mjs",
@@ -120,7 +130,7 @@
     {
       "path": "app/navigation.mjs",
       "bytes": 2277,
-      "sha256": "0345d1720431a5ae8a61dbbb864639dba692ed209289fd32d836dcbf9c458e79"
+      "sha256": "3fdd2ff4770fd6cafdff79a65e85a72fa4090ca9d5f44e77c1d60e45128dcc66"
     },
     {
       "path": "tests/navigation.cjs",
@@ -134,8 +144,8 @@
     },
     {
       "path": "sw.js",
-      "bytes": 2437,
-      "sha256": "ef09920ed637e591026944f17286fc54ccf955bdba7d971bbdf64bf2d127d444"
+      "bytes": 2469,
+      "sha256": "3f6b7bea529b06045b9f71a4defbac5323c07895ce47548da0bf9ad72b085091"
     },
     {
       "path": "app/install.mjs",
@@ -174,32 +184,32 @@
     {
       "path": "tests/pwa.cjs",
       "bytes": 8237,
-      "sha256": "7232c9d66ff6419567d132df49f0c9cc4eac04fdcfe400befb6914329d5280b5"
+      "sha256": "6b1252feb516f4e6bbc9b3a41d07d37806ea712d362c1e71d9a2ca659ad6c224"
     },
     {
       "path": "disclaimer.html",
       "bytes": 7806,
-      "sha256": "9bf27c01f1468beee4639217a623e6b587c75174cae6617642b4fde8115c2c65"
+      "sha256": "90722b02a4d43bf6aa21f0d60d836390b3fc5dcca264f85b66bbaefc092295ed"
     },
     {
       "path": "index.html",
       "bytes": 6913,
-      "sha256": "3d3151a93a87be7f7ccf7b47a0906abb684f169b35c01602b76d1ba16748c0c5"
+      "sha256": "6f74256b0d5947e55165b628c8ab26cfba32a248919e776e2749482b44423457"
     },
     {
       "path": "workspace.html",
       "bytes": 3593,
-      "sha256": "86e8ae12ff72c8da560ead13893ca1b50281b76d0ffea993dbc1dbb891ec1571"
+      "sha256": "3a45ae29a794b469fa273c80334dfcb217303dc0b9f78e20caff957af133bc1b"
     },
     {
       "path": "build.html",
-      "bytes": 16686,
-      "sha256": "0fe1a49499b060b41755fd671ef5ceec6f51c095b448e5f8699638b09e31d592"
+      "bytes": 17984,
+      "sha256": "c50fc07f848b482fba8dfbf55ba1d5aa698fec55db6203777fa9f856a113bb65"
     },
     {
       "path": "claritypath-public-build.txt",
-      "bytes": 13803,
-      "sha256": "c592228e0a9ba331f5d44665613682d128fb8e4f63c54cf954dfd148470093f9"
+      "bytes": 15101,
+      "sha256": "0cad33dfe6e4c99251fb7e6032258b691cb1049a1baa26da138993f2f59e22fd"
     },
     {
       "path": "app/catalogue.mjs",
@@ -239,7 +249,7 @@
     {
       "path": "handoff.html",
       "bytes": 3359,
-      "sha256": "dffdb4aad0444e30434d63f3172104d502b4b97da97df7b75be6aebd04131d06"
+      "sha256": "77b89c3877da1cac58e261a83e1514d7a7da6ff0023e2d371678672836f00b54"
     },
     {
       "path": "app/handoff-reader.mjs",
@@ -273,13 +283,13 @@
     },
     {
       "path": "app/github.mjs",
-      "bytes": 6179,
-      "sha256": "2c9f1a080a741cef7d6fb55894ce6877b61ac09b00849ce04a700858a168e1c6"
+      "bytes": 6505,
+      "sha256": "1da9bf96609dd4d987724a86e6b6367bd847e4fe807d4210f902a1d33cd3a3b8"
     },
     {
       "path": "app/main.mjs",
-      "bytes": 57300,
-      "sha256": "b40ba145cebf81f01773f0be7177fede2ffde2632201b1f2ec28f705e47cba3d"
+      "bytes": 68519,
+      "sha256": "3dde8e038d734abf9cafaccf0999b770fc293a8c06053e0929b5fcff1ebba80e"
     },
     {
       "path": "app/output.mjs",
@@ -323,8 +333,8 @@
     },
     {
       "path": "service/README.txt",
-      "bytes": 5314,
-      "sha256": "e4d4ff5fe60d7503267fa6d1ecf16de64f4fd4707640a45ba1bf61936cb263fb"
+      "bytes": 5528,
+      "sha256": "d733d5a998e567f0e3d82abe0e37cf70cc3c22493916c77c8a79b0ec0fe9b5a8"
     },
     {
       "path": "service/.env.example",
@@ -333,8 +343,8 @@
     },
     {
       "path": "OPERATING-GUIDE.txt",
-      "bytes": 14502,
-      "sha256": "2248089fe77b2598a2a489c103278008641243b8abab4f6bee600944acec947a"
+      "bytes": 16108,
+      "sha256": "1af819bf92ac034d8964b6f99ff912bd721592b5cf8e02efc70d9b7b7cfa472b"
     },
     {
       "path": "README.md",
@@ -343,13 +353,13 @@
     },
     {
       "path": "release-status.json",
-      "bytes": 14127,
-      "sha256": "b142a0f6091a2fa2bde099f0a8ff99039860b24c740593530efd39ac87d8f539"
+      "bytes": 16432,
+      "sha256": "2d36bf4b14a383e80739511d4d7c6ad12d2241f95c8f7afb1f1d04f1e83d6737"
     },
     {
       "path": "package.json",
-      "bytes": 935,
-      "sha256": "aa9dfd104c05a2fd3b6f383acc668e46d640a248ca0db683f794b8c446ecb548"
+      "bytes": 961,
+      "sha256": "093b0b06ad4740f0502890eb5696841eac31ee5c047817e3386807fc018f8beb"
     },
     {
       "path": ".gitignore",
@@ -393,8 +403,8 @@
     },
     {
       "path": "scripts/package-public.mjs",
-      "bytes": 10305,
-      "sha256": "c07c7ebe76b5b7e6c4ceff7e54e57cffe8ec916bd0648a5733cbf0900f5f3e6d"
+      "bytes": 10365,
+      "sha256": "32aed23616ac412deebd5949fdd63130329553c7354ac7bcd29a9e4603089a17"
     },
     {
       "path": "scripts/serve.mjs",

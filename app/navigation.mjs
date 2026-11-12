@@ -1,4 +1,4 @@
-import{installLaunchNavigation}from'./startup.mjs?v=3.5.0';
+import{installLaunchNavigation}from'./startup.mjs?v=3.5.1';
 installLaunchNavigation();
 // Only public guide section IDs are remembered for this installation and tab.
 const file=location.pathname.split('/').pop()||'index.html';
