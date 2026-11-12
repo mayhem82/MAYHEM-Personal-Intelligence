@@ -7,7 +7,7 @@ let homeView=null,homeVisible=false,previousTitle='',previousScroll=0,previousMa
 export function prepareWorkspaceEntry(){
  if(!installed()||location.pathname!==workspace.pathname)return true;
  const current=new URL(location.href),intent=current.searchParams.get('open')==='workspace';
- if(intent||current.searchParams.has('area')||current.searchParams.has('situation')){
+ if(intent||current.searchParams.get('view')==='installation'||current.searchParams.has('area')||current.searchParams.has('situation')){
   if(intent){current.searchParams.delete('open');try{history.replaceState(history.state,'',current)}catch{}}
   return true;
  }
@@ -38,6 +38,7 @@ export function installLaunchNavigation(){
   }
   const anchor=event.target.closest?.('a[href]');if(!anchor||anchor.hasAttribute('download')||anchor.getAttribute('href').startsWith('#'))return;
   const target=new URL(anchor.href,location.href);if(target.origin!==home.origin)return;
+  if(target.pathname===workspace.pathname&&original.pathname===workspace.pathname&&target.searchParams.get('view')==='installation'){event.preventDefault();event.stopImmediatePropagation();if(homeVisible)restorePage();window.dispatchEvent(new Event('claritypath:installation'));return}
   if(homeVisible&&target.pathname===original.pathname&&target.pathname!==home.pathname){event.preventDefault();event.stopImmediatePropagation();restorePage();return}
   if(target.pathname===home.pathname||target.pathname===scope.pathname){event.preventDefault();event.stopImmediatePropagation();showHome();return}
   if(target.pathname===workspace.pathname){target.searchParams.set('open','workspace');anchor.href=target.href}
