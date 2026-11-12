@@ -1,0 +1,58 @@
+CLARITYPATH — BUILD OPTION THREE: WITH A TRUSTED PERSON
+© 2026 Julian Minko · Architect of MAYHEM · ClarityPath
+
+1. MAKE THE OWNER'S COPY USING GITHUB
+1) Complete the shared account and up-front requirements. The person who will own this system signs in to their own GitHub account. They keep control of the account, recovery methods, provider and host.
+2) Open the source application repository. Choose Use this template, then Create a new repository. Select the new owner's account, choose the public application repository name, and copy the default branch only. This makes an independent source copy with a new history. Keep the attribution.
+3) Fork is another GitHub copy route: choose Fork, select the intended owner and Create fork. A fork retains the source history and relationship. A local clone alone is a checkout on a computer. None of these actions configures private case storage or the required artificial intelligence service.
+4) Confirm the new owner and destination before any push. If the helper cannot select that person's account, the owner makes the copy and invites the helper in the next step. Do not share the owner's login or put their system in the helper's account.
+5) Use the owner’s separate private case repository established in the shared account steps. Confirm its initial README and keep Pages off. Only public application source is copied. Real case records, credentials and private MAYHEM specifications are excluded.
+Check: the new public application repository belongs to the person who will operate the system.
+Reference: Source application repository | https://github.com/mayhem82/MAYHEM-Personal-Intelligence
+Reference: Create from a template | https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
+Reference: Fork a repository | https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo
+
+2. GIVE THE BUILDER TEMPORARY ACCESS
+1) Agree who is helping, the work, any cost and when access will end. Julian Minko can be the trusted builder when separately arranged; confirm the agreed GitHub username before inviting.
+2) In the owner's public application repository, open Settings, then Collaborators or Collaborators & teams under Access. Choose Add people, select the agreed person and send the invitation. The builder accepts using their own account.
+3) Give access only to the repositories and hosting work needed. For a personal repository, collaborator access permits code changes; choose someone you trust and review the resulting changes. The private case repository does not need to be shared for copying and publishing the public application.
+4) The owner retains account administration and enters private settings. If a host needs additional temporary access, record and later remove it separately. Repository access does not itself grant access to the host or provider.
+Check: the builder can work in the agreed public application repository, while the owner retains account control.
+Reference: Invite a collaborator | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository
+Reference: Personal repository permissions | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository
+
+3. BUILD AND PUBLISH THEIR APPLICATION
+1) The builder checks out the new owner's repository, verifies the destination and default branch, and uses the supplied source, tests and publication workflow. They complete the technical manual steps included in this copy/download.
+2) The owner, or an authorised repository administrator or maintainer, selects GitHub Actions as the Pages publishing source. Ordinary collaborator access should not be assumed to include this setting.
+3) The builder generates the exact public site and matching Build pack, runs the required checks, pushes the authorised public source, and verifies the successful Publish ClarityPath deployment at the owner's actual address.
+4) Check Home, Psychological First Aid, Workspace, Setup, Guide, Build, Handoff and Disclaimer, including readable phone layout and installed Home start/return. Preserve the creator attribution and public/private boundary.
+Check: the owner's public page and matching complete pack are published; required private storage and artificial intelligence setup continue below.
+Reference: Configure Pages publishing | https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+Reference: Full technical installation steps | ./setup.html#manual-setup
+
+4. COMPLETE OWNER-CONTROLLED PRIVATE CONNECTIONS
+1) Follow the full private-storage and artificial intelligence deployment steps in the technical manual. The owner enters the restricted private-repository token, encryption passphrases, host secrets and provider credentials in the appropriate private settings or application fields.
+2) The builder can explain the controls without receiving passwords or real case material. Use clearly labelled invented records and a harmless file for tests. Remember the private connection encrypted on the owner's device and verify reconnection after unlock.
+3) Deploy the required service under the owner's host and provider accounts, with their actual allowed origin and cost controls. A public page or a ready health check does not establish a working provider response.
+4) Select only the invented test material, review the payload and approve the required live service test under the owner's transmission and spending authorisation. Verify the returned draft remains separate from originals.
+Check: private save/reopen and a real approved provider response work under the owner's control. Missing credentials or connections remain incomplete.
+Reference: Connect private storage | ./setup.html#manual-step-3
+Reference: Deploy required artificial intelligence | ./setup.html#manual-step-4
+
+5. HAND OVER A SYSTEM THE OWNER CAN OPERATE
+1) The owner operates the system themselves: reopen private work, add and save an invented record, reconnect after lock, review an approved request, and prepare a protected selected handoff.
+2) Save an independent encrypted backup, verify it locally without replacing current work, and open the selected handoff in an independent recipient browser. Compare selected records and original files. Keep passphrases and account recovery methods privately and separately.
+3) Deliver the public site and repository links, operating and recovery instructions, token renewal process, service controls, current implementation limits and matching replication pack. Keep any owner-specific private setup report out of public files.
+4) Record checks actually performed. Browser simulation does not substitute for a physical-phone test, configuration readiness does not substitute for a live provider response, and a completed code copy does not substitute for the full installation.
+Check: the owner has demonstrated independent operation and knows how to recover their work.
+Reference: Operating guide | ./operating.html
+Reference: Complete installation checks | ./setup.html#manual-step-5
+
+6. REMOVE TEMPORARY ACCESS AND RECHECK
+1) After the handover checks pass, the owner opens the public application repository's Settings, then Collaborators & teams, and removes the builder. Review any team or organisation access that could still grant write permission.
+2) Remove separately granted hosting/provider team access and temporary deployment credentials, keys or application permissions. Replace any secrets the builder could access before using real case material. Keep the owner's required deployment and private-storage connections working.
+3) Confirm that the builder no longer has authorised write access. Public source and the public page remain readable. Removing collaboration does not erase downloaded copies or undo access already exercised.
+4) With the builder removed, the owner rechecks the public page, verified private save/reopen, encrypted remembered reconnection, required service response and recovery. Confirm any ongoing support arrangement requires new owner authorisation.
+Check: temporary access is removed and the owner can still run the complete system independently. These are owner confirmations, not automatic access-removal claims by ClarityPath.
+Reference: Remove a collaborator | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/removing-a-collaborator-from-a-personal-repository
+Reference: Access after removing a collaborator | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository

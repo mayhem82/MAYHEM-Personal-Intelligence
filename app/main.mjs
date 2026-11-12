@@ -1,11 +1,11 @@
-import{prepareWorkspaceEntry}from'./startup.mjs?v=3.5.1';
+import{prepareWorkspaceEntry}from'./startup.mjs?v=3.5.2';
 if(!prepareWorkspaceEntry())await new Promise(()=>{});
-import{InstallationSession}from'./installation-state.mjs?v=3.5.1';
-import{mountInstallation}from'./installation.mjs?v=3.5.1';
+import{InstallationSession}from'./installation-state.mjs?v=3.5.2';
+import{mountInstallation}from'./installation.mjs?v=3.5.2';
 import * as C from './core.mjs';
 import * as V from './crypto.mjs';
 import{GitHubStore}from'./github.mjs';
-import{captureRepository,sealRepository,openRepository,restoreRepository}from'./remembered-repository.mjs?v=3.5.1';
+import{captureRepository,sealRepository,openRepository,restoreRepository}from'./remembered-repository.mjs?v=3.5.2';
 import{connectAI}from'./ai.mjs';
 import{mountCatalogue}from'./catalogue.mjs?v=3.4.0';
 import{makeHandoff}from'./output.mjs';

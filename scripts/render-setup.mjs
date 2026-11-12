@@ -1,5 +1,6 @@
 const escape = value => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const aiTitles = ['Choose the owner’s account', 'Create the public site', 'Connect the private case store', 'Connect required artificial intelligence', 'Test the working system', 'Finish backups and the replication pack'];
+const trustedTitles = ['Make the owner’s GitHub copy', 'Invite the builder temporarily', 'Build and publish their site', 'Connect owner-controlled services', 'Verify independent operation', 'Remove access and recheck'];
 const manualTitles = ['Copy the public application', 'Publish your site', 'Connect private storage', 'Connect artificial intelligence', 'Test the workflow', 'Keep your system ready'];
 
 function linesHTML(lines) {
@@ -27,16 +28,17 @@ function linesHTML(lines) {
 
 function stepNavigation(prefix,index,step,titles,blocks){
  const link=(href,text)=>'<a href="'+href+'">'+escape(text)+'</a>';
- const all='<a href="#'+(prefix==='start'?'setup-content':prefix==='operating'?'setup-content':prefix+'-setup')+'">All '+(prefix==='manual'?'manual steps':prefix==='ai'?'assisted steps':'instructions')+'</a>';
+ const routeName=prefix==='manual'?'manual':prefix==='ai'?'assisted':prefix==='trusted-builder'?'trusted-person':'technical';
+ const all='<a href="#'+(prefix==='start'?'setup-content':prefix==='operating'?'setup-content':prefix+'-setup')+'">All '+(prefix==='manual'?'manual steps':prefix==='ai'?'assisted steps':prefix==='trusted-builder'?'trusted-person steps':'instructions')+'</a>';
  let before='',after='';
  if(step&&titles){
   const number=Number(step[1]);
-  before=number>1?link('#'+prefix+'-step-'+(number-1),'Previous: '+titles[number-2]):link('#'+prefix+'-setup','Back to '+(prefix==='manual'?'manual':'assisted')+' overview');
-  after=number<6?link('#'+prefix+'-step-'+(number+1),'Next: '+titles[number]):link(prefix==='manual'?'./operating.html':'#ai-section-7',prefix==='manual'?'Next: Use ClarityPath':'Next: Publication boundary');
+  before=number>1?link('#'+prefix+'-step-'+(number-1),'Previous: '+titles[number-2]):link('#'+prefix+'-setup','Back to '+routeName+' overview');
+  after=number<6?link('#'+prefix+'-step-'+(number+1),'Next: '+titles[number]):link(prefix==='ai'?'#ai-section-7':'./operating.html',prefix==='ai'?'Next: Publication boundary':'Next: Use ClarityPath');
  }else if(prefix==='start'){
   before=index>0?link(index===1?'#before-you-start':'#start-github','Previous step'):'';
   after=index===0?link('#start-github','Next: Set up GitHub'):index===1?link('#connect-ai','Next: Connect a coding assistant'):'';
-  if(index>=1)after+=link('#manual-setup','Continue manually')+link('#ai-setup','Continue with an assistant');
+  if(index>=1)after+=link('#manual-setup','Continue manually')+link('#ai-setup','Continue with an assistant')+link('#trusted-builder-setup','Continue with a trusted person');
  }else if(prefix==='operating'){
   if(index>0)before=link('#operating-section-'+(index-1),'Previous: '+blocks[index-1].split('\n')[0]);
   if(index<blocks.length-1)after=link('#operating-section-'+(index+1),'Next: '+blocks[index+1].split('\n')[0]);
@@ -65,16 +67,18 @@ function shell(title, body) {
 
 const toc = (titles, prefix) => '<nav class="card setup-toc" aria-label="' + (prefix === 'ai' ? 'assisted' : prefix) + ' steps"><h3>The six setup steps</h3><ol>' + titles.map((title, index) => '<li><a href="#' + prefix + '-step-' + (index + 1) + '">' + escape(title) + '</a></li>').join('') + '</ol></nav>';
 
-export function renderSetup({ start, manual, ai, operating }) {
-  start=start.replace(/\r\n?/g,'\n');manual=manual.replace(/\r\n?/g,'\n');ai=ai.replace(/\r\n?/g,'\n');operating=operating.replace(/\r\n?/g,'\n');
-  const copyControls = (id, label, file, status) => '<div class="actions"><button id="' + id + '" type="button">' + label + '</button><a class="button secondary" href="./' + file + '" download>Download ' + (id === 'copyManual' ? 'manual' : 'assisted') + ' instructions</a></div><p id="' + status + '" role="status" aria-live="polite"></p>';
-  const intro = '<p class="eyebrow">Start from the beginning · Manual or assisted setup</p><h1>Set up your own ClarityPath</h1><p class="lead">Start with your GitHub account, understand the requirements, then follow the manual guide or connect a coding assistant to help.</p><nav class="actions" aria-label="Choose a setup route"><a class="button" href="./workspace.html?view=installation">Start guided installation</a><a class="button" href="#before-you-start">Read before starting</a><a class="button secondary" href="#manual-setup">Manual setup</a><a class="button secondary" href="#ai-setup">Assisted setup</a></nav>';
-  const manualSection = '<section id="manual-setup"><p class="eyebrow">Do the work yourself</p><h2>Manual setup guide</h2><p>Complete the account steps above, then follow these numbered instructions. The copy and download include the up-front concerns, GitHub account steps and optional coding assistant connection instructions too.</p>' + copyControls('copyManual', 'Copy manual instructions', 'MANUAL-SETUP.txt', 'manualStatus') + toc(manualTitles, 'manual') + '<div id="manual-steps" class="setup-document">' + documentHTML(manual, 'manual', manualTitles) + '</div></section>';
-  const aiSection = '<section id="ai-setup"><p class="eyebrow">Work with a coding assistant</p><h2>Assisted setup guide</h2><p>Read the concerns, set up GitHub and connect your coding assistant using the steps above. Give the assistant these complete instructions together with the source repository or full Build pack. Review its destination, access and results.</p>' + copyControls('copySetup', 'Copy assisted setup instructions', 'AI-SETUP.txt', 'setupStatus') + '<p><a href="./build.html">Open the complete Build pack</a></p>' + toc(aiTitles, 'ai') + '<div id="ai-steps" class="setup-document">' + documentHTML(ai, 'ai', aiTitles) + '</div></section>';
+export function renderSetup({ start, manual, ai, trusted, operating }) {
+  start=start.replace(/\r\n?/g,'\n');manual=manual.replace(/\r\n?/g,'\n');ai=ai.replace(/\r\n?/g,'\n');operating=operating.replace(/\r\n?/g,'\n');trusted=trusted.replace(/\r\n?/g,'\n');
+  const copyControls = (id, label, file, status) => '<div class="actions"><button id="' + id + '" type="button">' + label + '</button><a class="button secondary" href="./' + file + '" download>Download ' + (id === 'copyManual' ? 'manual' : id === 'copyTrusted' ? 'trusted-person' : 'assisted') + ' instructions</a></div><p id="' + status + '" role="status" aria-live="polite"></p>';
+  const intro = '<p class="eyebrow">Start from the beginning · Three build options</p><h1>Set up your own ClarityPath</h1><p class="lead">Start with your GitHub account, understand the requirements, then build manually, work with a coding assistant, or invite a trusted person to complete the installation.</p><nav class="actions" aria-label="Choose a setup route"><a class="button" href="./workspace.html?view=installation">Start guided installation</a><a class="button" href="#before-you-start">Read before starting</a><a class="button secondary" href="#manual-setup">Manual setup</a><a class="button secondary" href="#ai-setup">Assisted setup</a><a class="button secondary" href="#trusted-builder-setup">Build option three: trusted person</a></nav>';
+  const manualSection = '<section id="manual-setup"><p class="eyebrow">Build option one · Do the work yourself</p><h2>Manual setup guide</h2><p>Complete the account steps above, then follow these numbered instructions. The copy and download include the up-front concerns, GitHub account steps and optional coding assistant connection instructions too.</p>' + copyControls('copyManual', 'Copy manual instructions', 'MANUAL-SETUP.txt', 'manualStatus') + toc(manualTitles, 'manual') + '<div id="manual-steps" class="setup-document">' + documentHTML(manual, 'manual', manualTitles) + '</div></section>';
+  const aiSection = '<section id="ai-setup"><p class="eyebrow">Build option two · Work with a coding assistant</p><h2>Assisted setup guide</h2><p>Read the concerns, set up GitHub and connect your coding assistant using the steps above. Give the assistant these complete instructions together with the source repository or full Build pack. Review its destination, access and results.</p>' + copyControls('copySetup', 'Copy assisted setup instructions', 'AI-SETUP.txt', 'setupStatus') + '<p><a href="./build.html">Open the complete Build pack</a></p>' + toc(aiTitles, 'ai') + '<div id="ai-steps" class="setup-document">' + documentHTML(ai, 'ai', aiTitles) + '</div></section>';
+  const trustedSection = '<section id="trusted-builder-setup"><p class="eyebrow">Build option three</p><h2>Build with a trusted person</h2><p>The owner first uses GitHub to make their copy. They then invite a trusted builder, who completes the clone, public page and required private connections with them. The owner verifies independent operation and removes temporary access.</p>' + copyControls('copyTrusted', 'Copy trusted-person instructions', 'TRUSTED-BUILDER-SETUP.txt', 'trustedStatus') + toc(trustedTitles, 'trusted-builder') + '<div id="trusted-builder-steps" class="setup-document">' + documentHTML(trusted, 'trusted-builder', trustedTitles) + '</div><p><a href="#manual-setup">Read the full technical installation steps</a>. These steps are also included in the complete trusted-person copy and download.</p></section>';
   return {
-    page: shell('Manual and assisted setup', intro + documentHTML(start, 'start', null, 2) + manualSection + aiSection + '<p><a href="#setup-content">Back to the beginning</a></p>'),
+    page: shell('Three build options', intro + documentHTML(start, 'start', null, 2) + manualSection + aiSection + trustedSection + '<p><a href="#setup-content">Back to the beginning</a></p>'),
     manualText: start.trimEnd() + '\n\n' + manual.trimEnd() + '\n',
     aiText: start.trimEnd() + '\n\n' + ai.trimEnd() + '\n',
+    trustedText: start.trimEnd() + '\n\n' + trusted.trimEnd() + '\n\n' + manual.trimEnd() + '\n',
     operatingPage: shell('Using ClarityPath', '<p class="eyebrow">Operating guide</p><h1>Using your ClarityPath</h1><p><a href="./OPERATING-GUIDE.txt" download>Download operating guide text</a></p>' + documentHTML(operating, 'operating', null, 2))
   };
 }

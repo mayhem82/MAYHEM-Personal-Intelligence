@@ -40,6 +40,7 @@ export class InstallationSession{
  add('recovery',4,'Passphrases and account recovery methods kept privately',this.owner.recovery,'owner');
  add('handoff',4,'Protected selected handoff prepared for download',revision&&this.handoffPrepared===current.revision,'prepared');
  add('recipient',4,'Protected handoff opened independently and its selection checked',this.owner.recipientChecked&&revision&&this.handoffPrepared===current.revision,'owner');
+ if(this.route==='trusted'){add('builderHandoff',5,'Owner independently operates and recovers the system',this.owner.builderHandoff,'owner');add('builderRemoved',5,'Temporary builder access removed and exposed setup secrets replaced',this.owner.builderRemoved,'owner')}
  return{rows,complete:rows.every(r=>r.done),next:rows.find(r=>!r.done)?.id||'finish',nextStage:rows.find(r=>!r.done)?.stage??5,verified:rows.filter(r=>r.done&&r.kind==='verified').length,confirmed:rows.filter(r=>r.done&&r.kind==='owner').length,remaining:rows.filter(r=>!r.done).length};
  }
 }
